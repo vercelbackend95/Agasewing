@@ -1,3 +1,4 @@
+import { TextAnimate } from "@/registry/magicui/text-animate";
 import { cn } from "@/lib/utils";
 
 interface About15Props {
@@ -22,15 +23,16 @@ const About15 = ({ className }: About15Props) => {
         </div>
         <div className="w-xs space-y-6">
           <h1 className="mb-15 text-5xl font-medium tracking-tight">
-            Shaping ideas with clarity and <span className="font-serif">impact</span>
+            <TextAnimate animation="blurInUp" by="character" once>
+              Shaping ideas with clarity and impact
+            </TextAnimate>
           </h1>
           <p className="text-sm lg:text-base">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet voluptate saepe quas cum reprehenderit
-            eligendi inventore animi excepturi sapiente earum.
-          </p>
-          <p className="text-sm lg:text-base">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet voluptate saepe quas cum reprehenderit
-            eligendi inventore animi excepturi sapiente earum.
+            I have been working in the tailoring industry for 30 years, during which I have crafted both women’s and
+            men’s clothing. For 4 years, I specialized in sewing leather garments. Over the past 13 years, I have
+            focused on clothing alterations, which bring me immense satisfaction and allow me to express my creativity
+            by transforming dresses and other garments. However, my greatest joy comes from the happiness of my
+            satisfied clients.
           </p>
         </div>
       </div>
