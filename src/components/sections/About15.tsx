@@ -7,7 +7,7 @@ interface About15Props {
 const About15 = ({ className }: About15Props) => {
   return (
     <section id="about" className={cn("bg-neutral-950 py-32 text-white", className)}>
-      <div className="container flex flex-col items-center justify-center gap-25 lg:flex-row lg:gap-[10vw]">
+      <div className="container mx-auto flex flex-col items-center justify-center gap-25 px-4 lg:flex-row lg:gap-[10vw]">
         <div className="w-xs rotate-[-6deg] border bg-white p-1">
           <img
             src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri4/img14.png"
