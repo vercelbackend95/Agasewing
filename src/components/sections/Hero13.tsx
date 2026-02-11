@@ -1,6 +1,7 @@
 // src/components/sections/Hero13.tsx
 import { Bell, PlayCircle } from "lucide-react";
 
+import { TextAnimate } from "@/registry/magicui/text-animate";
 import { cn } from "@/lib/utils";
 
 interface Hero13Props {
@@ -21,10 +22,16 @@ const Hero13 = ({ className }: Hero13Props) => {
         </div>
 
         <h1 className="mb-6 text-4xl leading-none font-bold tracking-tighter md:text-[7vw] lg:text-8xl">
-          Sewing at Aga&apos;s
+          <TextAnimate animation="blurInUp" by="character" once>
+            Sewing at Aga&apos;s
+          </TextAnimate>
         </h1>
 
-        <p className="max-w-2xl text-muted-foreground md:text-[2vw] lg:text-xl">Choosen by you, Fitted by me - Aga.</p>
+        <p className="max-w-2xl text-muted-foreground md:text-[2vw] lg:text-xl">
+          <TextAnimate animation="blurInUp" by="word" once>
+            Choosen by you, Fitted by me - Aga.
+          </TextAnimate>
+        </p>
 
         <div className="mt-6 flex flex-col gap-4 sm:flex-row lg:mt-10">
           <a
