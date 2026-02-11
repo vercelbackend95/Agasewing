@@ -29,7 +29,7 @@ interface Footer30Props {
 const Footer30 = ({ className }: Footer30Props) => {
   return (
     <section className={cn("py-32", className)}>
-      <div className="container">
+      <div className="mx-auto w-full max-w-7xl px-4 md:px-6">
         <div className="flex flex-col justify-between gap-15 lg:flex-row">
           <div className="flex flex-col gap-2">
             <a className="font-medium tracking-tight" href="">
