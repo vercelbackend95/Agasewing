@@ -100,8 +100,8 @@ const PricingAccordion = ({ className }: PricingAccordionProps) => {
                 {category.title}
               </AccordionTrigger>
               <AccordionContent className="px-4 md:px-6">
-                <div className="max-w-xl rounded-md bg-white/95 p-3 shadow-sm backdrop-blur-sm">
-                  <ul className="divide-y">
+                <div className="max-w-xl origin-top rounded-2xl bg-white/85 p-3 shadow-[0_8px_30px_rgba(0,0,0,0.12)] backdrop-blur-[2px] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none group-open:rounded-md group-open:bg-white/95 group-open:shadow-[0_14px_40px_rgba(0,0,0,0.2)] group-open:backdrop-blur-sm">
+                  <ul className="divide-y transition-[opacity,transform,filter] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none">
                     {category.prices.map(([name, price]) => (
                       <li key={name} className="flex items-center justify-between py-3 text-base">
                         <span className="text-neutral-700">{name}</span>

@@ -54,7 +54,9 @@ const AccordionTrigger = ({ children, className }: AccordionTriggerProps) => {
       )}
     >
       {children}
-      <span className="text-lg transition-transform duration-200 group-open:rotate-180">▾</span>
+      <span className="text-lg transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none group-open:rotate-180">
+        ▾
+      </span>
     </summary>
   );
 };
@@ -65,7 +67,13 @@ interface AccordionContentProps {
 }
 
 const AccordionContent = ({ children, className }: AccordionContentProps) => {
-  return <div className={cn("pb-5", className)}>{children}</div>;
+  return (
+    <div
+      className="grid grid-rows-[0fr] opacity-0 blur-[2px] translate-y-1 transition-[grid-template-rows,opacity,transform,filter] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:translate-y-0 motion-reduce:blur-none motion-reduce:transition-none group-open:grid-rows-[1fr] group-open:opacity-100 group-open:translate-y-0 group-open:blur-none"
+    >
+      <div className={cn("overflow-hidden pb-5", className)}>{children}</div>
+    </div>
+  );
 };
 
 export { Accordion, AccordionContent, AccordionItem, AccordionTrigger };
