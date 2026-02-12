@@ -62,7 +62,7 @@ const Footer30 = ({ className }: Footer30Props) => {
             </ul>
           </div>
         </div>
-        <div className="mt-10 text-[13vw] font-semibold tracking-tighter lg:text-right lg:text-[10vw]">
+        <div className="mt-10 text-center text-[clamp(2.5rem,13vw,10rem)] font-semibold leading-none tracking-tighter whitespace-nowrap">
           Sewing At Aga&apos;s
         </div>
         <div className="dark relative mt-20 flex h-24 w-full flex-col items-center justify-center gap-2 bg-background text-sm tracking-tight text-foreground lg:h-30 lg:flex-row lg:justify-between lg:gap-4 lg:text-base">
