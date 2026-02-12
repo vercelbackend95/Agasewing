@@ -54,45 +54,54 @@ const Feature284 = ({ className }: Feature284Props) => {
   return (
     <section className={cn("h-full overflow-hidden py-32", className)}>
       <div className="container mx-auto flex h-full w-full items-center justify-center">
-        <div className="grid w-full max-w-6xl grid-cols-1 grid-rows-2 gap-4 md:grid-cols-2 lg:h-[800px] lg:grid-cols-4">
-          {featureData.map((feature, index) => (
-            <motion.div
-              key={index}
-              className={cn(
-                "relative flex flex-col gap-2 rounded-3xl border p-4",
-                feature.gridClass,
-              )}
-              initial={shouldReduceMotion ? undefined : { opacity: 0, y: 24 }}
-              whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={
-                shouldReduceMotion
-                  ? undefined
-                  : { duration: 0.5, delay: index * 0.08, ease: "easeOut" }
-              }
-            >
-              <GlowingEffect
-                spread={40}
-                glow={true}
-                disabled={false}
-                proximity={64}
-                inactiveZone={0.01}
-              />
-              <div className="flex w-full items-center justify-between">
-                <p className="text-muted-foreground">{feature.badgeTitle}</p>
-                <HelpCircleIcon className="size-4 text-muted-foreground" />
-              </div>
-              <div className={cn("w-full flex-1 overflow-hidden rounded-3xl bg-muted")}>
-                <img
-                  src={feature.img}
-                  alt={feature.title}
-                  className="pointer-events-none h-full w-full object-cover"
-                />
-              </div>
-              <h3 className="mt-4 text-2xl font-semibold tracking-tight">{feature.title}</h3>
-              <p className="text-muted-foreground">{feature.desc}</p>
-            </motion.div>
-          ))}
+        <div className="w-full max-w-6xl">
+          <div className="mb-10 text-center">
+            <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">Tailoring Services</h2>
+            <p className="mt-3 text-muted-foreground">
+              Clothing alterations, repairs, and custom adjustments — done properly.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 grid-rows-2 gap-4 md:grid-cols-2 lg:h-[800px] lg:grid-cols-4">
+            {featureData.map((feature, index) => (
+              <motion.div
+                key={index}
+                className={cn(
+                  "relative flex flex-col gap-2 rounded-3xl border p-4",
+                  feature.gridClass,
+                )}
+                initial={shouldReduceMotion ? undefined : { opacity: 0, y: 24 }}
+                whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={
+                  shouldReduceMotion
+                    ? undefined
+                    : { duration: 0.5, delay: index * 0.08, ease: "easeOut" }
+                }
+              >
+                <GlowingEffect
+                  spread={40}
+                  glow={true}
+                  disabled={false}
+                  proximity={64}
+                  inactiveZone={0.01}
+                  />
+                <div className="flex w-full items-center justify-between">
+                  <p className="text-muted-foreground">{feature.badgeTitle}</p>
+                  <HelpCircleIcon className="size-4 text-muted-foreground" />
+                </div>
+                <div className={cn("w-full flex-1 overflow-hidden rounded-3xl bg-muted")}>
+                  <img
+                    src={feature.img}
+                    alt={feature.title}
+                    className="pointer-events-none h-full w-full object-cover"
+                  />
+                </div>
+                <h3 className="mt-4 text-2xl font-semibold tracking-tight">{feature.title}</h3>
+                <p className="text-muted-foreground">{feature.desc}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
