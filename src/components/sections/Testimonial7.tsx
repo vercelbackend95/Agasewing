@@ -250,7 +250,7 @@ const Testimonial7 = ({ className }: Testimonial7Props) => {
           See all on Google
         </a>
       </div>
-      <div className="lg:container">
+      <div className="container">
         <div className="mt-16 space-y-4">
           <TestimonialRow items={testimonials1} />
           <TestimonialRow items={secondRowItems} reverse />
