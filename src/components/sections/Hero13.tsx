@@ -36,7 +36,88 @@ const avatars = [
   },
 ];
 
+const OPENING_HOURS: Record<number, { open: number; close: number } | null> = {
+  0: null,
+  1: { open: 9, close: 17 },
+  2: { open: 9, close: 17 },
+  3: { open: 9, close: 17 },
+  4: null,
+  5: { open: 9, close: 17 },
+  6: { open: 9, close: 14 },
+};
+
+const formatHour = (hour: number) => {
+  const period = hour >= 12 ? "pm" : "am";
+  const twelveHour = hour % 12 || 12;
+
+  return `${twelveHour}${period}`;
+};
+
+const getLondonNow = () => {
+  const parts = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Europe/London",
+    weekday: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }).formatToParts(new Date());
+
+  const weekday = parts.find((part) => part.type === "weekday")?.value ?? "Mon";
+  const hour = Number(parts.find((part) => part.type === "hour")?.value ?? 0);
+  const minute = Number(parts.find((part) => part.type === "minute")?.value ?? 0);
+
+  const dayMap: Record<string, number> = {
+    Sun: 0,
+    Mon: 1,
+    Tue: 2,
+    Wed: 3,
+    Thu: 4,
+    Fri: 5,
+    Sat: 6,
+  };
+
+  return { day: dayMap[weekday] ?? 1, hour, minute };
+};
+
+const getOpeningStatus = () => {
+  const { day, hour, minute } = getLondonNow();
+  const currentHours = OPENING_HOURS[day];
+  const currentTime = hour * 60 + minute;
+
+  if (currentHours) {
+    const openAt = currentHours.open * 60;
+    const closeAt = currentHours.close * 60;
+
+    if (currentTime >= openAt && currentTime < closeAt) {
+      return `🟢 Open now • Closes at ${formatHour(currentHours.close)}`;
+    }
+
+    if (currentTime < openAt) {
+      return `🔴 Closed • Opens at ${formatHour(currentHours.open)}`;
+    }
+  }
+
+  for (let offset = 1; offset <= 7; offset += 1) {
+    const nextDay = (day + offset) % 7;
+    const nextHours = OPENING_HOURS[nextDay];
+
+    if (!nextHours) {
+      continue;
+    }
+
+    if (offset === 1) {
+      return `🔴 Closed • Opens tomorrow ${formatHour(nextHours.open)}`;
+    }
+
+    return `🔴 Closed • Opens at ${formatHour(nextHours.open)}`;
+  }
+
+  return "🔴 Closed";
+};
+
 const Hero13 = ({ className }: Hero13Props) => {
+  const openingStatus = getOpeningStatus();
+
   return (
     <section id="hero" className={cn("relative overflow-hidden py-20 md:py-32", className)}>
       <video
@@ -55,9 +136,13 @@ const Hero13 = ({ className }: Hero13Props) => {
           <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[rgba(255,74,1,1)] text-white">
             <Bell className="size-4" />
           </span>
-          <p className="truncate whitespace-nowrap">
-            New classes now open for beginners and hobby sewists in Milton Keynes.
-          </p>
+          <p className="truncate whitespace-nowrap">{openingStatus}</p>
+          <a
+            href="#contact"
+            className="text-xs text-white/90 underline underline-offset-4 transition-opacity hover:opacity-90"
+          >
+            View opening times
+          </a>
         </div>
 
         <h1 className="mb-6 text-4xl leading-none font-bold tracking-tighter md:text-[7vw] lg:text-8xl">
