@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import { cn } from "@/lib/utils";
 
 interface Gallery25Props {
@@ -199,7 +200,15 @@ const Gallery25 = ({ className }: Gallery25Props) => {
                 />
               </motion.div>
             ))}
-            <div className="h-17 w-full rounded-2xl bg-muted"></div>
+            <div className="h-17 w-full rounded-2xl bg-muted">
+              <InteractiveHoverButton
+                type="button"
+                onClick={() => window.open("https://wa.me/447514776088", "_blank", "noopener,noreferrer")}
+                className="h-full w-full rounded-2xl border-0 bg-transparent text-sm"
+              >
+                Message
+              </InteractiveHoverButton>
+            </div>
           </div>
         </div>
       </div>
