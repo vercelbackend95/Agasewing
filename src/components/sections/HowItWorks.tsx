@@ -36,10 +36,18 @@ const HowItWorks = ({ className }: HowItWorksProps) => {
 
         <div className="mt-10 grid gap-4 md:grid-cols-3">
           {steps.map((step, index) => (
-            <div key={step.title} className="rounded-xl border bg-background p-5">
-              <p className="text-sm font-medium text-[rgba(255,74,1,1)]">Step {index + 1}</p>
-              <h3 className="mt-2 text-lg font-semibold">{step.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{step.description}</p>
+            <div
+              key={step.title}
+              className="group rounded-3xl border border-black/10 bg-white p-6 shadow-[0_8px_24px_rgba(0,0,0,0.08)] transition-transform duration-200 hover:-translate-y-1"
+            >
+              <div className="flex items-center justify-between">
+                <p className="text-sm font-medium text-[rgba(255,74,1,1)]">Step {index + 1}</p>
+                <span className="inline-flex h-7 min-w-7 items-center justify-center rounded-full bg-black px-2 text-xs font-semibold text-white">
+                  {index + 1}
+                </span>
+              </div>
+              <h3 className="mt-4 text-xl font-semibold leading-tight text-black">{step.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-black/70">{step.description}</p>
             </div>
           ))}
         </div>
