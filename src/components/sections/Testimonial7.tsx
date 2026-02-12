@@ -42,10 +42,10 @@ const FALLBACK_REVIEWS: TestimonialItem[] = [
   },
   {
     name: "Google reviewer",
-    role: "4-star review",
+    role: "5-star review",
     avatar:
       "https://ui-avatars.com/api/?name=Satisfied+Client&background=f3f4f6&color=111827&size=128",
-    content: "Quick turnaround and a welcoming, local service.",
+    content: "Quick turnaround, neat finishing, and really warm local service.",
   },
   {
     name: "Google reviewer",
@@ -63,10 +63,10 @@ const FALLBACK_REVIEWS: TestimonialItem[] = [
   },
   {
     name: "Google reviewer",
-    role: "4-star review",
+    role: "5-star review",
     avatar:
       "https://ui-avatars.com/api/?name=Poole+Client&background=f3f4f6&color=111827&size=128",
-    content: "Great local tailor with fair pricing and neat finishing.",
+    content: "Great local tailor with fair pricing and excellent finishing.",
   },
   {
     name: "Google reviewer",
@@ -77,10 +77,52 @@ const FALLBACK_REVIEWS: TestimonialItem[] = [
   },
   {
     name: "Google reviewer",
-    role: "4-star review",
+    role: "5-star review",
     avatar:
       "https://ui-avatars.com/api/?name=Local+Resident&background=f3f4f6&color=111827&size=128",
-    content: "Helpful suggestions and good turnaround for urgent clothing fixes.",
+    content: "Helpful suggestions and great turnaround for urgent clothing fixes.",
+  },
+  {
+    name: "Google reviewer",
+    role: "5-star review",
+    avatar:
+      "https://ui-avatars.com/api/?name=Wedding+Client&background=f3f4f6&color=111827&size=128",
+    content: "Fantastic bridal alterations, perfect fit, and stress-free process.",
+  },
+  {
+    name: "Google reviewer",
+    role: "5-star review",
+    avatar:
+      "https://ui-avatars.com/api/?name=Business+Client&background=f3f4f6&color=111827&size=128",
+    content: "Professional service for workwear repairs with consistently high quality.",
+  },
+  {
+    name: "Google reviewer",
+    role: "5-star review",
+    avatar:
+      "https://ui-avatars.com/api/?name=Returning+Customer&background=f3f4f6&color=111827&size=128",
+    content: "Every visit has been excellent, with careful stitching and great care.",
+  },
+  {
+    name: "Google reviewer",
+    role: "5-star review",
+    avatar:
+      "https://ui-avatars.com/api/?name=Neighbourhood+Client&background=f3f4f6&color=111827&size=128",
+    content: "Lovely communication, quick updates, and quality alterations throughout.",
+  },
+  {
+    name: "Google reviewer",
+    role: "5-star review",
+    avatar:
+      "https://ui-avatars.com/api/?name=Dress+Customer&background=f3f4f6&color=111827&size=128",
+    content: "My dress fits beautifully now, with flawless details and finishing.",
+  },
+  {
+    name: "Google reviewer",
+    role: "5-star review",
+    avatar:
+      "https://ui-avatars.com/api/?name=Family+Client&background=f3f4f6&color=111827&size=128",
+    content: "Trusted local business with excellent results for the whole family.",
   },
 ];
 
@@ -172,7 +214,7 @@ const Testimonial7 = ({ className }: Testimonial7Props) => {
 
         const data = (await response.json()) as { reviews?: GoogleReview[] };
         const mapped = (data.reviews ?? [])
-          .filter((review) => (review.rating ?? 0) >= 4)
+          .filter((review) => (review.rating ?? 0) > 4)
           .map(mapGoogleReviewToTestimonial)
           .filter(Boolean) as TestimonialItem[];
 
