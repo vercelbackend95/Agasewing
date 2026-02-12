@@ -4,7 +4,7 @@ import "@/styles/global.css";
 import { Navbar21 } from "@/components/sections/Navbar21";
 import { Hero13 } from "@/components/sections/Hero13";
 import { About15 } from "@/components/sections/About15";
-import { HowItWorks } from "@/components/sections/HowItWorks";
+import { HowToImplement } from "@/components/sections/HowToImplement";
 import { Gallery25 } from "@/components/sections/Gallery25";
 import { PricingAccordion } from "@/components/sections/PricingAccordion";
 import { Testimonial7 } from "@/components/sections/Testimonial7";
@@ -25,11 +25,12 @@ import { Footer30 } from "@/components/sections/Footer30";
   <body>
     <Navbar21 client:load />
     <Hero13 />
-    <HowItWorks />
+
+    <HowToImplement />
     <About15 />
     <Gallery25 client:visible />
     <PricingAccordion client:visible />
-    <Testimonial7 />
+    <Testimonial7 client:visible />
     <LocationMap />
     <Contact16 />
     <Footer30 />
