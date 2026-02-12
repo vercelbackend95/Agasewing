@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import { AvatarCircles } from "@/components/ui/avatar-circles";
 import { TextAnimate } from "@/registry/magicui/text-animate";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import { cn } from "@/lib/utils";
 
 interface Hero13Props {
@@ -190,12 +191,13 @@ const Hero13 = ({ className }: Hero13Props) => {
         </p>
 
         <div className="mt-6 flex flex-col gap-4 sm:flex-row lg:mt-10">
-          <a
-            href="https://wa.me/447514776088"
-            className="inline-flex w-full items-center justify-center rounded-md bg-[rgba(255,74,1,1)] px-6 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90 md:w-auto"
+          <InteractiveHoverButton
+            type="button"
+            onClick={() => window.open("https://wa.me/447514776088", "_blank", "noopener,noreferrer")}
+            className="w-full border-white/70 bg-white/90 text-sm text-black md:w-auto"
           >
             Message
-          </a>
+          </InteractiveHoverButton>
           <a
             href="#gallery"
             className="inline-flex w-full items-center justify-center rounded-md border border-white/70 px-6 py-3 text-sm font-medium transition-colors hover:bg-white/15 md:w-auto"
