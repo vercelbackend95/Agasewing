@@ -38,7 +38,7 @@ const Navbar21 = ({ className }: Navbar21Props) => {
     <section className={cn("sticky top-0 z-50 bg-background", className)}>
       <div className="flex items-center justify-between px-6 py-6">
         <div className="z-50">
-          <div className="flex items-center gap-2">
+          <a href="/" className="flex items-center gap-2">
             <span
               className="text-[#ff4a01]"
               style={{
@@ -48,7 +48,7 @@ const Navbar21 = ({ className }: Navbar21Props) => {
             >
               Sewing At Aga&apos;s
             </span>
-          </div>
+          </a>
         </div>
 
         <div className="z-50">

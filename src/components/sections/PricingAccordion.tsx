@@ -86,7 +86,10 @@ const PricingAccordion = ({ className }: PricingAccordionProps) => {
   return (
     <section className={cn("py-20 md:py-24", className)} id="pricing">
       <div className="container mx-auto px-4">
-        <h2 className="mb-8 text-3xl font-bold tracking-tight md:text-5xl">Pricing</h2>
+        <p className="text-sm font-medium uppercase tracking-[0.12em] text-[rgba(255,74,1,1)]">
+          A price guide for the perfect fit.
+        </p>
+        <h1 className="mb-8 text-3xl font-bold tracking-tight md:text-5xl">Clothing Alterations</h1>
 
         <Accordion type="multiple" className="space-y-4">
           {pricingCategories.map((category, index) => (

@@ -25,9 +25,9 @@ const About15 = ({ className }: About15Props) => {
             </p>
           </div>
         </div>
-        <div className="w-xs space-y-6">
+        <div className="w-full max-w-[21.25rem] space-y-6">
           <h1 className="mb-15 text-5xl font-medium tracking-tight">
-            <TextAnimate animation="blurInUp" by="character" once>
+            <TextAnimate animation="blurInUp" by="word" once>
               Your local tailor for the perfect fit.
             </TextAnimate>
           </h1>

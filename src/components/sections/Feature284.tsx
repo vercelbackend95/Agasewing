@@ -53,7 +53,7 @@ const Feature284 = ({ className }: Feature284Props) => {
 
   return (
     <section className={cn("h-full overflow-hidden py-32", className)}>
-      <div className="container flex h-full w-full items-center justify-center">
+      <div className="container mx-auto flex h-full w-full items-center justify-center">
         <div className="grid w-full max-w-6xl grid-cols-1 grid-rows-2 gap-4 md:grid-cols-2 lg:h-[800px] lg:grid-cols-4">
           {featureData.map((feature, index) => (
             <motion.div
