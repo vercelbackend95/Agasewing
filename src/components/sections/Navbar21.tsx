@@ -20,9 +20,7 @@ const menuItems: MenuItem[] = [
 ];
 
 const socialLinks = [
-  { label: "X [Twitter]", href: "#" },
-  { label: "Instagram", href: "#" },
-  { label: "ArtStation", href: "#" },
+  { label: "Facebook", href: "https://www.facebook.com/Sewingataga/" },
 ];
 
 interface Navbar21Props {
