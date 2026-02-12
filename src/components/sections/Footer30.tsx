@@ -4,17 +4,16 @@ import { CircleArrowOutUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const NAVIGATION = [
-  { label: "Home", href: "#" },
-  { label: "Collection", href: "#" },
-  { label: "Projects", href: "#" },
-  { label: "Pricing", href: "#" },
-  { label: "Login", href: "#" },
+  { label: "Home", href: "/#hero" },
+  { label: "About", href: "/#about" },
+  { label: "Gallery", href: "/#gallery" },
+  { label: "Pricing", href: "/#pricing" },
+  { label: "Services", href: "/services" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 const SOCIAL_LINKS = [
-  { label: "Linkedin", href: "#" },
-  { label: "Twitter", href: "#" },
-  { label: "Facebook", href: "#" },
+  { label: "Facebook", href: "https://www.facebook.com/Sewingataga/" },
 ];
 
 const FOOTER_LINKS = [
@@ -33,10 +32,10 @@ const Footer30 = ({ className }: Footer30Props) => {
         <div className="flex flex-col justify-between gap-15 lg:flex-row">
           <div className="flex flex-col gap-2">
             <a className="font-medium tracking-tight" href="">
-              +1 (120) 233-01231
+              07514 776088
             </a>
             <a className="relative text-3xl font-semibold tracking-tight lg:text-4xl" href="">
-              yo@shadcnblocks.com
+              sewingataga@gmail.com
             </a>
           </div>
           <div className="flex gap-30">
@@ -64,7 +63,7 @@ const Footer30 = ({ className }: Footer30Props) => {
           </div>
         </div>
         <div className="mt-10 text-[13vw] font-semibold tracking-tighter lg:text-right lg:text-[10vw]">
-          Shadcnblocks<sup className="font-light">&reg;</sup>{" "}
+          Sewing At Aga&apos;s
         </div>
         <div className="dark relative mt-20 flex h-24 w-full flex-col items-center justify-center gap-2 bg-background text-sm tracking-tight text-foreground lg:h-30 lg:flex-row lg:justify-between lg:gap-4 lg:text-base">
           <div className="relative z-2 flex items-center gap-4 lg:gap-10">
