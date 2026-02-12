@@ -54,6 +54,34 @@ const FALLBACK_REVIEWS: TestimonialItem[] = [
       "https://ui-avatars.com/api/?name=Local+Customer&background=f3f4f6&color=111827&size=128",
     content: "Reliable work and great communication throughout.",
   },
+  {
+    name: "Google reviewer",
+    role: "5-star review",
+    avatar:
+      "https://ui-avatars.com/api/?name=Repeat+Customer&background=f3f4f6&color=111827&size=128",
+    content: "Excellent quality and very kind service every time I visit.",
+  },
+  {
+    name: "Google reviewer",
+    role: "4-star review",
+    avatar:
+      "https://ui-avatars.com/api/?name=Poole+Client&background=f3f4f6&color=111827&size=128",
+    content: "Great local tailor with fair pricing and neat finishing.",
+  },
+  {
+    name: "Google reviewer",
+    role: "5-star review",
+    avatar:
+      "https://ui-avatars.com/api/?name=Bridal+Customer&background=f3f4f6&color=111827&size=128",
+    content: "Amazing alterations work and quick communication from start to finish.",
+  },
+  {
+    name: "Google reviewer",
+    role: "4-star review",
+    avatar:
+      "https://ui-avatars.com/api/?name=Local+Resident&background=f3f4f6&color=111827&size=128",
+    content: "Helpful suggestions and good turnaround for urgent clothing fixes.",
+  },
 ];
 
 interface Testimonial7Props {
@@ -143,7 +171,10 @@ const Testimonial7 = ({ className }: Testimonial7Props) => {
         if (!response.ok) return;
 
         const data = (await response.json()) as { reviews?: GoogleReview[] };
-        const mapped = (data.reviews ?? []).map(mapGoogleReviewToTestimonial).filter(Boolean) as TestimonialItem[];
+        const mapped = (data.reviews ?? [])
+          .filter((review) => (review.rating ?? 0) >= 4)
+          .map(mapGoogleReviewToTestimonial)
+          .filter(Boolean) as TestimonialItem[];
 
         if (mapped.length > 0) {
           setTestimonials(mapped);
@@ -156,8 +187,11 @@ const Testimonial7 = ({ className }: Testimonial7Props) => {
     void loadReviews();
   }, []);
 
-  const testimonials1 = testimonials;
-  const testimonials2 = [...testimonials];
+  const midPoint = Math.ceil(testimonials.length / 2);
+  const testimonials1 = testimonials.slice(0, midPoint);
+  const testimonials2 = testimonials.slice(midPoint);
+
+  const secondRowItems = testimonials2.length > 0 ? testimonials2 : testimonials1;
 
   return (
     <section className={cn("py-32", className)} id="reviews">
@@ -178,7 +212,7 @@ const Testimonial7 = ({ className }: Testimonial7Props) => {
       <div className="lg:container">
         <div className="mt-16 space-y-4">
           <TestimonialRow items={testimonials1} />
-          <TestimonialRow items={testimonials2} reverse />
+          <TestimonialRow items={secondRowItems} reverse />
         </div>
       </div>
     </section>
