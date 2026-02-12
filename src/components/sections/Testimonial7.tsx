@@ -1,55 +1,121 @@
+"use client";
+
+import AutoScroll from "embla-carousel-auto-scroll";
+import useEmblaCarousel from "embla-carousel-react";
+import { useRef } from "react";
+
 import { cn } from "@/lib/utils";
 
-const testimonials = [
+const testimonials1 = [
   {
-    name: "Emily Carter",
-    role: "Bridesmaid dress alteration",
+    name: "John Doe",
+    role: "CEO & Founder",
+    avatar: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-1.webp",
     content:
-      "Aga shortened and reshaped my dress perfectly. Great communication and a very quick turnaround.",
+      "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat.",
   },
   {
-    name: "Sophie Wilson",
-    role: "Trousers tapering",
+    name: "Jane Doe",
+    role: "CTO",
+    avatar: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-2.webp",
     content:
-      "The fit is now exactly how I wanted. Clean finish, fair price, and super friendly service.",
+      "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat.",
   },
   {
-    name: "Rachel Turner",
-    role: "Wedding dress adjustments",
+    name: "John Smith",
+    role: "COO",
+    avatar: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-3.webp",
     content:
-      "I felt fully looked after before my wedding day. Every detail was done with care and precision.",
+      "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat.",
   },
   {
-    name: "Olivia Brown",
-    role: "Curtains hemming",
+    name: "Jane Smith",
+    role: "Tech Lead",
+    avatar: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-4.webp",
     content:
-      "Lovely quality work and everything was ready on time. I will definitely come back.",
+      "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat.",
+  },
+  {
+    name: "Richard Doe",
+    role: "Designer",
+    avatar: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-5.webp",
+    content:
+      "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat.",
+  },
+  {
+    name: "Gordon Doe",
+    role: "Developer",
+    avatar: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-6.webp",
+    content:
+      "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat.",
   },
 ];
+
+const testimonials2 = [...testimonials1];
 
 interface Testimonial7Props {
   className?: string;
 }
 
+const TestimonialRow = ({
+  items,
+  reverse = false,
+}: {
+  items: typeof testimonials1;
+  reverse?: boolean;
+}) => {
+  const plugin = useRef(
+    AutoScroll({
+      startDelay: 500,
+      speed: 0.7,
+      direction: reverse ? "backward" : "forward",
+    }),
+  );
+
+  const [emblaRef] = useEmblaCarousel({ loop: true, dragFree: true }, [plugin.current]);
+
+  return (
+    <div className="overflow-hidden" ref={emblaRef} onMouseLeave={() => plugin.current.play()}>
+      <div className="flex gap-4">
+        {items.map((testimonial, index) => (
+          <article
+            key={`${testimonial.name}-${index}`}
+            className="max-w-96 shrink-0 select-none rounded-xl border bg-white p-6"
+          >
+            <div className="mb-4 flex gap-4">
+              <img
+                src={testimonial.avatar}
+                alt={testimonial.name}
+                className="size-9 rounded-full ring-1 ring-input"
+                loading="lazy"
+              />
+              <div className="text-sm">
+                <p className="font-medium">{testimonial.name}</p>
+                <p className="text-muted-foreground">{testimonial.role}</p>
+              </div>
+            </div>
+            <q>{testimonial.content}</q>
+          </article>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const Testimonial7 = ({ className }: Testimonial7Props) => {
   return (
-    <section className={cn("py-20 md:py-24", className)} id="reviews">
-      <div className="container mx-auto px-4">
-        <div className="mb-8 text-center">
-          <h2 className="text-3xl font-bold tracking-tight md:text-5xl">Client Reviews</h2>
-          <p className="mt-3 text-neutral-600">Kind words from customers in and around Aberdeen.</p>
-        </div>
-
-        <div className="grid gap-4 md:grid-cols-2">
-          {testimonials.map((testimonial) => (
-            <article key={testimonial.name} className="rounded-xl border bg-white p-5 shadow-sm">
-              <p className="text-neutral-700">“{testimonial.content}”</p>
-              <div className="mt-4">
-                <p className="font-medium">{testimonial.name}</p>
-                <p className="text-sm text-neutral-500">{testimonial.role}</p>
-              </div>
-            </article>
-          ))}
+    <section className={cn("py-32", className)} id="reviews">
+      <div className="container flex flex-col items-center gap-6">
+        <h2 className="mb-2 text-center text-3xl font-semibold lg:text-5xl">Meet our happy clients</h2>
+        <p className="text-muted-foreground lg:text-lg">All of our 1000+ clients are happy</p>
+        <button className="mt-6 rounded-md bg-foreground px-4 py-2 text-sm font-medium text-background transition-opacity hover:opacity-90">
+          Get started for free
+        </button>
+      </div>
+      <div className="lg:container">
+        <div className="mt-16 space-y-4">
+          <TestimonialRow items={testimonials1} />
+          <TestimonialRow items={testimonials2} reverse />
         </div>
       </div>
     </section>
