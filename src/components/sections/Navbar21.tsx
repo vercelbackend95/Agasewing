@@ -91,7 +91,11 @@ const Navbar21 = ({ className }: Navbar21Props) => {
                     transition={{ delay: 0.2 + index * 0.1, duration: 0.4 }}
                     className="mb-5"
                   >
-                    <a href={item.href} className="group relative inline-block">
+                    <a
+                      href={item.href}
+                      onClick={() => setIsOpen(false)}
+                      className="group relative inline-block"
+                    >
                       <motion.span
                         className="relative z-10 text-4xl font-black text-foreground uppercase transition-transform duration-300 md:text-6xl"
                         initial={{ opacity: 1, filter: "blur(0px)" }}
