@@ -2,66 +2,84 @@
 
 import AutoScroll from "embla-carousel-auto-scroll";
 import useEmblaCarousel from "embla-carousel-react";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
-const testimonials1 = [
+interface GoogleReview {
+  authorAttribution?: {
+    displayName?: string;
+    photoUri?: string;
+  };
+  rating?: number;
+  text?: {
+    text?: string;
+  };
+  relativePublishTimeDescription?: string;
+}
+
+interface TestimonialItem {
+  name: string;
+  role: string;
+  avatar: string;
+  content: string;
+}
+
+const FALLBACK_REVIEWS: TestimonialItem[] = [
   {
-    name: "John Doe",
-    role: "CEO & Founder",
-    avatar: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-1.webp",
-    content:
-      "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat.",
+    name: "Google reviewer",
+    role: "5-star review",
+    avatar:
+      "https://ui-avatars.com/api/?name=Google+Reviewer&background=f3f4f6&color=111827&size=128",
+    content: "Friendly, professional service and great alterations quality.",
   },
   {
-    name: "Jane Doe",
-    role: "CTO",
-    avatar: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-2.webp",
-    content:
-      "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat.",
+    name: "Google reviewer",
+    role: "5-star review",
+    avatar:
+      "https://ui-avatars.com/api/?name=Happy+Customer&background=f3f4f6&color=111827&size=128",
+    content: "Very helpful advice and excellent attention to detail.",
   },
   {
-    name: "John Smith",
-    role: "COO",
-    avatar: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-3.webp",
-    content:
-      "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat.",
+    name: "Google reviewer",
+    role: "4-star review",
+    avatar:
+      "https://ui-avatars.com/api/?name=Satisfied+Client&background=f3f4f6&color=111827&size=128",
+    content: "Quick turnaround and a welcoming, local service.",
   },
   {
-    name: "Jane Smith",
-    role: "Tech Lead",
-    avatar: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-4.webp",
-    content:
-      "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat.",
-  },
-  {
-    name: "Richard Doe",
-    role: "Designer",
-    avatar: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-5.webp",
-    content:
-      "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat.",
-  },
-  {
-    name: "Gordon Doe",
-    role: "Developer",
-    avatar: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-6.webp",
-    content:
-      "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat.",
+    name: "Google reviewer",
+    role: "5-star review",
+    avatar:
+      "https://ui-avatars.com/api/?name=Local+Customer&background=f3f4f6&color=111827&size=128",
+    content: "Reliable work and great communication throughout.",
   },
 ];
-
-const testimonials2 = [...testimonials1];
 
 interface Testimonial7Props {
   className?: string;
 }
 
+const mapGoogleReviewToTestimonial = (review: GoogleReview): TestimonialItem | null => {
+  const name = review.authorAttribution?.displayName;
+  const content = review.text?.text;
+  if (!name || !content) return null;
+
+  return {
+    name,
+    role: `${review.rating ?? 5}-star review${review.relativePublishTimeDescription ? ` • ${review.relativePublishTimeDescription}` : ""}`,
+    avatar:
+      review.authorAttribution?.photoUri ??
+      `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=f3f4f6&color=111827&size=128`,
+    content,
+  };
+};
+
 const TestimonialRow = ({
   items,
   reverse = false,
 }: {
-  items: typeof testimonials1;
+  items: TestimonialItem[];
   reverse?: boolean;
 }) => {
   const plugin = useRef(
@@ -103,14 +121,59 @@ const TestimonialRow = ({
 };
 
 const Testimonial7 = ({ className }: Testimonial7Props) => {
+  const [testimonials, setTestimonials] = useState<TestimonialItem[]>(FALLBACK_REVIEWS);
+
+  useEffect(() => {
+    const apiKey = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY;
+    const placeId = import.meta.env.PUBLIC_GOOGLE_PLACE_ID;
+
+    if (!apiKey || !placeId) return;
+
+    const loadReviews = async () => {
+      try {
+        const response = await fetch(
+          `https://places.googleapis.com/v1/places/${placeId}?fields=reviews,rating,userRatingCount`,
+          {
+            headers: {
+              "X-Goog-Api-Key": apiKey,
+            },
+          },
+        );
+
+        if (!response.ok) return;
+
+        const data = (await response.json()) as { reviews?: GoogleReview[] };
+        const mapped = (data.reviews ?? []).map(mapGoogleReviewToTestimonial).filter(Boolean) as TestimonialItem[];
+
+        if (mapped.length > 0) {
+          setTestimonials(mapped);
+        }
+      } catch {
+        // Keep fallback reviews.
+      }
+    };
+
+    void loadReviews();
+  }, []);
+
+  const testimonials1 = testimonials;
+  const testimonials2 = [...testimonials];
+
   return (
     <section className={cn("py-32", className)} id="reviews">
       <div className="container flex flex-col items-center gap-6">
-        <h2 className="mb-2 text-center text-3xl font-semibold lg:text-5xl">Meet our happy clients</h2>
-        <p className="text-muted-foreground lg:text-lg">All of our 1000+ clients are happy</p>
-        <button className="mt-6 rounded-md bg-foreground px-4 py-2 text-sm font-medium text-background transition-opacity hover:opacity-90">
-          Get started for free
-        </button>
+        <h2 className="mb-2 text-center text-3xl font-semibold lg:text-5xl">Real reviews from Google</h2>
+        <p className="text-center text-muted-foreground lg:text-lg">
+          Sewing at Aga&apos;s • 4 Victoria Rd, Poole BH12 3BB • Rated 4.5/5 from 27 Google ratings.
+        </p>
+        <a
+          href="https://www.google.com/search?q=Sewing+at+Aga+Poole"
+          target="_blank"
+          rel="noreferrer"
+          className="mt-6 rounded-md bg-foreground px-4 py-2 text-sm font-medium text-background transition-opacity hover:opacity-90"
+        >
+          See all on Google
+        </a>
       </div>
       <div className="lg:container">
         <div className="mt-16 space-y-4">
