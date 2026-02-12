@@ -39,11 +39,15 @@ const Navbar21 = ({ className }: Navbar21Props) => {
       <div className="flex items-center justify-between px-6 py-6">
         <div className="z-50">
           <div className="flex items-center gap-2">
-            <img
-              src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/shadcnblockscom-wordmark.svg"
-              alt="Logo"
-              className="h-9"
-            />
+            <span
+              className="text-[#ff4a01]"
+              style={{
+                fontFamily:
+                  '"Playfair Display", ui-serif, Georgia, "Times New Roman", Times, serif',
+              }}
+            >
+              Sewing At Aga&apos;s
+            </span>
           </div>
         </div>
 
