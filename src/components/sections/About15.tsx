@@ -17,14 +17,18 @@ const About15 = ({ className }: About15Props) => {
           />
 
           <div className="pt-2 pb-1">
-            <p className="text-lg font-medium tracking-tight text-neutral-950">John Doe</p>
-            <p className="text-sm text-neutral-950/50">@shadcnblocks.com</p>
+            <p className="text-lg font-medium tracking-tight text-neutral-950">Aga</p>
+            <p className="text-sm text-neutral-950/50">
+              <a href="https://www.facebook.com/Sewingataga/" target="_blank" rel="noreferrer">
+                @sewingataga
+              </a>
+            </p>
           </div>
         </div>
         <div className="w-xs space-y-6">
           <h1 className="mb-15 text-5xl font-medium tracking-tight">
             <TextAnimate animation="blurInUp" by="character" once>
-              Shaping ideas with clarity and impact
+              Your local tailor for the perfect fit.
             </TextAnimate>
           </h1>
           <p className="text-sm lg:text-base">
