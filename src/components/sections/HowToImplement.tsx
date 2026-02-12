@@ -19,7 +19,13 @@ const HowToImplement = ({ className }: HowToImplementProps) => {
 
         <div className="relative grid w-full grid-cols-1 md:grid-cols-3">
           <div className="relative space-y-5 border p-8 md:p-10">
-            <h3 className="text-xl font-semibold tracking-tighter">Copy the Shadcn CLI</h3>
+            <div className="inline-flex size-12 items-center justify-center rounded-lg border bg-muted/40">
+              <svg viewBox="0 0 24 24" className="size-6" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 6V18M6 12H18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5" />
+              </svg>
+            </div>
+            <h3 className="text-xl font-semibold tracking-tighter">Bring your items</h3>
             <p className="text-muted-foreground">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
               dolore magna aliqua. Ut enim
@@ -30,7 +36,13 @@ const HowToImplement = ({ className }: HowToImplementProps) => {
           </div>
 
           <div className="relative space-y-5 border p-8 md:p-10">
-            <h3 className="text-xl font-semibold tracking-tighter">Paste CLI to your project</h3>
+            <div className="inline-flex size-12 items-center justify-center rounded-lg border bg-muted/40">
+              <svg viewBox="0 0 24 24" className="size-6" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 12H20M12 4V20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <path d="M7 7L17 17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              </svg>
+            </div>
+            <h3 className="text-xl font-semibold tracking-tighter">Fitting &amp; quote</h3>
             <p className="text-muted-foreground">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
               dolore magna aliqua. Ut enim
@@ -41,7 +53,13 @@ const HowToImplement = ({ className }: HowToImplementProps) => {
           </div>
 
           <div className="space-y-5 border p-8 md:p-10">
-            <h3 className="text-xl font-semibold tracking-tighter">Edit as you want</h3>
+            <div className="inline-flex size-12 items-center justify-center rounded-lg border bg-muted/40">
+              <svg viewBox="0 0 24 24" className="size-6" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 12L10 17L19 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                <rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" strokeWidth="1.5" />
+              </svg>
+            </div>
+            <h3 className="text-xl font-semibold tracking-tighter">Collect with your ticket</h3>
             <p className="text-muted-foreground">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
               dolore magna aliqua. Ut enim
