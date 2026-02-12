@@ -201,14 +201,13 @@ const Testimonial7 = ({ className }: Testimonial7Props) => {
 
     const loadReviews = async () => {
       try {
-        const response = await fetch(
-          `https://places.googleapis.com/v1/places/${placeId}?fields=reviews,rating,userRatingCount`,
-          {
-            headers: {
-              "X-Goog-Api-Key": apiKey,
-            },
+        const response = await fetch(`https://places.googleapis.com/v1/places/${placeId}`, {
+          headers: {
+            "X-Goog-Api-Key": apiKey,
+            "X-Goog-FieldMask":
+              "reviews.rating,reviews.text,reviews.relativePublishTimeDescription,reviews.authorAttribution.displayName,reviews.authorAttribution.photoUri",
           },
-        );
+        });
 
         if (!response.ok) return;
 
