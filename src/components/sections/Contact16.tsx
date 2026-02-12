@@ -9,7 +9,7 @@ interface Contact16Props {
 
 const Contact16 = ({ className }: Contact16Props) => {
   return (
-    <section className={cn("dark bg-background py-32 text-foreground", className)}>
+    <section className={cn("dark bg-background py-32 text-foreground", className)} id="contact">
       <div className="container mx-auto px-4">
         <h1 className="text-5xl font-semibold tracking-tight lg:text-8xl">
           Get in Touch

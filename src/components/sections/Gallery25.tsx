@@ -78,7 +78,7 @@ const Gallery25 = ({ className }: Gallery25Props) => {
   ];
 
   return (
-    <section className={cn("py-32", className)}>
+    <section className={cn("py-32", className)} id="gallery">
       <div className="relative container mx-auto px-4">
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
           <div className="grid gap-4">

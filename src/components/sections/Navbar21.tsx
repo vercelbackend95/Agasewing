@@ -11,12 +11,12 @@ interface MenuItem {
 }
 
 const menuItems: MenuItem[] = [
-  { label: "Home", href: "#" },
-  { label: "About", href: "#" },
-  { label: "Gallery", href: "#" },
-  { label: "Pricing", href: "#" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/#about" },
+  { label: "Gallery", href: "/#gallery" },
+  { label: "Pricing", href: "/#pricing" },
   { label: "Services", href: "/services" },
-  { label: "Contact", href: "#" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 const socialLinks = [
