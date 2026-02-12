@@ -191,17 +191,17 @@ const Hero13 = ({ className }: Hero13Props) => {
 
         <div className="mt-6 flex flex-col gap-4 sm:flex-row lg:mt-10">
           <a
-            href="#contact"
+            href="https://wa.me/447514776088"
             className="inline-flex w-full items-center justify-center rounded-md bg-[rgba(255,74,1,1)] px-6 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90 md:w-auto"
           >
-            Book a lesson
+            Message
           </a>
           <a
-            href="#about"
+            href="#gallery"
             className="inline-flex w-full items-center justify-center rounded-md border border-white/70 px-6 py-3 text-sm font-medium transition-colors hover:bg-white/15 md:w-auto"
           >
             <PlayCircle className="mr-2 size-4" />
-            See how classes work
+            See gallery
           </a>
         </div>
 
