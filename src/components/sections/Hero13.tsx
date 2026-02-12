@@ -1,5 +1,6 @@
 // src/components/sections/Hero13.tsx
 import { Bell, PlayCircle } from "lucide-react";
+import { useState } from "react";
 
 import { AvatarCircles } from "@/components/ui/avatar-circles";
 import { TextAnimate } from "@/registry/magicui/text-animate";
@@ -117,6 +118,17 @@ const getOpeningStatus = () => {
 
 const Hero13 = ({ className }: Hero13Props) => {
   const openingStatus = getOpeningStatus();
+  const [isHoursOpen, setIsHoursOpen] = useState(false);
+
+  const openingHoursRows = [
+    { day: "Monday", hours: "9am – 5pm" },
+    { day: "Tuesday", hours: "9am – 5pm" },
+    { day: "Wednesday", hours: "9am – 5pm" },
+    { day: "Thursday", hours: "Closed" },
+    { day: "Friday", hours: "9am – 5pm" },
+    { day: "Saturday", hours: "9am – 2pm" },
+    { day: "Sunday", hours: "Closed" },
+  ];
 
   return (
     <section id="hero" className={cn("relative overflow-hidden py-20 md:py-32", className)}>
@@ -132,17 +144,37 @@ const Hero13 = ({ className }: Hero13Props) => {
       <div className="absolute inset-0 bg-black/45" aria-hidden="true" />
 
       <div className="container relative z-10 mx-auto px-4 text-white">
-        <div className="mb-4 inline-flex max-w-full items-center gap-2 rounded-full border px-2 py-1 text-sm font-normal lg:mb-10 lg:py-2 lg:pr-5 lg:pl-2">
+        <div className="relative mb-4 inline-flex max-w-full items-center gap-2 rounded-full border px-2 py-1 text-sm font-normal lg:mb-10 lg:py-2 lg:pr-5 lg:pl-2">
           <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[rgba(255,74,1,1)] text-white">
             <Bell className="size-4" />
           </span>
           <p className="truncate whitespace-nowrap">{openingStatus}</p>
-          <a
-            href="#contact"
+          <button
+            type="button"
+            aria-expanded={isHoursOpen}
+            aria-controls="opening-hours-bubble"
+            onClick={() => setIsHoursOpen((prev) => !prev)}
             className="text-xs text-white/90 underline underline-offset-4 transition-opacity hover:opacity-90"
           >
             View opening times
-          </a>
+          </button>
+
+          {isHoursOpen ? (
+            <div
+              id="opening-hours-bubble"
+              className="absolute top-[calc(100%+0.75rem)] left-0 z-20 w-[min(20rem,90vw)] rounded-2xl border border-white/30 bg-black/85 p-4 shadow-xl backdrop-blur-sm"
+            >
+              <p className="mb-2 text-sm font-semibold">Opening times</p>
+              <ul className="space-y-1 text-xs text-white/90">
+                {openingHoursRows.map(({ day, hours }) => (
+                  <li key={day} className="flex items-center justify-between gap-4">
+                    <span>{day}</span>
+                    <span>{hours}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
         </div>
 
         <h1 className="mb-6 text-4xl leading-none font-bold tracking-tighter md:text-[7vw] lg:text-8xl">
