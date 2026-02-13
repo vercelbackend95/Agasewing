@@ -18,7 +18,7 @@ const SOCIAL_LINKS = [
 
 const FOOTER_LINKS = [
   { label: "Privacy Policy", href: "#" },
-  { label: "Terms of Service", href: "#" },
+  { label: "Terms of Service", href: "/terms-of-service" },
 ];
 
 interface Footer30Props {
