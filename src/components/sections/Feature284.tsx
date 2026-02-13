@@ -1,4 +1,3 @@
-import { HelpCircleIcon } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import React from "react";
 
@@ -11,35 +10,30 @@ const featureData = [
     desc: "Lorem ipsum dolor sit amet consec adipisicing elit. Quisquam, quos.",
     img: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img1.jpeg",
     title: "Tailoring alterations",
-    badgeTitle: "#1 Block",
     gridClass: "md:col-span-1",
   },
   {
     desc: "Consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore. Lorem ipsum dolor sit amet consec adipisicing elit.",
     img: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img7.jpeg",
     title: "Clothing repairs",
-    badgeTitle: "#2 Block",
     gridClass: "lg:col-span-2",
   },
   {
     desc: "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris.",
     img: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img11.jpeg",
     title: "Custom curtains",
-    badgeTitle: "#3 Block",
     gridClass: "md:col-span-1 lg:row-span-2",
   },
   {
     desc: "Consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore. Lorem ipsum dolor sit amet consec adipisicing elit.",
     img: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img2.jpeg",
     title: "Pillowcases and textile decorations",
-    badgeTitle: "#2 Block",
     gridClass: "lg:col-span-2",
   },
   {
     desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse.",
     img: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img4.jpeg",
     title: "Furniture upholstery",
-    badgeTitle: "#4 Block",
     gridClass: "md:col-span-1",
   },
 ];
@@ -86,10 +80,6 @@ const Feature284 = ({ className }: Feature284Props) => {
                   proximity={64}
                   inactiveZone={0.01}
                   />
-                <div className="flex w-full items-center justify-between">
-                  <p className="text-muted-foreground">{feature.badgeTitle}</p>
-                  <HelpCircleIcon className="size-4 text-muted-foreground" />
-                </div>
                 <div className={cn("w-full flex-1 overflow-hidden rounded-3xl bg-muted")}>
                   <img
                     src={feature.img}
