@@ -236,7 +236,7 @@ const Testimonial7 = ({ className }: Testimonial7Props) => {
 
   return (
     <section className={cn("py-32", className)} id="reviews">
-      <div className="container flex flex-col items-center gap-6">
+      <div className="container mx-auto flex flex-col items-center gap-6">
         <h2 className="mb-2 text-center text-3xl font-semibold lg:text-5xl">Real reviews from Google</h2>
         <p className="text-center text-muted-foreground lg:text-lg">
           Sewing at Aga&apos;s • 4 Victoria Rd, Poole BH12 3BB • Rated 4.5/5 from 27 Google ratings.
@@ -250,7 +250,7 @@ const Testimonial7 = ({ className }: Testimonial7Props) => {
           See all on Google
         </a>
       </div>
-      <div className="container">
+      <div className="container mx-auto">
         <div className="mt-16 space-y-4">
           <TestimonialRow items={testimonials1} />
           <TestimonialRow items={secondRowItems} reverse />

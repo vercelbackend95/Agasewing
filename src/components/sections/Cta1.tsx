@@ -10,10 +10,10 @@ interface Cta1Props {
 const Cta1 = ({ className }: Cta1Props) => {
   return (
     <section className={cn("py-32", className)}>
-      <div className="container">
-        <div className="mx-auto flex max-w-5xl flex-col items-center justify-between rounded-xl border border-muted bg-card pb-0 text-center shadow-sm md:flex-row md:py-6 md:text-left">
+      <div className="container mx-auto">
+        <div className="mx-auto flex max-w-5xl flex-col items-center justify-between rounded-xl border border-muted bg-card pb-0 text-center shadow-sm md:flex-row md:py-6">
           <div className="p-6 md:max-w-96">
-            <div className="mb-2 flex items-center justify-center gap-2 md:justify-start">
+            <div className="mb-2 flex items-center justify-center gap-2">
               <span className="flex size-7 items-center justify-center rounded-full bg-muted">
                 <Sparkles className="size-4" strokeWidth={1.5} />
               </span>
