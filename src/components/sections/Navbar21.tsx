@@ -29,11 +29,16 @@ interface Navbar21Props {
 
 const Navbar21 = ({ className }: Navbar21Props) => {
   const [isOpen, setIsOpen] = useState(false);
+  const patternBackgroundStyle = {
+    backgroundImage: "url('/pictures/halftone.webp')",
+    backgroundRepeat: "repeat",
+    backgroundSize: "400px 400px",
+  } as const;
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <section className={cn("sticky top-0 z-50 bg-background", className)}>
+    <section className={cn("sticky top-0 z-50 bg-background", className)} style={patternBackgroundStyle}>
       <div className="flex items-center justify-between px-6 py-6">
         <div className="z-50">
           <a href="/" className="flex items-center gap-2">
@@ -77,6 +82,7 @@ const Navbar21 = ({ className }: Navbar21Props) => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-40 overflow-hidden bg-background"
+            style={patternBackgroundStyle}
           >
             <div className="flex h-full flex-col items-center justify-center px-6">
               <motion.div

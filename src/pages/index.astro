@@ -14,8 +14,7 @@ import { LocationMap } from "@/components/sections/LocationMap";
 import { Contact16 } from "@/components/sections/Contact16";
 import { Footer30 } from "@/components/sections/Footer30";
 
-const sectionPatternStyle =
-  "radial-gradient(circle at 0 0, rgba(0, 0, 0, 0.03) 0.6px, transparent 0.6px), radial-gradient(circle at 8px 8px, rgba(0, 0, 0, 0.02) 0.6px, transparent 0.6px), #f7f5ef";
+const sectionPatternStyle = "url('/pictures/halftone.webp')";
 ---
 
 <html lang="en">
@@ -31,7 +30,7 @@ const sectionPatternStyle =
     <Navbar21 client:load />
     <Hero13 client:load />
 
-    <main style={`background-image: ${sectionPatternStyle}; background-size: 16px 16px;`}>
+    <main style={`background-color: #f7f5ef; background-image: ${sectionPatternStyle}; background-repeat: repeat; background-size: 400px 400px;`}>
       <HowToImplement className="bg-transparent" />
       <About15 />
       <Gallery25 className="bg-transparent" client:visible />
