@@ -13,6 +13,9 @@ import { Testimonial7 } from "@/components/sections/Testimonial7";
 import { LocationMap } from "@/components/sections/LocationMap";
 import { Contact16 } from "@/components/sections/Contact16";
 import { Footer30 } from "@/components/sections/Footer30";
+
+const sectionPatternStyle =
+  "radial-gradient(circle at 0 0, rgba(0, 0, 0, 0.03) 0.6px, transparent 0.6px), radial-gradient(circle at 8px 8px, rgba(0, 0, 0, 0.02) 0.6px, transparent 0.6px), #f7f5ef";
 ---
 
 <html lang="en">
@@ -28,17 +31,19 @@ import { Footer30 } from "@/components/sections/Footer30";
     <Navbar21 client:load />
     <Hero13 client:load />
 
-    <HowToImplement className="bg-white" />
-    <About15 />
-    <Gallery25 className="bg-white" client:visible />
-    <section id="services">
-      <Feature284 className="bg-white" client:visible />
-    </section>
-    <PricingAccordion className="bg-white" client:visible />
-    <Cta1 className="bg-white" client:visible />
-    <Testimonial7 className="bg-white" client:visible />
-    <LocationMap />
-    <Contact16 />
-    <Footer30 className="bg-white" />
+    <main style={`background-image: ${sectionPatternStyle}; background-size: 16px 16px;`}>
+      <HowToImplement className="bg-transparent" />
+      <About15 />
+      <Gallery25 className="bg-transparent" client:visible />
+      <section id="services">
+        <Feature284 className="bg-transparent" client:visible />
+      </section>
+      <PricingAccordion className="bg-transparent" client:visible />
+      <Cta1 className="bg-transparent" client:visible />
+      <Testimonial7 className="bg-transparent" client:visible />
+      <LocationMap />
+      <Contact16 />
+      <Footer30 className="bg-transparent" />
+    </main>
   </body>
 </html>
