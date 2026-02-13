@@ -7,31 +7,31 @@ import { GlowingEffect } from "@/components/aceternity/glowing-effect";
 
 const featureData = [
   {
-    desc: "Lorem ipsum dolor sit amet consec adipisicing elit. Quisquam, quos.",
+    desc: "Perfect fit, without the fuss. We adjust hems, waists and seams so your clothes sit exactly the way they should.",
     img: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img1.jpeg",
     title: "Tailoring alterations",
     gridClass: "md:col-span-1",
   },
   {
-    desc: "Consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore. Lorem ipsum dolor sit amet consec adipisicing elit.",
+    desc: "From split seams to missing buttons — we bring your favourites back to life. Neat, durable repairs that look right and last.",
     img: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img7.jpeg",
     title: "Clothing repairs",
     gridClass: "lg:col-span-2",
   },
   {
-    desc: "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris.",
+    desc: "Made to measure for your space. Clean lines, beautiful drape, and finishing details that make a room feel finished.",
     img: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img11.jpeg",
     title: "Custom curtains",
     gridClass: "md:col-span-1 lg:row-span-2",
   },
   {
-    desc: "Consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore. Lorem ipsum dolor sit amet consec adipisicing elit.",
+    desc: "Small pieces, big difference. Cushions, covers and home textiles sewn with care — tidy edges, strong stitching, lovely finish.",
     img: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img2.jpeg",
-    title: "Pillowcases and textile decorations",
+    title: "Pillowcases & textile décor",
     gridClass: "lg:col-span-2",
   },
   {
-    desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse.",
+    desc: "Refresh and revive worn pieces with tailored fabric work. Ideal for seats, cushions and small upholstery fixes that make furniture feel new again.",
     img: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img4.jpeg",
     title: "Furniture upholstery",
     gridClass: "md:col-span-1",
