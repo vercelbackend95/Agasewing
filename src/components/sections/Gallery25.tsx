@@ -204,6 +204,7 @@ const Gallery25 = ({ className }: Gallery25Props) => {
               <InteractiveHoverButton
                 type="button"
                 onClick={() => window.open("https://wa.me/447514776088", "_blank", "noopener,noreferrer")}
+                mobileActive
                 className="h-full w-full rounded-2xl border-0 bg-transparent text-sm"
               >
                 Message

@@ -191,6 +191,7 @@ const Hero13 = ({ className }: Hero13Props) => {
           <InteractiveHoverButton
             type="button"
             onClick={() => window.open("https://wa.me/447514776088", "_blank", "noopener,noreferrer")}
+            mobileActive
             className="w-full border-white/70 bg-white/90 text-sm text-black md:w-auto"
           >
             Message
