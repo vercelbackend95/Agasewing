@@ -3,7 +3,7 @@ export function LocationMap() {
   const mapQuery = encodeURIComponent(address);
 
   return (
-    <section id="location" className="bg-slate-100 py-12 md:py-16">
+    <section id="location" className="bg-white py-12 md:py-16">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <h2 className="text-center text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
           Find us
