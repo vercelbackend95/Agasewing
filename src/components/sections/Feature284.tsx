@@ -12,35 +12,35 @@ const featureData = [
     img: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img1.jpeg",
     title: "Tailoring alterations",
     badgeTitle: "#1 Block",
-    gridClass: "col-span-1 md:col-span-1",
+    gridClass: "md:col-span-1",
   },
   {
     desc: "Consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore. Lorem ipsum dolor sit amet consec adipisicing elit.",
     img: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img7.jpeg",
     title: "Clothing repairs",
     badgeTitle: "#2 Block",
-    gridClass: "col-span-1 row-span-2 lg:col-span-2",
+    gridClass: "lg:col-span-2",
   },
   {
     desc: "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris.",
     img: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img11.jpeg",
     title: "Custom curtains",
     badgeTitle: "#3 Block",
-    gridClass: "col-span-1 md:col-span-1 lg:row-span-2",
+    gridClass: "md:col-span-1 lg:row-span-2",
   },
   {
     desc: "Consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore. Lorem ipsum dolor sit amet consec adipisicing elit.",
     img: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img2.jpeg",
     title: "Pillowcases and textile decorations",
     badgeTitle: "#2 Block",
-    gridClass: "col-span-2 lg:col-span-2",
+    gridClass: "lg:col-span-2",
   },
   {
     desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse.",
     img: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img4.jpeg",
     title: "Furniture upholstery",
     badgeTitle: "#4 Block",
-    gridClass: "col-span-1 md:col-span-1",
+    gridClass: "md:col-span-1",
   },
 ];
 
@@ -62,7 +62,7 @@ const Feature284 = ({ className }: Feature284Props) => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-2 lg:h-[800px] lg:grid-cols-4">
+          <div className="grid grid-cols-1 grid-rows-2 gap-4 md:grid-cols-2 lg:h-[800px] lg:grid-cols-4">
             {featureData.map((feature, index) => (
               <motion.div
                 key={index}
