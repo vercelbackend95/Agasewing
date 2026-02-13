@@ -130,7 +130,7 @@ const Navbar21 = ({ className }: Navbar21Props) => {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center gap-2 font-mono text-sm tracking-wider text-muted-foreground transition-colors hover:text-foreground"
+                    className="group flex items-center gap-2 font-sans text-sm tracking-wider text-muted-foreground transition-colors hover:text-foreground"
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.8 + index * 0.1, duration: 0.3 }}
