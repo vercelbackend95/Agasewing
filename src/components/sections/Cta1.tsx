@@ -1,5 +1,3 @@
-import { Sparkles } from "lucide-react";
-
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import { cn } from "@/lib/utils";
 
@@ -23,20 +21,22 @@ const Cta1 = ({ className }: Cta1Props) => {
         >
           <div className="p-6 md:max-w-96">
             <div className="mb-2 flex items-center justify-center gap-2">
-              <Sparkles className="size-4" strokeWidth={1.5} />
               <h4 className="text-2xl font-bold">Quick question? Message us.</h4>
             </div>
             <p className="text-muted-foreground">
               Quick questions welcome. Walk-ins for fittings — pricing
               confirmed in person.
             </p>
-            <InteractiveHoverButton
-              type="button"
-              onClick={() => window.open("https://wa.me/447514776088", "_blank", "noopener,noreferrer")}
-              className="mt-8 w-full border-white/70 bg-white/90 text-sm text-black md:w-auto"
-            >
-              Message
-            </InteractiveHoverButton>
+            <div className="mt-8 h-17 w-full rounded-2xl bg-muted md:w-auto">
+              <InteractiveHoverButton
+                type="button"
+                onClick={() => window.open("https://wa.me/447514776088", "_blank", "noopener,noreferrer")}
+                mobileActive
+                className="h-full w-full rounded-2xl border-0 bg-transparent text-sm"
+              >
+                Message
+              </InteractiveHoverButton>
+            </div>
           </div>
           <img
             src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
