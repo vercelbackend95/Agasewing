@@ -13,7 +13,6 @@ const Contact16 = ({ className }: Contact16Props) => {
       <div className="container mx-auto px-4">
         <h1 className="text-5xl font-semibold tracking-tight lg:text-8xl">
           Let’s get your fit right.
-          <sup>*</sup>
         </h1>
         <div className="mt-20 flex flex-col justify-between gap-10 lg:flex-row">
           <div className="w-full max-w-md">
