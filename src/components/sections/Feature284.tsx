@@ -53,8 +53,8 @@ const Feature284 = ({ className }: Feature284Props) => {
 
   return (
     <section className={cn("h-full overflow-hidden py-32", className)}>
-      <div className="container mx-auto flex h-full w-full items-center justify-center">
-        <div className="w-full max-w-6xl">
+      <div className="container mx-auto flex h-full w-full items-center justify-center px-4">
+        <div className="w-full">
           <div className="mb-10 text-center">
             <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">Tailoring Services</h2>
             <p className="mt-3 text-muted-foreground">

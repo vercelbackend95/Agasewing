@@ -26,11 +26,11 @@ const About15 = ({ className }: About15Props) => {
           </div>
         </div>
         <div className="w-full max-w-[21.25rem] space-y-6">
-          <h1 className="mb-15 text-5xl font-medium tracking-tight">
+          <h2 className="mb-15 text-5xl font-medium tracking-tight">
             <TextAnimate animation="blurInUp" by="word" once>
               Your local tailor for the perfect fit.
             </TextAnimate>
-          </h1>
+          </h2>
           <p className="text-sm lg:text-base">
             I have been working in the tailoring industry for 30 years, during which I have crafted both women’s and
             men’s clothing. For 4 years, I specialized in sewing leather garments. Over the past 13 years, I have
