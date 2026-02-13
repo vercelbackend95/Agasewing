@@ -8,14 +8,8 @@ interface Contact16Props {
 }
 
 const Contact16 = ({ className }: Contact16Props) => {
-  const patternBackgroundStyle = {
-    backgroundImage: "url('/pictures/halftone.webp')",
-    backgroundRepeat: "repeat",
-    backgroundSize: "400px 400px",
-  } as const;
-
   return (
-    <section className={cn("dark bg-black py-32 text-foreground", className)} id="contact" style={patternBackgroundStyle}>
+    <section className={cn("dark bg-background py-32 text-foreground", className)} id="contact">
       <div className="container mx-auto px-4">
         <h1 className="text-5xl font-semibold tracking-tight lg:text-8xl">
           Let’s get your fit right.
