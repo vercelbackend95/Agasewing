@@ -1,5 +1,5 @@
 // src/components/sections/Hero13.tsx
-import { Bell, PlayCircle } from "lucide-react";
+import { PlayCircle } from "lucide-react";
 import { useState } from "react";
 
 import { AvatarCircles } from "@/components/ui/avatar-circles";
@@ -145,10 +145,7 @@ const Hero13 = ({ className }: Hero13Props) => {
       <div className="absolute inset-0 bg-black/45" aria-hidden="true" />
 
       <div className="container relative z-10 mx-auto px-4 text-white">
-        <div className="relative mb-4 inline-flex max-w-full items-center gap-2 rounded-full border px-2 py-1 text-sm font-normal lg:mb-10 lg:py-2 lg:pr-5 lg:pl-2">
-          <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[rgba(255,74,1,1)] text-white">
-            <Bell className="size-4" />
-          </span>
+        <div className="relative mb-4 inline-flex max-w-full items-center gap-2 rounded-full border px-2 py-1 text-sm font-normal lg:mb-10 lg:py-2 lg:px-5">
           <p className="truncate whitespace-nowrap">{openingStatus}</p>
           <button
             type="button"
