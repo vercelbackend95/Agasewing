@@ -16,9 +16,7 @@ const HowToImplement = ({ className }: HowToImplementProps) => {
           <div className="relative space-y-5 border p-8 md:p-10">
             <div className="flex items-center justify-between gap-4">
               <div className="inline-flex size-12 items-center justify-center rounded-full border bg-muted/40 text-lg font-semibold">1</div>
-              <div className="inline-flex size-12 items-center justify-center rounded-lg border bg-muted/40">
-                <img src="/pictures/hanger-towel-2-svgrepo-com.svg" alt="Hanger and towel icon" className="size-6" />
-              </div>
+              <img src="/pictures/hanger-towel-2-svgrepo-com.svg" alt="Hanger and towel icon" className="size-12" />
             </div>
             <h3 className="text-xl font-semibold tracking-tighter">Bring your items</h3>
             <p className="text-muted-foreground">Drop off what needs altering — we’ll take it from here.</p>
@@ -30,9 +28,7 @@ const HowToImplement = ({ className }: HowToImplementProps) => {
           <div className="relative space-y-5 border p-8 md:p-10">
             <div className="flex items-center justify-between gap-4">
               <div className="inline-flex size-12 items-center justify-center rounded-full border bg-muted/40 text-lg font-semibold">2</div>
-              <div className="inline-flex size-12 items-center justify-center rounded-lg border bg-muted/40">
-                <img src="/pictures/measuring-tape-svgrepo-com.svg" alt="Measuring tape icon" className="size-6" />
-              </div>
+              <img src="/pictures/measuring-tape-svgrepo-com.svg" alt="Measuring tape icon" className="size-12" />
             </div>
             <h3 className="text-xl font-semibold tracking-tighter">Fitting &amp; quote</h3>
             <p className="text-muted-foreground">We measure, pin, confirm the details — and you get a ticket.</p>
@@ -44,9 +40,7 @@ const HowToImplement = ({ className }: HowToImplementProps) => {
           <div className="space-y-5 border p-8 md:p-10">
             <div className="flex items-center justify-between gap-4">
               <div className="inline-flex size-12 items-center justify-center rounded-full border bg-muted/40 text-lg font-semibold">3</div>
-              <div className="inline-flex size-12 items-center justify-center rounded-lg border bg-muted/40">
-                <img src="/pictures/ticket-svgrepo-com.svg" alt="Ticket icon" className="size-6" />
-              </div>
+              <img src="/pictures/ticket-svgrepo-com.svg" alt="Ticket icon" className="size-12" />
             </div>
             <h3 className="text-xl font-semibold tracking-tighter">Collect with your ticket</h3>
             <p className="text-muted-foreground">Come back with your ticket and pick up your finished pieces.</p>
