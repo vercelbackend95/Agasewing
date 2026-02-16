@@ -12,6 +12,7 @@ interface Gallery25Props {
 
 const Gallery25 = ({ className }: Gallery25Props) => {
   const [activeImageIndex, setActiveImageIndex] = React.useState<number | null>(null);
+  const touchStartXRef = React.useRef<number | null>(null);
 
   const column1Images = [
     {
@@ -98,6 +99,28 @@ const Gallery25 = ({ className }: Gallery25Props) => {
   const showNextImage = () => {
     if (activeImageIndex === null) return;
     setActiveImageIndex((activeImageIndex + 1) % allImages.length);
+  };
+
+  const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
+    touchStartXRef.current = event.changedTouches[0]?.clientX ?? null;
+  };
+
+  const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
+    if (touchStartXRef.current === null) return;
+    const touchEndX = event.changedTouches[0]?.clientX;
+    if (typeof touchEndX !== "number") return;
+
+    const deltaX = touchEndX - touchStartXRef.current;
+    const swipeThreshold = 40;
+
+    if (Math.abs(deltaX) < swipeThreshold) return;
+
+    if (deltaX < 0) {
+      showNextImage();
+      return;
+    }
+
+    showPreviousImage();
   };
 
   return (
@@ -244,11 +267,16 @@ const Gallery25 = ({ className }: Gallery25Props) => {
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
             onClick={closeLightbox}
           >
-            <div className="flex items-center gap-3" onClick={(event) => event.stopPropagation()}>
+            <div
+              className="relative flex items-center gap-3"
+              onClick={(event) => event.stopPropagation()}
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+            >
               <button
                 type="button"
                 aria-label="Previous image"
-                className="rounded-full bg-white/20 px-3 py-2 text-white"
+                className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/35 px-3 py-2 text-white md:static md:translate-y-0 md:bg-white/20"
                 onClick={showPreviousImage}
               >
                 ←
@@ -263,7 +291,7 @@ const Gallery25 = ({ className }: Gallery25Props) => {
               <button
                 type="button"
                 aria-label="Next image"
-                className="rounded-full bg-white/20 px-3 py-2 text-white"
+                className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/35 px-3 py-2 text-white md:static md:translate-y-0 md:bg-white/20"
                 onClick={showNextImage}
               >
                 →
