@@ -11,7 +11,7 @@ const pricingCategories = [
   {
     title: "Jeans & Trousers",
     image:
-      "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=2000&q=80",
+      "/pictures/1.webp",
     prices: [
       ["Jeans Shortening", "£13"],
       ["Original Hem", "£14"],
@@ -32,7 +32,7 @@ const pricingCategories = [
   {
     title: "Shirts & Blouses",
     image:
-      "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=2000&q=80",
+      "/pictures/2.webp",
     prices: [
       ["T-Shirt Length", "£14"],
       ["Sleeve Shortening", "£22"],
@@ -45,7 +45,7 @@ const pricingCategories = [
   {
     title: "Bridal Dresses",
     image:
-      "https://images.unsplash.com/photo-1594552072238-b8a33785b261?auto=format&fit=crop&w=2000&q=80",
+      "/pictures/3.webp",
     prices: [
       ["Hem Shortening", "£30"],
       ["Side Adjustment", "£26"],
@@ -55,7 +55,7 @@ const pricingCategories = [
   {
     title: "Skirts",
     image:
-      "https://images.unsplash.com/photo-1583496661160-fb5886a13d77?auto=format&fit=crop&w=2000&q=80",
+      "/pictures/4.webp",
     prices: [
       ["Shortening", "£14"],
       ["Zip Replacement", "£18"],
@@ -65,7 +65,7 @@ const pricingCategories = [
   {
     title: "Jackets & Coats",
     image:
-      "https://images.unsplash.com/photo-1544022613-e87ca75a784a?auto=format&fit=crop&w=2000&q=80",
+      "/pictures/5.webp",
     prices: [
       ["Zip Replacement", "£32"],
       ["Pocket Zip", "£22"],
@@ -79,7 +79,7 @@ const pricingCategories = [
   {
     title: "Curtains",
     image:
-      "https://images.unsplash.com/photo-1616628182509-6c9818611434?auto=format&fit=crop&w=2000&q=80",
+      "/pictures/6.webp",
     prices: [
       ["46\" Wide", "£38"],
       ["66\" Wide", "£45"],
