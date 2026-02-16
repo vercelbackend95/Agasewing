@@ -13,21 +13,21 @@ const Process4 = ({ className }: Process4Props) => {
       title: "Walk in with your item",
       subtitle: "No booking needed",
       description: "Bring your garment. We’ll check what needs doing, discuss the finish you want, and take measurements.",
-      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri4/img14.png",
+      image: "/pictures/step1.webp",
     },
     {
       title: "We pin, measure & issue your ticket",
       subtitle: "Clear quote on the spot",
       description:
         "We mark the alterations, confirm the price before we start, and give you a collection ticket with your job details.",
-      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri4/img10.png",
+      image: "/pictures/step2.webp",
     },
     {
       title: "Collect your items",
       subtitle: "Ticket required for collection",
       description:
         "Return when it’s ready and show your collection ticket at the counter. We’ll hand over your finished items — neat, fitted, and properly done.",
-      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri4/img11.png",
+      image: "/pictures/step3.webp",
     },
   ];
 
