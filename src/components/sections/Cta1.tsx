@@ -20,9 +20,9 @@ const Cta1 = ({ className }: Cta1Props) => {
         >
           <div className="p-6 md:max-w-96">
             <div className="mb-2 flex items-center justify-center gap-2">
-              <h4 className="text-2xl font-bold">Quick question? Message us.</h4>
+              <h4 className="text-2xl font-bold text-[#14161B]">Quick question? Message us.</h4>
             </div>
-            <p className="text-muted-foreground">
+            <p className="text-[#2A2F3A]">
               Quick questions welcome. Walk-ins for fittings — pricing
               confirmed in person.
             </p>
@@ -31,7 +31,7 @@ const Cta1 = ({ className }: Cta1Props) => {
                 type="button"
                 onClick={() => window.open("https://wa.me/447514776088", "_blank", "noopener,noreferrer")}
                 mobileActive
-                className="h-full w-full rounded-2xl border-0 bg-transparent text-sm"
+                className="h-full w-full rounded-2xl border-0 bg-transparent text-sm text-[#5E6676]"
               >
                 Message
               </InteractiveHoverButton>
