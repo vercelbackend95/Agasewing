@@ -38,11 +38,11 @@ const Process4 = ({ className }: Process4Props) => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-6 lg:gap-20">
           <div className="top-10 col-span-2 h-fit w-fit gap-3 space-y-7 py-8 lg:sticky">
-            <h1 className="text-5xl font-semibold tracking-tight lg:text-7xl">
+            <h1 className="text-5xl font-semibold tracking-tight text-[#14161B] lg:text-7xl">
               {" "}
               Process
             </h1>
-            <p className="text-base leading-relaxed text-foreground/80">
+            <p className="text-base leading-relaxed text-[#2A2F3A]">
               Walk in with your item — we measure, confirm the price, and issue your collection ticket. Bring the ticket back when
               you return to collect.
             </p>
@@ -72,10 +72,10 @@ const Process4 = ({ className }: Process4Props) => {
                   )}
                 </AnimatePresence>
                 <div>
-                  <h2 className="mb-4 font-bold tracking-tight lg:text-3xl">Step {index + 1}</h2>
-                  <h3 className="mb-4 text-2xl font-semibold tracking-tighter lg:text-xl">{step.title}</h3>
-                  <p className="mb-4 text-sm font-medium uppercase tracking-wide text-foreground/60">{step.subtitle}</p>
-                  <p className="line-clamp-3 leading-relaxed text-foreground/80">{step.description}</p>
+                  <h2 className="mb-4 font-bold tracking-tight text-[#14161B] lg:text-3xl">Step {index + 1}</h2>
+                  <h3 className="mb-4 text-2xl font-semibold tracking-tighter text-[#14161B] lg:text-xl">{step.title}</h3>
+                  <p className="mb-4 text-sm font-medium uppercase tracking-wide text-[#5E6676]">{step.subtitle}</p>
+                  <p className="line-clamp-3 leading-relaxed text-[#2A2F3A]">{step.description}</p>
                 </div>
               </li>
             ))}
