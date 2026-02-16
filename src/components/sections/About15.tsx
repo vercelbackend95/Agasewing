@@ -7,7 +7,7 @@ interface About15Props {
 
 const About15 = ({ className }: About15Props) => {
   const patternBackgroundStyle = {
-    backgroundImage: "url('/pictures/halftone.webp')",
+    backgroundImage: "url('/pictures/fabric_1.webp')",
     backgroundRepeat: "repeat",
     backgroundSize: "400px 400px",
   };
