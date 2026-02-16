@@ -92,7 +92,7 @@ const PricingAccordion = ({ className }: PricingAccordionProps) => {
     <section className={cn("py-20 md:py-24", className)} id="pricing">
       <div className="container mx-auto px-4">
         <div
-          className="mb-8 min-h-[150px] rounded-[24px] border border-[rgba(78,100,235,0.12)] px-5 py-4 text-center backdrop-blur-[10px] md:min-h-[190px] md:p-6 md:text-left lg:min-h-[220px] lg:px-10 lg:py-8"
+          className="mx-auto mb-8 w-full max-w-5xl min-h-[150px] rounded-[24px] border border-[rgba(78,100,235,0.12)] px-5 py-4 text-center backdrop-blur-[10px] md:min-h-[190px] md:p-6 md:text-left lg:min-h-[220px] lg:px-10 lg:py-8"
           style={{
             background:
               "radial-gradient(circle at top right, rgba(167,180,241,0.18), rgba(167,180,241,0) 45%), rgba(246,248,247,0.72)",
