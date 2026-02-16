@@ -1,6 +1,11 @@
 export function LocationMap() {
   const address = "4 Victoria Rd, Poole BH12 3BB, United Kingdom";
   const mapQuery = encodeURIComponent(address);
+  const mapLink = `https://www.google.com/maps/search/?api=1&query=${mapQuery}`;
+
+  const handleCopyAddress = async () => {
+    await navigator.clipboard.writeText(address);
+  };
 
   return (
     <section id="location" className="bg-white py-12 md:py-16">
@@ -9,12 +14,39 @@ export function LocationMap() {
           <div className="grid md:grid-cols-2">
             <div className="flex items-center px-6 py-10 md:px-10 md:py-12">
               <div>
-                <h2 className="text-4xl font-bold uppercase tracking-tight text-slate-900 md:text-5xl">
-                  Find us
+                <h2 className="text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
+                  Find our shop
                 </h2>
-                <p className="mt-5 text-xl font-semibold uppercase leading-relaxed tracking-tight text-slate-800 md:text-2xl">
-                  {address}
-                </p>
+                <div className="mt-5 space-y-1 text-slate-800">
+                  <p className="text-xl font-semibold tracking-tight md:text-2xl">4 Victoria Rd</p>
+                  <p className="text-lg font-medium md:text-xl">
+                    Poole, <span className="rounded-full bg-slate-100 px-2 py-0.5 text-sm font-semibold text-slate-700">BH12 3BB</span>
+                  </p>
+                  <p className="text-base">United Kingdom</p>
+                </div>
+                <p className="mt-4 text-sm font-medium text-slate-700">Mon–Sat: 9–5 • Sun: Closed</p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-700">Walk-ins only</span>
+                  <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-700">Near Upper Parkstone</span>
+                  <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-700">Parking nearby</span>
+                </div>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <a
+                    href={mapLink}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center rounded-full bg-[rgba(255,74,1,1)] px-4 py-2 text-sm font-semibold text-white transition hover:opacity-90"
+                  >
+                    Get directions
+                  </a>
+                  <button
+                    type="button"
+                    onClick={handleCopyAddress}
+                    className="inline-flex items-center rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 transition hover:bg-slate-50"
+                  >
+                    Copy address
+                  </button>
+                </div>
               </div>
             </div>
             <div className="min-h-[360px] md:min-h-[420px]">
