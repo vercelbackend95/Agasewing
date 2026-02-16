@@ -102,13 +102,13 @@ const PricingAccordion = ({ className }: PricingAccordionProps) => {
             <span className="inline-flex rounded-full border border-[#FF4A01]/25 bg-[#FF4A01]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#FF4A01]">
               PRICE GUIDE
             </span>
-            <h2 className="mt-3 max-w-[22ch] text-3xl font-bold tracking-tight md:max-w-none md:text-5xl">
+            <h2 className="mt-3 max-w-[22ch] text-3xl font-bold tracking-tight text-[#14161B] md:max-w-none md:text-5xl">
               Clothing Alterations
             </h2>
-            <p className="mt-3 text-muted-foreground">
+            <p className="mt-3 text-[#2A2F3A]">
               Clear starting prices for common alterations. Final cost confirmed at the fitting.
             </p>
-            <p className="mt-2 text-xs text-muted-foreground">Prices may vary depending on fabric and complexity.</p>
+            <p className="mt-2 text-xs text-[#5E6676]">Prices may vary depending on fabric and complexity.</p>
           </div>
         </div>
 
@@ -128,7 +128,7 @@ const PricingAccordion = ({ className }: PricingAccordionProps) => {
                   <ul className="divide-y opacity-0 -translate-y-1 transition-[opacity,transform,filter] duration-500 ease-out motion-reduce:translate-y-0 motion-reduce:transition-none group-open:opacity-100 group-open:translate-y-0">
                     {category.prices.map(([name, price]) => (
                       <li key={name} className="flex items-center justify-between py-3 text-base">
-                        <span className="text-neutral-700">{name}</span>
+                        <span className="text-[#2A2F3A]">{name}</span>
                         <span className="font-semibold text-[rgba(255,74,1,1)]">{price}</span>
                       </li>
                     ))}
