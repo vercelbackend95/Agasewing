@@ -16,67 +16,67 @@ const Gallery25 = ({ className }: Gallery25Props) => {
 
   const column1Images = [
     {
-      src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw1.jpeg",
-      alt: "Gallery Image 1",
+      src: "/pictures/5.webp",
+      alt: "Pattern cutting on colorful fabric",
       height: "23rem",
     },
     {
-      src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw2.jpeg",
-      alt: "Gallery Image 2",
+      src: "/pictures/9.webp",
+      alt: "White lace wedding dress in progress",
       height: "28rem",
     },
     {
-      src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw3.jpeg",
-      alt: "Gallery Image 3",
+      src: "/pictures/7.webp",
+      alt: "Tailored red leather skirt on a mannequin",
       height: "12rem",
     },
   ];
 
   const column2Images = [
     {
-      src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw4.jpeg",
-      alt: "Gallery Image 4",
+      src: "/pictures/2.webp",
+      alt: "Tailored jacket pocket detail",
       height: "13rem",
     },
     {
-      src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw5.jpeg",
-      alt: "Gallery Image 5",
+      src: "/pictures/8.webp",
+      alt: "Handmade fascinator hat",
       height: "32rem",
     },
     {
-      src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw6.jpeg",
-      alt: "Gallery Image 6",
+      src: "/pictures/10.webp",
+      alt: "Embroidered white floral gown details",
       height: "18rem",
     },
   ];
 
   const column3Images = [
     {
-      src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw7.jpeg",
-      alt: "Gallery Image 7",
+      src: "/pictures/4.webp",
+      alt: "Pink couture dress in the studio",
       height: "32rem",
     },
     {
-      src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw8.jpeg",
-      alt: "Gallery Image 8",
+      src: "/pictures/6.webp",
+      alt: "Custom garments on a rack",
       height: "32rem",
     },
   ];
 
   const column4Images = [
     {
-      src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw9.jpeg",
-      alt: "Gallery Image 9",
+      src: "/pictures/11.webp",
+      alt: "Vintage collage with buttons and butterflies",
       height: "13rem",
     },
     {
-      src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw10.jpeg",
-      alt: "Gallery Image 10",
+      src: "/pictures/1.webp",
+      alt: "Dress form with floral custom dress",
       height: "22.5rem",
     },
     {
-      src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw11.jpeg",
-      alt: "Gallery Image 11",
+      src: "/pictures/3.webp",
+      alt: "Corset-inspired bespoke dress",
       height: "22rem",
     },
   ];
