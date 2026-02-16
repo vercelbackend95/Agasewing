@@ -120,6 +120,7 @@ const getOpeningStatus = () => {
 const Hero13 = ({ className }: Hero13Props) => {
   const openingStatus = getOpeningStatus();
   const [isHoursOpen, setIsHoursOpen] = useState(false);
+  const trustChips = ["Walk-ins for fittings", "No booking needed", "30+ years’ experience"];
 
   const openingHoursRows = [
     { day: "Monday", hours: "9am – 5pm" },
@@ -203,6 +204,14 @@ const Hero13 = ({ className }: Hero13Props) => {
             <PlayCircle className="mr-2 size-4" />
             See gallery
           </a>
+        </div>
+
+        <div className="mt-4 flex flex-wrap gap-2 text-xs text-white/95 md:text-sm">
+          {trustChips.map((chip) => (
+            <span key={chip} className="rounded-full border border-white/40 bg-black/25 px-3 py-1.5">
+              {chip}
+            </span>
+          ))}
         </div>
 
         <div className="mt-6">
