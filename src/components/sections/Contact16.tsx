@@ -28,23 +28,29 @@ const Contact16 = ({ className }: Contact16Props) => {
               </a>
             </div>
           </div>
-          <form className="col-span-4 flex w-full flex-col gap-2 lg:pl-30">
+          <form action="/api/contact" className="col-span-4 flex w-full flex-col gap-2 lg:pl-30" method="POST">
             <input
               type="text"
+              name="name"
+              required
               placeholder="Name*"
               className="h-19 rounded-none border-0 border-b border-b-foreground/15 !bg-transparent placeholder:text-foreground/20 focus-visible:ring-0"
             />
             <input
               type="email"
+              name="email"
+              required
               placeholder="Email*"
               className="h-19 rounded-none border-0 border-b border-b-foreground/15 !bg-transparent placeholder:text-foreground/20 focus-visible:ring-0"
             />
             <input
               type="text"
+              name="message"
+              required
               placeholder="Message (Tell us about your project)"
               className="h-19 rounded-none border-0 border-b border-b-foreground/15 !bg-transparent placeholder:text-foreground/20 focus-visible:ring-0"
             />
-            <button type="button" className="mt-15 flex h-15 items-center justify-start gap-2 text-base">
+            <button type="submit" className="mt-15 flex h-15 items-center justify-start gap-2 text-base">
               <CornerDownRight className="size-6" />
               Let’s get your fit right.
             </button>
