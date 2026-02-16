@@ -91,7 +91,7 @@ const PricingAccordion = ({ className }: PricingAccordionProps) => {
   return (
     <section className={cn("py-20 md:py-24", className)} id="pricing">
       <div className="container mx-auto px-4">
-        <div className="mb-8 text-center md:text-left">
+        <div className="mb-8 rounded-[22px] border border-[rgba(78,100,235,0.14)] bg-[rgba(246,248,247,0.72)] p-5 text-center backdrop-blur-[8px] md:p-6 md:text-left">
           <span className="inline-flex rounded-full border border-[#FF4A01]/25 bg-[#FF4A01]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#FF4A01]">
             PRICE GUIDE
           </span>
