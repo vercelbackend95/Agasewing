@@ -3,10 +3,6 @@ export function LocationMap() {
   const mapQuery = encodeURIComponent(address);
   const mapLink = `https://www.google.com/maps/search/?api=1&query=${mapQuery}`;
 
-  const handleCopyAddress = async () => {
-    await navigator.clipboard.writeText(address);
-  };
-
   return (
     <section id="location" className="bg-white py-12 md:py-16">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
@@ -25,11 +21,8 @@ export function LocationMap() {
                   <p className="text-base">United Kingdom</p>
                 </div>
                 <div className="mt-4 space-y-1 text-sm font-medium text-slate-700">
-                  <p>Mon-Wed 9:00 AM - 5:00 PM</p>
-                  <p>Thu Closed</p>
-                  <p>Fri - 9:00 AM - 5:00 PM</p>
-                  <p>Sat 9:00 AM - 2:00 PM</p>
-                  <p>Sun Closed</p>
+                  <p>Open: Mon–Wed 9–5 • Fri 9–5 • Sat 9–2</p>
+                  <p>Closed: Thu &amp; Sun.</p>
                 </div>
                 <div className="mt-4 flex flex-wrap gap-2">
                   <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-700">Walk-ins only</span>
@@ -45,13 +38,14 @@ export function LocationMap() {
                   >
                     Get directions
                   </a>
-                  <button
-                    type="button"
-                    onClick={handleCopyAddress}
-                    className="inline-flex items-center rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 transition hover:bg-slate-50"
+                  <a
+                    href="https://wa.me/447514776088"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center rounded-full border border-slate-300 bg-transparent px-4 py-2 text-sm font-semibold text-slate-800 transition hover:bg-slate-50"
                   >
-                    Copy address
-                  </button>
+                    Message
+                  </a>
                 </div>
               </div>
             </div>
