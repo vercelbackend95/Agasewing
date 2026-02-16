@@ -49,10 +49,15 @@ const Feature284 = ({ className }: Feature284Props) => {
     <section className={cn("h-full overflow-hidden py-32", className)}>
       <div className="container mx-auto flex h-full w-full items-center justify-center px-4">
         <div className="w-full">
-          <div className="mb-10 text-center">
-            <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">Tailoring Services</h2>
+          <div className="mb-10 text-center md:text-left">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+              TAILORING SERVICES
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+              Alterations, repairs, and custom adjustments — done properly.
+            </h2>
             <p className="mt-3 text-muted-foreground">
-              Clothing alterations, repairs, and custom adjustments — done properly.
+              Walk-ins welcome. No booking needed. Clear pricing, honest advice.
             </p>
           </div>
 
