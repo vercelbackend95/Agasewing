@@ -24,7 +24,13 @@ export function LocationMap() {
                   </p>
                   <p className="text-base">United Kingdom</p>
                 </div>
-                <p className="mt-4 text-sm font-medium text-slate-700">Mon–Sat: 9–5 • Sun: Closed</p>
+                <div className="mt-4 space-y-1 text-sm font-medium text-slate-700">
+                  <p>Mon-Wed 9:00 AM - 5:00 PM</p>
+                  <p>Thu Closed</p>
+                  <p>Fri - 9:00 AM - 5:00 PM</p>
+                  <p>Sat 9:00 AM - 2:00 PM</p>
+                  <p>Sun Closed</p>
+                </div>
                 <div className="mt-4 flex flex-wrap gap-2">
                   <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-700">Walk-ins only</span>
                   <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-700">Near Upper Parkstone</span>
