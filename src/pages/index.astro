@@ -1,6 +1,6 @@
 ---
 // src/pages/index.astro
-import "@/styles/global.css";
+import Layout from "@/layouts/Layout.astro";
 import { Navbar21 } from "@/components/sections/Navbar21";
 import { Hero13 } from "@/components/sections/Hero13";
 import { About15 } from "@/components/sections/About15";
@@ -17,16 +17,12 @@ import { Footer30 } from "@/components/sections/Footer30";
 const sectionPatternStyle = "url('/pictures/halftone.webp')";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Sewing at Aga's</title>
-  </head>
-  <body class="[&_h2]:!text-5xl [&_h2]:!font-medium [&_h2]:!tracking-tight">
+<Layout
+  title="Sewing at Aga's"
+  description="Friendly tailoring and clothing alterations in Poole, UK."
+  ogUrl="/"
+>
+  <div class="[&_h2]:!text-5xl [&_h2]:!font-medium [&_h2]:!tracking-tight">
     <Navbar21 client:load />
     <Hero13 client:load />
 
@@ -44,5 +40,5 @@ const sectionPatternStyle = "url('/pictures/halftone.webp')";
       <Contact16 />
       <Footer30 className="bg-transparent" />
     </main>
-  </body>
-</html>
+  </div>
+</Layout>

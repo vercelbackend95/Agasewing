@@ -1,3 +1,49 @@
 ---
 import "@/styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  ogUrl?: string;
+}
+
+const {
+  title = "Sewing at Aga's",
+  description = "Friendly tailoring and clothing alterations in Poole, UK.",
+  ogImage = "/og-image.png",
+  ogUrl,
+} = Astro.props;
+
+const resolvedOgImage = new URL(ogImage, Astro.site ?? Astro.url).toString();
+const resolvedOgUrl = new URL(ogUrl ?? Astro.url.pathname, Astro.site ?? Astro.url).toString();
 ---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Sewing at Aga's" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={resolvedOgImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content={resolvedOgUrl} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={resolvedOgImage} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
