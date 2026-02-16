@@ -10,8 +10,7 @@ import {
 const pricingCategories = [
   {
     title: "Jeans & Trousers",
-    image:
-      "/pictures/1.webp",
+    image: "/pictures/pricing/jeans-bg.webp",
     prices: [
       ["Jeans Shortening", "£13"],
       ["Original Hem", "£14"],
@@ -31,8 +30,7 @@ const pricingCategories = [
   },
   {
     title: "Shirts & Blouses",
-    image:
-      "/pictures/2.webp",
+    image: "/pictures/pricing/shirts-bg.webp",
     prices: [
       ["T-Shirt Length", "£14"],
       ["Sleeve Shortening", "£22"],
@@ -44,8 +42,7 @@ const pricingCategories = [
   },
   {
     title: "Bridal Dresses",
-    image:
-      "/pictures/3.webp",
+    image: "/pictures/pricing/bridal-bg.webp",
     prices: [
       ["Hem Shortening", "£30"],
       ["Side Adjustment", "£26"],
@@ -54,8 +51,7 @@ const pricingCategories = [
   },
   {
     title: "Skirts",
-    image:
-      "/pictures/4.webp",
+    image: "/pictures/pricing/skirts-bg.webp",
     prices: [
       ["Shortening", "£14"],
       ["Zip Replacement", "£18"],
@@ -64,8 +60,7 @@ const pricingCategories = [
   },
   {
     title: "Jackets & Coats",
-    image:
-      "/pictures/5.webp",
+    image: "/pictures/pricing/jackets-bg.webp",
     prices: [
       ["Zip Replacement", "£32"],
       ["Pocket Zip", "£22"],
@@ -78,8 +73,7 @@ const pricingCategories = [
   },
   {
     title: "Curtains",
-    image:
-      "/pictures/6.webp",
+    image: "/pictures/pricing/curtains-bg.webp",
     prices: [
       ["46\" Wide", "£38"],
       ["66\" Wide", "£45"],
