@@ -117,18 +117,50 @@ const getOpeningStatus = () => {
   return "🔴 Closed";
 };
 
+const getOpeningInsight = () => {
+  const { day, hour, minute } = getLondonNow();
+  const currentHours = OPENING_HOURS[day];
+  const currentTime = hour * 60 + minute;
+
+  if (currentHours) {
+    const openAt = currentHours.open * 60;
+    const closeAt = currentHours.close * 60;
+
+    if (currentTime >= openAt && currentTime < closeAt) {
+      return `Open now — closes ${formatHour(currentHours.close)}`;
+    }
+
+    if (currentTime < openAt) {
+      return `Closed now — opens ${formatHour(currentHours.open)}`;
+    }
+  }
+
+  for (let offset = 1; offset <= 7; offset += 1) {
+    const nextDay = (day + offset) % 7;
+    const nextHours = OPENING_HOURS[nextDay];
+
+    if (nextHours) {
+      return `Closed now — opens ${formatHour(nextHours.open)}`;
+    }
+  }
+
+  return "Closed";
+};
+
 const Hero13 = ({ className }: Hero13Props) => {
   const openingStatus = getOpeningStatus();
+  const openingInsight = getOpeningInsight();
   const [isHoursOpen, setIsHoursOpen] = useState(false);
+  const { day: todayIndex } = getLondonNow();
 
   const openingHoursRows = [
-    { day: "Monday", hours: "9am – 5pm" },
-    { day: "Tuesday", hours: "9am – 5pm" },
-    { day: "Wednesday", hours: "9am – 5pm" },
-    { day: "Thursday", hours: "Closed" },
-    { day: "Friday", hours: "9am – 5pm" },
-    { day: "Saturday", hours: "9am – 2pm" },
-    { day: "Sunday", hours: "Closed" },
+    { index: 1, day: "Monday", hours: "9am – 5pm" },
+    { index: 2, day: "Tuesday", hours: "9am – 5pm" },
+    { index: 3, day: "Wednesday", hours: "9am – 5pm" },
+    { index: 4, day: "Thursday", hours: "Closed" },
+    { index: 5, day: "Friday", hours: "9am – 5pm" },
+    { index: 6, day: "Saturday", hours: "9am – 2pm" },
+    { index: 0, day: "Sunday", hours: "Closed" },
   ];
 
   return (
@@ -157,22 +189,36 @@ const Hero13 = ({ className }: Hero13Props) => {
             View opening times
           </button>
 
-          {isHoursOpen ? (
-            <div
-              id="opening-hours-bubble"
-              className="absolute top-[calc(100%+0.75rem)] left-0 z-20 w-[min(20rem,90vw)] rounded-2xl border border-white/30 bg-black/85 p-4 shadow-xl backdrop-blur-sm"
-            >
-              <p className="mb-2 text-sm font-semibold">Opening times</p>
-              <ul className="space-y-1 text-xs text-white/90">
-                {openingHoursRows.map(({ day, hours }) => (
-                  <li key={day} className="flex items-center justify-between gap-4">
-                    <span>{day}</span>
-                    <span>{hours}</span>
-                  </li>
-                ))}
-              </ul>
+          <div
+            id="opening-hours-bubble"
+            className={cn(
+              "absolute top-[calc(100%+0.75rem)] left-0 z-20 w-[min(22rem,92vw)] rounded-2xl border border-white/35 bg-white/14 p-4 text-white backdrop-blur-md shadow-[0_20px_45px_rgba(0,0,0,0.35)]",
+              "origin-top-left transform-gpu transition-all duration-150 ease-out",
+              isHoursOpen ? "pointer-events-auto translate-y-0 opacity-100" : "pointer-events-none -translate-y-1 opacity-0",
+            )}
+          >
+            <div className="absolute -top-1.5 left-6 h-3 w-3 rotate-45 border-t border-l border-white/35 bg-white/14" aria-hidden="true" />
+            <p className="text-sm font-semibold">Opening times</p>
+            <p className="mt-1 mb-3 text-xs text-white/90">{openingInsight}</p>
+            <div className="space-y-1.5 text-xs">
+              {openingHoursRows.map(({ index, day, hours }) => (
+                <div
+                  key={day}
+                  className={cn(
+                    "grid grid-cols-[1fr_auto] items-center gap-4 rounded-lg px-2.5 py-1.5",
+                    index === todayIndex && "bg-[rgba(255,74,1,0.10)]",
+                  )}
+                >
+                  <span className="text-white/95">{day}</span>
+                  {hours === "Closed" ? (
+                    <span className="rounded-full border border-white/35 bg-white/15 px-2 py-0.5 text-[11px] font-medium tracking-wide text-white">Closed</span>
+                  ) : (
+                    <span className="text-white/90">{hours}</span>
+                  )}
+                </div>
+              ))}
             </div>
-          ) : null}
+          </div>
         </div>
 
         <h1 className="mb-6 text-4xl leading-none font-bold tracking-tighter md:text-[7vw] lg:text-8xl">
