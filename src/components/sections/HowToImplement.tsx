@@ -22,8 +22,11 @@ const HowToImplement = ({ className }: HowToImplementProps) => {
               HOW IT WORKS
             </span>
             <h2 className="mx-auto mt-3 max-w-[22ch] text-3xl font-semibold tracking-tight md:mx-0 md:max-w-none md:text-5xl">
-              3 simple steps. Perfect fit.
+              Three simple steps. Perfect fit.
             </h2>
+            <p className="mx-auto mt-3 max-w-[56ch] text-sm text-muted-foreground md:mx-0 md:text-base">
+              No booking. Just bring your item — we handle the fit, the fix, and the finish.
+            </p>
           </div>
         </div>
 
