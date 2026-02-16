@@ -16,9 +16,17 @@ const pricingCategories = [
       ["Jeans Shortening", "£13"],
       ["Original Hem", "£14"],
       ["Button Replacement", "£8"],
-      ["Taper Legs", "£16"],
-      ["Waist Adjustment", "£20"],
+      ["Taper Trousers Legs", "£22"],
+      ["Taper Jeans Legs", "£24"],
+      ["Waist Adjustment", "£22"],
+      ["Repairs", "£8"],
       ["Zip Replacement", "£16"],
+      ["Trousers Shortening", "£14"],
+      ["Suit Trousers", "£14"],
+      ["With Tape", "£15"],
+      ["Turn Ups", "£18"],
+      ["New Pocket (½)", "£14"],
+      ["New Full Pocket", "£22"],
     ],
   },
   {
@@ -26,10 +34,12 @@ const pricingCategories = [
     image:
       "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=2000&q=80",
     prices: [
-      ["Shorten Sleeves", "£12"],
-      ["Take In Sides", "£14"],
-      ["Collar Repair", "£10"],
-      ["Button Replacement", "£8"],
+      ["T-Shirt Length", "£14"],
+      ["Sleeve Shortening", "£22"],
+      ["Side Adjustment", "£12"],
+      ["Shirt Length", "£14"],
+      ["Shirt Sleeves", "£20"],
+      ["Shirt Sides", "£20"],
     ],
   },
   {
@@ -37,10 +47,9 @@ const pricingCategories = [
     image:
       "https://images.unsplash.com/photo-1594552072238-b8a33785b261?auto=format&fit=crop&w=2000&q=80",
     prices: [
-      ["Dress Shortening", "from £45"],
-      ["Take In Bodice", "from £55"],
-      ["Bustle", "from £35"],
-      ["Lace Repair", "from £28"],
+      ["Hem Shortening", "£30"],
+      ["Side Adjustment", "£26"],
+      ["Strap Shortening", "£14"],
     ],
   },
   {
@@ -48,10 +57,9 @@ const pricingCategories = [
     image:
       "https://images.unsplash.com/photo-1583496661160-fb5886a13d77?auto=format&fit=crop&w=2000&q=80",
     prices: [
-      ["Skirt Shortening", "£12"],
-      ["Zip Replacement", "£14"],
-      ["Take In Waist", "£16"],
-      ["Lining Repair", "£14"],
+      ["Shortening", "£14"],
+      ["Zip Replacement", "£18"],
+      ["Waist Adjustment", "£18"],
     ],
   },
   {
@@ -59,10 +67,13 @@ const pricingCategories = [
     image:
       "https://images.unsplash.com/photo-1544022613-e87ca75a784a?auto=format&fit=crop&w=2000&q=80",
     prices: [
-      ["Sleeve Shortening", "from £20"],
-      ["Zip Replacement", "from £22"],
-      ["Lining Repair", "from £24"],
-      ["Button Replacement", "£10"],
+      ["Zip Replacement", "£32"],
+      ["Pocket Zip", "£22"],
+      ["Sleeve Shortening", "£42"],
+      ["Coat Shortening", "£40"],
+      ["Length Adjustment", "£25"],
+      ["Side Adjustment", "£26"],
+      ["Back Adjustment", "£20"],
     ],
   },
   {
@@ -70,10 +81,10 @@ const pricingCategories = [
     image:
       "https://images.unsplash.com/photo-1616628182509-6c9818611434?auto=format&fit=crop&w=2000&q=80",
     prices: [
-      ["Shorten Curtains", "from £18"],
-      ["Add Lining", "from £20"],
-      ["Repair Hem", "£12"],
-      ["Tape Replacement", "£14"],
+      ["46\" Wide", "£38"],
+      ["66\" Wide", "£45"],
+      ["90\" Wide", "£50"],
+      ["Net per Metre", "£6"],
     ],
   },
 ];
