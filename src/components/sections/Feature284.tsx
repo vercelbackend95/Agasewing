@@ -49,7 +49,13 @@ const Feature284 = ({ className }: Feature284Props) => {
     <section className={cn("h-full overflow-hidden py-32", className)}>
       <div className="container mx-auto flex h-full w-full items-center justify-center px-4">
         <div className="w-full">
-          <div className="mb-10 rounded-[22px] border border-[rgba(78,100,235,0.14)] bg-[rgba(246,248,247,0.72)] p-5 text-center backdrop-blur-[8px] md:p-6 md:text-left">
+          <div
+            className="mb-10 rounded-[22px] border border-[rgba(78,100,235,0.12)] p-5 text-center backdrop-blur-[10px] md:p-6 md:text-left"
+            style={{
+              background:
+                "radial-gradient(circle at top right, rgba(167,180,241,0.18), rgba(167,180,241,0) 45%), rgba(246,248,247,0.72)",
+            }}
+          >
             <span className="inline-flex rounded-full border border-[#FF4A01]/25 bg-[#FF4A01]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#FF4A01]">
               TAILORING SERVICES
             </span>
