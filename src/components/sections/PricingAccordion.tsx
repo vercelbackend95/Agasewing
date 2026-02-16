@@ -92,20 +92,24 @@ const PricingAccordion = ({ className }: PricingAccordionProps) => {
     <section className={cn("py-20 md:py-24", className)} id="pricing">
       <div className="container mx-auto px-4">
         <div
-          className="mb-8 rounded-[22px] border border-[rgba(78,100,235,0.12)] p-5 text-center backdrop-blur-[10px] md:p-6 md:text-left"
+          className="mb-8 min-h-[150px] rounded-[24px] border border-[rgba(78,100,235,0.12)] px-5 py-4 text-center backdrop-blur-[10px] md:min-h-[190px] md:p-6 md:text-left lg:min-h-[220px] lg:px-10 lg:py-8"
           style={{
             background:
               "radial-gradient(circle at top right, rgba(167,180,241,0.18), rgba(167,180,241,0) 45%), rgba(246,248,247,0.72)",
           }}
         >
-          <span className="inline-flex rounded-full border border-[#FF4A01]/25 bg-[#FF4A01]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#FF4A01]">
-            PRICE GUIDE
-          </span>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-5xl">Clothing Alterations</h2>
-          <p className="mt-3 text-muted-foreground">
-            Clear starting prices for common alterations. Final cost confirmed at the fitting.
-          </p>
-          <p className="mt-2 text-xs text-muted-foreground">Prices may vary depending on fabric and complexity.</p>
+          <div className="mx-auto max-w-[64ch] md:mx-0">
+            <span className="inline-flex rounded-full border border-[#FF4A01]/25 bg-[#FF4A01]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#FF4A01]">
+              PRICE GUIDE
+            </span>
+            <h2 className="mx-auto mt-3 max-w-[22ch] text-3xl font-bold tracking-tight md:mx-0 md:max-w-none md:text-5xl">
+              Clothing Alterations
+            </h2>
+            <p className="mt-3 text-muted-foreground">
+              Clear starting prices for common alterations. Final cost confirmed at the fitting.
+            </p>
+            <p className="mt-2 text-xs text-muted-foreground">Prices may vary depending on fabric and complexity.</p>
+          </div>
         </div>
 
         <Accordion type="single" className="space-y-4">
