@@ -164,7 +164,7 @@ const Hero13 = ({ className }: Hero13Props) => {
   ];
 
   return (
-    <section id="hero" className={cn("relative overflow-hidden py-20 md:py-32", className)}>
+    <section id="hero" className={cn("relative overflow-visible py-20 md:overflow-hidden md:py-32", className)}>
       <video
         className="absolute inset-0 h-full w-full object-cover"
         autoPlay
