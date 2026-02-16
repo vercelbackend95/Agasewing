@@ -183,7 +183,7 @@ const Hero13 = ({ className }: Hero13Props) => {
 
         <p className="max-w-2xl text-white/90 md:text-[2vw] lg:text-xl">
           <TextAnimate animation="blurInUp" by="word" once>
-            Choosen by you, Fitted by me - Aga.
+            Chosen by you, fitted by me - Aga.
           </TextAnimate>
         </p>
 
