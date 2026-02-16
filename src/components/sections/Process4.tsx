@@ -42,7 +42,7 @@ const Process4 = ({ className }: Process4Props) => {
               {" "}
               Process
             </h1>
-            <p className="text-base text-foreground/50">
+            <p className="text-base leading-relaxed text-foreground/80">
               Walk in with your item — we measure, confirm the price, and issue your collection ticket. Bring the ticket back when
               you return to collect.
             </p>
@@ -75,7 +75,7 @@ const Process4 = ({ className }: Process4Props) => {
                   <h2 className="mb-4 font-bold tracking-tight lg:text-3xl">Step {index + 1}</h2>
                   <h3 className="mb-4 text-2xl font-semibold tracking-tighter lg:text-xl">{step.title}</h3>
                   <p className="mb-4 text-sm font-medium uppercase tracking-wide text-foreground/60">{step.subtitle}</p>
-                  <p className="line-clamp-3 text-foreground/50">{step.description}</p>
+                  <p className="line-clamp-3 leading-relaxed text-foreground/80">{step.description}</p>
                 </div>
               </li>
             ))}
