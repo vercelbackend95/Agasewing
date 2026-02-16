@@ -41,7 +41,6 @@ const Process4 = ({ className }: Process4Props) => {
             <h1 className="text-5xl font-semibold tracking-tight lg:text-7xl">
               {" "}
               Process
-              <sup className="align-top font-mono text-lg tracking-tight text-foreground/40">0003</sup>{" "}
             </h1>
             <p className="text-base text-foreground/50">
               Walk in with your item — we measure, confirm the price, and issue your collection ticket. Bring the ticket back when
@@ -54,7 +53,7 @@ const Process4 = ({ className }: Process4Props) => {
                 onMouseEnter={() => setActive(index)}
                 key={index}
                 className={cn(
-                  "relative mr-20 ml-auto flex w-full max-w-xl cursor-pointer flex-col justify-between gap-10 rounded-3xl bg-background p-10 md:flex-row lg:items-center",
+                  "relative mx-auto flex w-full max-w-xl cursor-pointer flex-col justify-between gap-10 rounded-3xl bg-background p-10 md:flex-row lg:items-center",
                   index === active ? "bg-background" : "lg:bg-transparent",
                 )}
               >
