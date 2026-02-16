@@ -50,17 +50,17 @@ const Feature284 = ({ className }: Feature284Props) => {
       <div className="container mx-auto flex h-full w-full items-center justify-center px-4">
         <div className="w-full">
           <div
-            className="mx-auto mb-10 w-full max-w-5xl min-h-[150px] rounded-[24px] border border-[rgba(78,100,235,0.12)] px-5 py-4 text-center backdrop-blur-[10px] md:min-h-[190px] md:p-6 md:text-left lg:min-h-[220px] lg:px-10 lg:py-8"
+            className="mb-10 w-full max-w-5xl min-h-[150px] rounded-[24px] border border-[rgba(78,100,235,0.12)] px-5 py-4 text-left backdrop-blur-[10px] md:min-h-[190px] md:p-6 lg:min-h-[220px] lg:px-10 lg:py-8"
             style={{
               background:
                 "radial-gradient(circle at top right, rgba(167,180,241,0.18), rgba(167,180,241,0) 45%), rgba(246,248,247,0.72)",
             }}
           >
-            <div className="mx-auto max-w-[64ch] md:mx-0">
+            <div className="max-w-[64ch]">
               <span className="inline-flex rounded-full border border-[#FF4A01]/25 bg-[#FF4A01]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#FF4A01]">
                 TAILORING SERVICES
               </span>
-              <h2 className="mx-auto mt-3 max-w-[22ch] text-3xl font-semibold tracking-tight sm:text-4xl md:mx-0 md:max-w-none">
+              <h2 className="mt-3 max-w-[22ch] text-3xl font-semibold tracking-tight sm:text-4xl md:max-w-none">
                 Alterations, repairs, and custom adjustments — done properly.
               </h2>
               <p className="mt-3 text-muted-foreground">
