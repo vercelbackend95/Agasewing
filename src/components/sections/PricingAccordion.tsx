@@ -102,7 +102,7 @@ const PricingAccordion = ({ className }: PricingAccordionProps) => {
         </p>
         <h2 className="mb-8 text-center text-3xl font-bold tracking-tight md:text-5xl">Clothing Alterations</h2>
 
-        <Accordion type="multiple" className="space-y-4">
+        <Accordion type="single" className="space-y-4">
           {pricingCategories.map((category, index) => (
             <AccordionItem
               key={category.title}
@@ -115,7 +115,7 @@ const PricingAccordion = ({ className }: PricingAccordionProps) => {
               </AccordionTrigger>
               <AccordionContent className="px-4 md:px-6">
                 <div className="max-w-xl origin-top rounded-2xl bg-white/85 p-3 shadow-[0_8px_30px_rgba(0,0,0,0.12)] backdrop-blur-[2px] transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none group-open:rounded-md group-open:bg-white/95 group-open:shadow-[0_14px_40px_rgba(0,0,0,0.2)] group-open:backdrop-blur-sm">
-                  <ul className="divide-y transition-[opacity,transform,filter] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none">
+                  <ul className="divide-y opacity-0 -translate-y-1 transition-[opacity,transform,filter] duration-500 ease-out motion-reduce:translate-y-0 motion-reduce:transition-none group-open:opacity-100 group-open:translate-y-0">
                     {category.prices.map(([name, price]) => (
                       <li key={name} className="flex items-center justify-between py-3 text-base">
                         <span className="text-neutral-700">{name}</span>
