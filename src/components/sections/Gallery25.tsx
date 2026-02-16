@@ -244,11 +244,11 @@ const Gallery25 = ({ className }: Gallery25Props) => {
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
             onClick={closeLightbox}
           >
-            <div className="relative" onClick={(event) => event.stopPropagation()}>
+            <div className="flex items-center gap-3" onClick={(event) => event.stopPropagation()}>
               <button
                 type="button"
                 aria-label="Previous image"
-                className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/20 px-3 py-2 text-white"
+                className="rounded-full bg-white/20 px-3 py-2 text-white"
                 onClick={showPreviousImage}
               >
                 ←
@@ -263,7 +263,7 @@ const Gallery25 = ({ className }: Gallery25Props) => {
               <button
                 type="button"
                 aria-label="Next image"
-                className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/20 px-3 py-2 text-white"
+                className="rounded-full bg-white/20 px-3 py-2 text-white"
                 onClick={showNextImage}
               >
                 →
