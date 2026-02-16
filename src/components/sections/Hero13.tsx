@@ -182,7 +182,7 @@ const Hero13 = ({ className }: Hero13Props) => {
           <button
             type="button"
             aria-expanded={isHoursOpen}
-            aria-controls="opening-hours-bubble"
+            aria-controls="opening-hours-panel"
             onClick={() => setIsHoursOpen((prev) => !prev)}
             className="text-xs text-white/90 underline underline-offset-4 transition-opacity hover:opacity-90"
           >
@@ -190,14 +190,61 @@ const Hero13 = ({ className }: Hero13Props) => {
           </button>
 
           <div
-            id="opening-hours-bubble"
+            id="opening-hours-panel"
             className={cn(
+              "hidden md:block",
               "absolute top-[calc(100%+0.75rem)] left-0 z-20 w-[min(22rem,92vw)] rounded-2xl border border-white/35 bg-white/14 p-4 text-white backdrop-blur-md shadow-[0_20px_45px_rgba(0,0,0,0.35)]",
               "origin-top-left transform-gpu transition-all duration-150 ease-out",
               isHoursOpen ? "pointer-events-auto translate-y-0 opacity-100" : "pointer-events-none -translate-y-1 opacity-0",
             )}
           >
             <div className="absolute -top-1.5 left-6 h-3 w-3 rotate-45 border-t border-l border-white/35 bg-white/14" aria-hidden="true" />
+            <p className="text-sm font-semibold">Opening times</p>
+            <p className="mt-1 mb-3 text-xs text-white/90">{openingInsight}</p>
+            <div className="space-y-1.5 text-xs">
+              {openingHoursRows.map(({ index, day, hours }) => (
+                <div
+                  key={day}
+                  className={cn(
+                    "grid grid-cols-[1fr_auto] items-center gap-4 rounded-lg px-2.5 py-1.5",
+                    index === todayIndex && "bg-[rgba(255,74,1,0.10)]",
+                  )}
+                >
+                  <span className="text-white/95">{day}</span>
+                  {hours === "Closed" ? (
+                    <span className="rounded-full border border-white/35 bg-white/15 px-2 py-0.5 text-[11px] font-medium tracking-wide text-white">Closed</span>
+                  ) : (
+                    <span className="text-white/90">{hours}</span>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div
+            className={cn(
+              "fixed inset-0 z-40 bg-black/45 backdrop-blur-[1px] transition-opacity duration-200 md:hidden",
+              isHoursOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0",
+            )}
+            aria-hidden="true"
+            onClick={() => setIsHoursOpen(false)}
+          />
+
+          <div
+            className={cn(
+              "fixed right-0 bottom-0 left-0 z-50 rounded-t-3xl border border-white/20 bg-[rgba(14,14,14,0.96)] p-5 text-white shadow-[0_-20px_50px_rgba(0,0,0,0.45)] transition-transform duration-300 ease-out md:hidden",
+              isHoursOpen ? "translate-y-0" : "translate-y-full",
+            )}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Opening times"
+          >
+            <button
+              type="button"
+              aria-label="Close opening times"
+              className="mx-auto mb-4 block h-1.5 w-12 rounded-full bg-white/30"
+              onClick={() => setIsHoursOpen(false)}
+            />
             <p className="text-sm font-semibold">Opening times</p>
             <p className="mt-1 mb-3 text-xs text-white/90">{openingInsight}</p>
             <div className="space-y-1.5 text-xs">
