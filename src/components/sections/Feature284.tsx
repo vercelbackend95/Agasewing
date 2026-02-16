@@ -50,9 +50,9 @@ const Feature284 = ({ className }: Feature284Props) => {
       <div className="container mx-auto flex h-full w-full items-center justify-center px-4">
         <div className="w-full">
           <div className="mb-10 text-center md:text-left">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+            <span className="inline-flex rounded-full border border-[#FF4A01]/25 bg-[#FF4A01]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#FF4A01]">
               TAILORING SERVICES
-            </p>
+            </span>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
               Alterations, repairs, and custom adjustments — done properly.
             </h2>
