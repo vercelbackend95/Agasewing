@@ -1,6 +1,6 @@
 // src/components/sections/Hero13.tsx
 import { PlayCircle } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { AvatarCircles } from "@/components/ui/avatar-circles";
 import { TextAnimate } from "@/registry/magicui/text-animate";
@@ -12,46 +12,27 @@ interface Hero13Props {
 }
 
 const avatars = [
-  {
-    imageUrl: "https://avatars.githubusercontent.com/u/16860528",
-    profileUrl: "https://github.com/dillionverma",
-  },
-  {
-    imageUrl: "https://avatars.githubusercontent.com/u/20110627",
-    profileUrl: "https://github.com/tomonarifeehan",
-  },
-  {
-    imageUrl: "https://avatars.githubusercontent.com/u/106103625",
-    profileUrl: "https://github.com/BankkRoll",
-  },
-  {
-    imageUrl: "https://avatars.githubusercontent.com/u/59228569",
-    profileUrl: "https://github.com/safethecode",
-  },
-  {
-    imageUrl: "https://avatars.githubusercontent.com/u/59442788",
-    profileUrl: "https://github.com/sanjay-mali",
-  },
-  {
-    imageUrl: "https://avatars.githubusercontent.com/u/89768406",
-    profileUrl: "https://github.com/itsarghyadas",
-  },
+  { imageUrl: "https://avatars.githubusercontent.com/u/16860528", profileUrl: "https://github.com/dillionverma" },
+  { imageUrl: "https://avatars.githubusercontent.com/u/20110627", profileUrl: "https://github.com/tomonarifeehan" },
+  { imageUrl: "https://avatars.githubusercontent.com/u/106103625", profileUrl: "https://github.com/BankkRoll" },
+  { imageUrl: "https://avatars.githubusercontent.com/u/59228569", profileUrl: "https://github.com/safethecode" },
+  { imageUrl: "https://avatars.githubusercontent.com/u/59442788", profileUrl: "https://github.com/sanjay-mali" },
+  { imageUrl: "https://avatars.githubusercontent.com/u/89768406", profileUrl: "https://github.com/itsarghyadas" },
 ];
 
 const OPENING_HOURS: Record<number, { open: number; close: number } | null> = {
-  0: null,
-  1: { open: 9, close: 17 },
-  2: { open: 9, close: 17 },
-  3: { open: 9, close: 17 },
-  4: null,
-  5: { open: 9, close: 17 },
-  6: { open: 9, close: 14 },
+  0: null, // Sun
+  1: { open: 9, close: 17 }, // Mon
+  2: { open: 9, close: 17 }, // Tue
+  3: { open: 9, close: 17 }, // Wed
+  4: null, // Thu
+  5: { open: 9, close: 17 }, // Fri
+  6: { open: 9, close: 14 }, // Sat
 };
 
 const formatHour = (hour: number) => {
   const period = hour >= 12 ? "pm" : "am";
   const twelveHour = hour % 12 || 12;
-
   return `${twelveHour}${period}`;
 };
 
@@ -93,7 +74,6 @@ const getOpeningStatus = () => {
     if (currentTime >= openAt && currentTime < closeAt) {
       return `🟢 Open now • Closes at ${formatHour(currentHours.close)}`;
     }
-
     if (currentTime < openAt) {
       return `🔴 Closed • Opens at ${formatHour(currentHours.open)}`;
     }
@@ -102,15 +82,9 @@ const getOpeningStatus = () => {
   for (let offset = 1; offset <= 7; offset += 1) {
     const nextDay = (day + offset) % 7;
     const nextHours = OPENING_HOURS[nextDay];
+    if (!nextHours) continue;
 
-    if (!nextHours) {
-      continue;
-    }
-
-    if (offset === 1) {
-      return `🔴 Closed • Opens tomorrow ${formatHour(nextHours.open)}`;
-    }
-
+    if (offset === 1) return `🔴 Closed • Opens tomorrow ${formatHour(nextHours.open)}`;
     return `🔴 Closed • Opens at ${formatHour(nextHours.open)}`;
   }
 
@@ -126,59 +100,78 @@ const getOpeningInsight = () => {
     const openAt = currentHours.open * 60;
     const closeAt = currentHours.close * 60;
 
-    if (currentTime >= openAt && currentTime < closeAt) {
-      return `Open now — closes ${formatHour(currentHours.close)}`;
-    }
-
-    if (currentTime < openAt) {
-      return `Closed now — opens ${formatHour(currentHours.open)}`;
-    }
+    if (currentTime >= openAt && currentTime < closeAt) return `Open now — closes ${formatHour(currentHours.close)}`;
+    if (currentTime < openAt) return `Closed now — opens ${formatHour(currentHours.open)}`;
   }
 
   for (let offset = 1; offset <= 7; offset += 1) {
     const nextDay = (day + offset) % 7;
     const nextHours = OPENING_HOURS[nextDay];
-
-    if (nextHours) {
-      return `Closed now — opens ${formatHour(nextHours.open)}`;
-    }
+    if (nextHours) return `Closed now — opens ${formatHour(nextHours.open)}`;
   }
 
   return "Closed";
 };
 
 const Hero13 = ({ className }: Hero13Props) => {
+  const [isHoursOpen, setIsHoursOpen] = useState(false);
+
+  // Compute live strings on render (cheap) and memoize rows (static)
   const openingStatus = getOpeningStatus();
   const openingInsight = getOpeningInsight();
-  const [isHoursOpen, setIsHoursOpen] = useState(false);
   const { day: todayIndex } = getLondonNow();
 
-  const openingHoursRows = [
-    { index: 1, day: "Monday", hours: "9am – 5pm" },
-    { index: 2, day: "Tuesday", hours: "9am – 5pm" },
-    { index: 3, day: "Wednesday", hours: "9am – 5pm" },
-    { index: 4, day: "Thursday", hours: "Closed" },
-    { index: 5, day: "Friday", hours: "9am – 5pm" },
-    { index: 6, day: "Saturday", hours: "9am – 2pm" },
-    { index: 0, day: "Sunday", hours: "Closed" },
-  ];
+  const openingHoursRows = useMemo(
+    () => [
+      { index: 1, day: "Monday", hours: "9am – 5pm" },
+      { index: 2, day: "Tuesday", hours: "9am – 5pm" },
+      { index: 3, day: "Wednesday", hours: "9am – 5pm" },
+      { index: 4, day: "Thursday", hours: "Closed" },
+      { index: 5, day: "Friday", hours: "9am – 5pm" },
+      { index: 6, day: "Saturday", hours: "9am – 2pm" },
+      { index: 0, day: "Sunday", hours: "Closed" },
+    ],
+    [],
+  );
+
+  // Lock background scroll on mobile when sheet is open
+  useEffect(() => {
+    if (!isHoursOpen) return;
+
+    document.documentElement.classList.add("sheet-open");
+    document.body.classList.add("sheet-open");
+
+    return () => {
+      document.documentElement.classList.remove("sheet-open");
+      document.body.classList.remove("sheet-open");
+    };
+  }, [isHoursOpen]);
+
+  // Close on Escape (nice UX)
+  useEffect(() => {
+    if (!isHoursOpen) return;
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsHoursOpen(false);
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isHoursOpen]);
 
   return (
     <section id="hero" className={cn("relative overflow-visible py-20 md:overflow-hidden md:py-32", className)}>
-      <video
-        className="absolute inset-0 h-full w-full object-cover"
-        autoPlay
-        muted
-        loop
-        playsInline
-      >
+      <video className="absolute inset-0 h-full w-full object-cover" autoPlay muted loop playsInline>
         <source src="/agasewingclip.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-black/45" aria-hidden="true" />
 
       <div className="container relative z-10 mx-auto px-4 text-white">
-        <div className="relative mb-4 inline-flex max-w-full items-center gap-2 rounded-full border px-2 py-1 text-sm font-normal lg:mb-10 lg:py-2 lg:px-5">
+        {/* STATUS PILL */}
+        <div className="relative mb-4 inline-flex max-w-full items-center gap-2 rounded-full border px-2 py-1 text-sm font-normal lg:mb-10 lg:px-5 lg:py-2">
           <p className="truncate whitespace-nowrap">{openingStatus}</p>
+
+          {/* Desktop popover can stay if you want; mobile uses sheet */}
           <button
             type="button"
             aria-expanded={isHoursOpen}
@@ -189,18 +182,20 @@ const Hero13 = ({ className }: Hero13Props) => {
             View opening times
           </button>
 
+          {/* Desktop POPOVER */}
           <div
             id="opening-hours-panel"
             className={cn(
               "hidden md:block",
-              "absolute top-[calc(100%+0.75rem)] left-0 z-20 w-[min(22rem,92vw)] rounded-2xl border border-white/35 bg-white/14 p-4 text-white backdrop-blur-md shadow-[0_20px_45px_rgba(0,0,0,0.35)]",
+              "absolute left-0 top-[calc(100%+0.75rem)] z-20 w-[min(22rem,92vw)] rounded-2xl border border-white/35 bg-white/14 p-4 text-white backdrop-blur-md shadow-[0_20px_45px_rgba(0,0,0,0.35)]",
               "origin-top-left transform-gpu transition-all duration-150 ease-out",
               isHoursOpen ? "pointer-events-auto translate-y-0 opacity-100" : "pointer-events-none -translate-y-1 opacity-0",
             )}
           >
-            <div className="absolute -top-1.5 left-6 h-3 w-3 rotate-45 border-t border-l border-white/35 bg-white/14" aria-hidden="true" />
+            <div className="absolute -top-1.5 left-6 h-3 w-3 rotate-45 border-l border-t border-white/35 bg-white/14" aria-hidden="true" />
             <p className="text-sm font-semibold">Opening times</p>
-            <p className="mt-1 mb-3 text-xs text-white/90">{openingInsight}</p>
+            <p className="mb-3 mt-1 text-xs text-white/90">{openingInsight}</p>
+
             <div className="space-y-1.5 text-xs">
               {openingHoursRows.map(({ index, day, hours }) => (
                 <div
@@ -212,53 +207,9 @@ const Hero13 = ({ className }: Hero13Props) => {
                 >
                   <span className="text-white/95">{day}</span>
                   {hours === "Closed" ? (
-                    <span className="rounded-full border border-white/35 bg-white/15 px-2 py-0.5 text-[11px] font-medium tracking-wide text-white">Closed</span>
-                  ) : (
-                    <span className="text-white/90">{hours}</span>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div
-            className={cn(
-              "fixed inset-0 z-40 bg-black/45 backdrop-blur-[1px] transition-opacity duration-200 md:hidden",
-              isHoursOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0",
-            )}
-            aria-hidden="true"
-            onClick={() => setIsHoursOpen(false)}
-          />
-
-          <div
-            className={cn(
-              "fixed right-0 bottom-0 left-0 z-50 rounded-t-3xl border border-white/20 bg-[rgba(14,14,14,0.96)] p-5 text-white shadow-[0_-20px_50px_rgba(0,0,0,0.45)] transition-transform duration-300 ease-out md:hidden",
-              isHoursOpen ? "translate-y-0" : "translate-y-full",
-            )}
-            role="dialog"
-            aria-modal="true"
-            aria-label="Opening times"
-          >
-            <button
-              type="button"
-              aria-label="Close opening times"
-              className="mx-auto mb-4 block h-1.5 w-12 rounded-full bg-white/30"
-              onClick={() => setIsHoursOpen(false)}
-            />
-            <p className="text-sm font-semibold">Opening times</p>
-            <p className="mt-1 mb-3 text-xs text-white/90">{openingInsight}</p>
-            <div className="space-y-1.5 text-xs">
-              {openingHoursRows.map(({ index, day, hours }) => (
-                <div
-                  key={day}
-                  className={cn(
-                    "grid grid-cols-[1fr_auto] items-center gap-4 rounded-lg px-2.5 py-1.5",
-                    index === todayIndex && "bg-[rgba(255,74,1,0.10)]",
-                  )}
-                >
-                  <span className="text-white/95">{day}</span>
-                  {hours === "Closed" ? (
-                    <span className="rounded-full border border-white/35 bg-white/15 px-2 py-0.5 text-[11px] font-medium tracking-wide text-white">Closed</span>
+                    <span className="rounded-full border border-white/35 bg-white/15 px-2 py-0.5 text-[11px] font-medium tracking-wide text-white">
+                      Closed
+                    </span>
                   ) : (
                     <span className="text-white/90">{hours}</span>
                   )}
@@ -268,7 +219,8 @@ const Hero13 = ({ className }: Hero13Props) => {
           </div>
         </div>
 
-        <h1 className="mb-6 text-4xl leading-none font-bold tracking-tighter md:text-[7vw] lg:text-8xl">
+        {/* HERO TEXT */}
+        <h1 className="mb-6 text-4xl font-bold leading-none tracking-tighter md:text-[7vw] lg:text-8xl">
           <TextAnimate animation="blurInUp" by="character" once>
             Sewing at Aga&apos;s
           </TextAnimate>
@@ -293,6 +245,7 @@ const Hero13 = ({ className }: Hero13Props) => {
           >
             Message
           </InteractiveHoverButton>
+
           <a
             href="#gallery"
             className="inline-flex w-full items-center justify-center rounded-md border border-white/70 px-6 py-3 text-sm font-medium transition-colors hover:bg-white/15 md:w-auto"
@@ -304,6 +257,81 @@ const Hero13 = ({ className }: Hero13Props) => {
 
         <div className="mt-6">
           <AvatarCircles numPeople={99} avatarUrls={avatars} />
+        </div>
+      </div>
+
+      {/* =========================
+          MOBILE-ONLY BOTTOM SHEET
+          (rendered outside the pill to avoid stacking-context issues)
+         ========================= */}
+
+      {/* Backdrop */}
+      <div
+        className={cn(
+          "fixed inset-0 z-[9998] bg-black/55 backdrop-blur-[2px] transition-opacity duration-200 md:hidden",
+          isHoursOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0",
+        )}
+        aria-hidden="true"
+        onClick={() => setIsHoursOpen(false)}
+      />
+
+      {/* Sheet */}
+      <div
+        className={cn(
+          "fixed inset-x-0 bottom-0 z-[9999] rounded-t-3xl border border-white/20 bg-[#0e0e0e] p-5 text-white shadow-[0_-20px_50px_rgba(0,0,0,0.45)] transition-transform duration-300 ease-out md:hidden",
+          isHoursOpen ? "translate-y-0" : "translate-y-full",
+        )}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Opening times"
+      >
+        {/* Handle */}
+        <button
+          type="button"
+          aria-label="Close opening times"
+          className="mx-auto mb-4 block h-1.5 w-12 rounded-full bg-white/30"
+          onClick={() => setIsHoursOpen(false)}
+        />
+
+        <p className="text-sm font-semibold">Opening times</p>
+        <p className="mb-3 mt-1 text-xs text-white/90">{openingInsight}</p>
+
+        <div className="space-y-1.5 text-xs">
+          {openingHoursRows.map(({ index, day, hours }) => (
+            <div
+              key={day}
+              className={cn(
+                "grid grid-cols-[1fr_auto] items-center gap-4 rounded-lg px-2.5 py-1.5",
+                index === todayIndex && "bg-[rgba(255,74,1,0.10)]",
+              )}
+            >
+              <span className="text-white/95">{day}</span>
+              {hours === "Closed" ? (
+                <span className="rounded-full border border-white/35 bg-white/15 px-2 py-0.5 text-[11px] font-medium tracking-wide text-white">
+                  Closed
+                </span>
+              ) : (
+                <span className="text-white/90">{hours}</span>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* Small actions */}
+        <div className="mt-5 grid grid-cols-2 gap-3">
+          <a
+            href="tel:+447514776088"
+            className="inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm font-medium"
+          >
+            Call
+          </a>
+          <button
+            type="button"
+            onClick={() => setIsHoursOpen(false)}
+            className="inline-flex items-center justify-center rounded-xl bg-white px-4 py-3 text-sm font-semibold text-black"
+          >
+            Done
+          </button>
         </div>
       </div>
     </section>
