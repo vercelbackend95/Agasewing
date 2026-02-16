@@ -13,7 +13,7 @@ const About15 = ({ className }: About15Props) => {
   };
 
   return (
-    <section id="about" className={cn("bg-white py-32 text-black", className)} style={patternBackgroundStyle}>
+    <section id="about" className={cn("bg-white py-32 text-[#2A2F3A]", className)} style={patternBackgroundStyle}>
       <div className="container mx-auto flex flex-col items-center justify-center gap-25 px-4 lg:flex-row lg:gap-[10vw]">
         <div className="w-xs rotate-[-6deg] border bg-white p-1">
           <img
@@ -23,8 +23,8 @@ const About15 = ({ className }: About15Props) => {
           />
 
           <div className="pt-2 pb-1">
-            <p className="text-lg font-medium tracking-tight text-neutral-950">Aga</p>
-            <p className="text-sm text-neutral-950/50">
+            <p className="text-lg font-medium tracking-tight text-[#14161B]">Aga</p>
+            <p className="text-sm text-[#5E6676]">
               <a href="https://www.facebook.com/Sewingataga/" target="_blank" rel="noreferrer">
                 @sewingataga
               </a>
@@ -32,12 +32,12 @@ const About15 = ({ className }: About15Props) => {
           </div>
         </div>
         <div className="w-full max-w-[21.25rem] space-y-6">
-          <h2 className="mb-15 text-5xl font-medium tracking-tight">
+          <h2 className="mb-15 text-5xl font-medium tracking-tight text-[#14161B]">
             <TextAnimate animation="blurInUp" by="word" once>
               Your local tailor for the perfect fit.
             </TextAnimate>
           </h2>
-          <p className="text-sm lg:text-base">
+          <p className="text-sm text-[#2A2F3A] lg:text-base">
             I have been working in the tailoring industry for 30 years, during which I have crafted both women’s and
             men’s clothing. For 4 years, I specialized in sewing leather garments. Over the past 13 years, I have
             focused on clothing alterations, which bring me immense satisfaction and allow me to express my creativity

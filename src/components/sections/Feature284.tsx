@@ -60,10 +60,10 @@ const Feature284 = ({ className }: Feature284Props) => {
               <span className="inline-flex rounded-full border border-[#FF4A01]/25 bg-[#FF4A01]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#FF4A01]">
                 TAILORING SERVICES
               </span>
-              <h2 className="mt-3 max-w-[22ch] text-3xl font-semibold tracking-tight sm:text-4xl md:max-w-none">
+              <h2 className="mt-3 max-w-[22ch] text-3xl font-semibold tracking-tight text-[#14161B] sm:text-4xl md:max-w-none">
                 Alterations, repairs, and custom adjustments — done properly.
               </h2>
-              <p className="mt-3 text-muted-foreground">
+              <p className="mt-3 text-[#2A2F3A]">
                 Walk-ins welcome. No booking needed. Clear pricing, honest advice.
               </p>
             </div>
@@ -100,8 +100,8 @@ const Feature284 = ({ className }: Feature284Props) => {
                     className="pointer-events-none h-full w-full object-cover"
                   />
                 </div>
-                <h3 className="mt-4 text-2xl font-semibold tracking-tight">{feature.title}</h3>
-                <p className="text-muted-foreground">{feature.desc}</p>
+                <h3 className="mt-4 text-2xl font-semibold tracking-tight text-[#14161B]">{feature.title}</h3>
+                <p className="text-[#2A2F3A]">{feature.desc}</p>
               </motion.div>
             ))}
           </div>
