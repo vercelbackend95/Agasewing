@@ -7,7 +7,7 @@ import { GlowingEffect } from "@/components/aceternity/glowing-effect";
 
 const featureData = [
   {
-    desc: "Perfect fit, without the fuss. We adjust hems, waists and seams so your clothes sit exactly the way they should.",
+    desc: "Clean hems, precise waists, smooth seams — a fit that feels made for you.",
     img: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img1.jpeg",
     title: "Tailoring alterations",
     gridClass: "md:col-span-1",
@@ -19,7 +19,7 @@ const featureData = [
     gridClass: "lg:col-span-2",
   },
   {
-    desc: "Made to measure for your space. Clean lines, beautiful drape, and finishing details that make a room feel finished.",
+    desc: "Made-to-measure curtains with beautiful drape, clean lines, and a polished finish.",
     img: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img11.jpeg",
     title: "Custom curtains",
     gridClass: "md:col-span-1 lg:row-span-2",
@@ -31,7 +31,7 @@ const featureData = [
     gridClass: "lg:col-span-2",
   },
   {
-    desc: "Refresh and revive worn pieces with tailored fabric work. Ideal for seats, cushions and small upholstery fixes that make furniture feel new again.",
+    desc: "Freshen seats and cushions with tailored upholstery repairs and neat fabric finishes.",
     img: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img4.jpeg",
     title: "Furniture upholstery",
     gridClass: "md:col-span-1",
