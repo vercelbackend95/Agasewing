@@ -10,21 +10,23 @@ interface Process4Props {
 const Process4 = ({ className }: Process4Props) => {
   const process = [
     {
-      title: "Choose your plan",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et",
+      title: "Walk in with your item",
+      subtitle: "No booking needed",
+      description: "Bring your garment. We’ll check what needs doing, discuss the finish you want, and take measurements.",
       image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri4/img14.png",
     },
     {
-      title: "Submit your Request",
+      title: "We pin, measure & issue your ticket",
+      subtitle: "Clear quote on the spot",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et",
+        "We mark the alterations, confirm the price before we start, and give you a collection ticket with your job details.",
       image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri4/img10.png",
     },
     {
-      title: "Get your project done",
+      title: "Collect your items",
+      subtitle: "Ticket required for collection",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et",
+        "Return when it’s ready and show your collection ticket at the counter. We’ll hand over your finished items — neat, fitted, and properly done.",
       image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri4/img11.png",
     },
   ];
@@ -42,8 +44,8 @@ const Process4 = ({ className }: Process4Props) => {
               <sup className="align-top font-mono text-lg tracking-tight text-foreground/40">0003</sup>{" "}
             </h1>
             <p className="text-base text-foreground/50">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime amet dolorem eum est voluptatem id repellendus ut
-              laborum laboriosam debitis.
+              Walk in with your item — we measure, confirm the price, and issue your collection ticket. Bring the ticket back when
+              you return to collect.
             </p>
           </div>
           <ul className="relative col-span-4 w-full space-y-10">
@@ -73,7 +75,8 @@ const Process4 = ({ className }: Process4Props) => {
                 <div>
                   <h2 className="mb-4 font-bold tracking-tight lg:text-3xl">Step {index + 1}</h2>
                   <h3 className="mb-4 text-2xl font-semibold tracking-tighter lg:text-xl">{step.title}</h3>
-                  <p className="line-clamp-2 text-foreground/50">{step.description}</p>
+                  <p className="mb-4 text-sm font-medium uppercase tracking-wide text-foreground/60">{step.subtitle}</p>
+                  <p className="line-clamp-3 text-foreground/50">{step.description}</p>
                 </div>
               </li>
             ))}
