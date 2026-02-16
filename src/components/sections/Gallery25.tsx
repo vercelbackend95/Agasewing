@@ -244,36 +244,31 @@ const Gallery25 = ({ className }: Gallery25Props) => {
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
             onClick={closeLightbox}
           >
-            <button
-              type="button"
-              aria-label="Previous image"
-              className="absolute left-4 rounded-full bg-white/20 px-3 py-2 text-white"
-              onClick={(event) => {
-                event.stopPropagation();
-                showPreviousImage();
-              }}
-            >
-              ←
-            </button>
+            <div className="relative" onClick={(event) => event.stopPropagation()}>
+              <button
+                type="button"
+                aria-label="Previous image"
+                className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/20 px-3 py-2 text-white"
+                onClick={showPreviousImage}
+              >
+                ←
+              </button>
 
-            <img
-              className="max-h-[90vh] max-w-[90vw] rounded-2xl object-contain"
-              src={allImages[activeImageIndex].src}
-              alt={allImages[activeImageIndex].alt}
-              onClick={(event) => event.stopPropagation()}
-            />
+              <img
+                className="max-h-[90vh] max-w-[90vw] rounded-2xl object-contain"
+                src={allImages[activeImageIndex].src}
+                alt={allImages[activeImageIndex].alt}
+              />
 
-            <button
-              type="button"
-              aria-label="Next image"
-              className="absolute right-4 rounded-full bg-white/20 px-3 py-2 text-white"
-              onClick={(event) => {
-                event.stopPropagation();
-                showNextImage();
-              }}
-            >
-              →
-            </button>
+              <button
+                type="button"
+                aria-label="Next image"
+                className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/20 px-3 py-2 text-white"
+                onClick={showNextImage}
+              >
+                →
+              </button>
+            </div>
 
             <button
               type="button"
