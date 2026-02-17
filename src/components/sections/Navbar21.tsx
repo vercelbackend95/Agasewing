@@ -57,7 +57,7 @@ const Navbar21 = ({ className }: Navbar21Props) => {
         <div className="z-50">
           <button
             onClick={toggleMenu}
-            className="text-lg tracking-wider text-foreground transition-colors hover:text-muted-foreground"
+            className="text-lg tracking-wider text-[#2A2F3A] transition-colors hover:text-[#14161B]"
           >
             <AnimatePresence mode="wait">
               <motion.span
@@ -105,7 +105,7 @@ const Navbar21 = ({ className }: Navbar21Props) => {
                       className="group relative inline-block"
                     >
                       <motion.span
-                        className="relative z-10 text-4xl font-black text-foreground uppercase transition-transform duration-300 md:text-6xl"
+                        className="relative z-10 text-4xl font-black text-[#14161B] uppercase transition-transform duration-300 md:text-6xl"
                         initial={{ opacity: 1, filter: "blur(0px)" }}
                         whileHover={{ opacity: 0.8, filter: "blur(6px)" }}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -136,7 +136,7 @@ const Navbar21 = ({ className }: Navbar21Props) => {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center gap-2 font-sans text-sm tracking-wider text-muted-foreground transition-colors hover:text-foreground"
+                    className="group flex items-center gap-2 font-sans text-sm tracking-wider text-[#5E6676] transition-colors hover:text-[#2A2F3A]"
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.8 + index * 0.1, duration: 0.3 }}

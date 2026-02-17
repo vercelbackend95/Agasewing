@@ -13,7 +13,7 @@ const Cta1 = ({ className }: Cta1Props) => {
 
   return (
     <section className={cn("py-32", className)}>
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4">
         <div
           className="mx-auto flex w-full flex-col items-center justify-between rounded-xl border border-[rgba(78,100,235,0.12)] bg-white pb-0 text-center shadow-sm md:w-3/4 md:flex-row md:py-6"
           style={bannerBackgroundStyle}

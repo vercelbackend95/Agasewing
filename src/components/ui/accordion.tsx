@@ -93,7 +93,7 @@ interface AccordionContentProps {
 const AccordionContent = ({ children, className }: AccordionContentProps) => {
   return (
     <div
-      className="grid grid-rows-[0fr] opacity-0 blur-[2px] -translate-y-1 transition-[grid-template-rows,opacity,transform,filter] duration-500 ease-out motion-reduce:translate-y-0 motion-reduce:blur-none motion-reduce:transition-none group-open:grid-rows-[1fr] group-open:opacity-100 group-open:translate-y-0 group-open:blur-none"
+      className="grid grid-rows-[0fr] opacity-0 -translate-y-1 transition-[grid-template-rows,opacity,transform] duration-300 ease-out motion-reduce:translate-y-0 motion-reduce:transition-none group-open:grid-rows-[1fr] group-open:opacity-100 group-open:translate-y-0"
     >
       <div className={cn("overflow-hidden pb-5", className)}>{children}</div>
     </div>

@@ -49,9 +49,15 @@ const Process4 = ({ className }: Process4Props) => {
           </div>
           <ul className="relative col-span-4 w-full space-y-10">
             {process.map((step, index) => (
-              <li
+              <motion.li
                 onMouseEnter={() => setActive(index)}
+                onViewportEnter={() => {
+                  if (typeof window !== "undefined" && window.matchMedia("(max-width: 1023px)").matches) {
+                    setActive(index);
+                  }
+                }}
                 key={index}
+                viewport={{ amount: 0.6 }}
                 className={cn(
                   "relative mx-auto flex w-full max-w-xl cursor-pointer flex-col justify-between gap-10 rounded-3xl bg-background p-10 md:flex-row lg:items-center",
                   index === active ? "bg-background" : "lg:bg-transparent",
@@ -77,7 +83,7 @@ const Process4 = ({ className }: Process4Props) => {
                   <p className="mb-4 text-sm font-medium uppercase tracking-wide text-[#5E6676]">{step.subtitle}</p>
                   <p className="line-clamp-3 leading-relaxed text-[#2A2F3A]">{step.description}</p>
                 </div>
-              </li>
+              </motion.li>
             ))}
           </ul>
         </div>

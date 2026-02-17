@@ -9,10 +9,10 @@ const TermsOfServiceSection = ({ className }: TermsOfServiceSectionProps) => {
   return (
     <section className={cn("py-16", className)}>
       <div className="mx-auto w-full max-w-4xl px-4 md:px-6">
-        <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">Terms of Service</h1>
+        <h1 className="text-3xl font-semibold tracking-tight text-[#14161B] md:text-4xl">Terms of Service</h1>
 
-        <div className="mt-8 space-y-6 text-sm leading-relaxed text-foreground/90 md:text-base">
-          <p>Last updated: 13 February 2026</p>
+        <div className="mt-8 space-y-6 text-sm leading-relaxed text-[#2A2F3A] md:text-base">
+          <p className="text-[#5E6676]">Last updated: 13 February 2026</p>
           <p>
             These Terms of Service (“Terms”) explain how Sewing At Aga’s (“we”, “us”, “our”) provides
             tailoring and alterations services to you (“you”, “customer”). By using our website,
@@ -20,7 +20,7 @@ const TermsOfServiceSection = ({ className }: TermsOfServiceSectionProps) => {
           </p>
 
           <div>
-            <h2 className="text-xl font-semibold tracking-tight">1) About us</h2>
+            <h2 className="text-xl font-semibold tracking-tight text-[#14161B]">1) About us</h2>
             <p>Business name: Sewing At Aga’s</p>
             <p>Address: 4 Victoria Rd, Poole BH12 3BB, United Kingdom</p>
             <p>Phone/WhatsApp: 07514 776088</p>
@@ -28,7 +28,7 @@ const TermsOfServiceSection = ({ className }: TermsOfServiceSectionProps) => {
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold tracking-tight">2) Our services</h2>
+            <h2 className="text-xl font-semibold tracking-tight text-[#14161B]">2) Our services</h2>
             <p>
               We provide clothing alterations and tailoring services such as (examples): hems, waist
               adjustments, zip replacements, repairs, and related sewing work.
@@ -42,7 +42,7 @@ const TermsOfServiceSection = ({ className }: TermsOfServiceSectionProps) => {
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold tracking-tight">3) Walk-ins, enquiries, and availability</h2>
+            <h2 className="text-xl font-semibold tracking-tight text-[#14161B]">3) Walk-ins, enquiries, and availability</h2>
             <p>We operate on a walk-in basis unless we explicitly agree otherwise in writing.</p>
             <p>
               Any times or estimates we share are best-effort and may change due to workload,
@@ -51,7 +51,7 @@ const TermsOfServiceSection = ({ className }: TermsOfServiceSectionProps) => {
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold tracking-tight">4) Quotes and pricing</h2>
+            <h2 className="text-xl font-semibold tracking-tight text-[#14161B]">4) Quotes and pricing</h2>
             <p>Prices may be shown on the website or discussed in person.</p>
             <p>Quotes are estimates based on what we can see at the time.</p>
             <p>
@@ -63,7 +63,7 @@ const TermsOfServiceSection = ({ className }: TermsOfServiceSectionProps) => {
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold tracking-tight">5) Payment</h2>
+            <h2 className="text-xl font-semibold tracking-tight text-[#14161B]">5) Payment</h2>
             <p>Payment is due when you drop off or when you collect, depending on what we agree.</p>
             <p>
               We may require a deposit for complex jobs, rush work, special materials, or high-value
@@ -75,7 +75,7 @@ const TermsOfServiceSection = ({ className }: TermsOfServiceSectionProps) => {
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold tracking-tight">6) Fittings and customer responsibility</h2>
+            <h2 className="text-xl font-semibold tracking-tight text-[#14161B]">6) Fittings and customer responsibility</h2>
             <p>To get the best result, you agree that:</p>
             <p>You provide accurate instructions and confirm what you want (e.g., length, tightness, shape).</p>
             <p>You try the garment on when requested.</p>
@@ -87,7 +87,7 @@ const TermsOfServiceSection = ({ className }: TermsOfServiceSectionProps) => {
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold tracking-tight">7) Alterations are irreversible</h2>
+            <h2 className="text-xl font-semibold tracking-tight text-[#14161B]">7) Alterations are irreversible</h2>
             <p>Many alterations are permanent (cutting fabric, shortening, resewing seams).</p>
             <p>By approving the work, you accept that:</p>
             <p>returning the item to its original state may be impossible, and</p>
@@ -97,7 +97,7 @@ const TermsOfServiceSection = ({ className }: TermsOfServiceSectionProps) => {
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold tracking-tight">8) Customer-supplied items &amp; condition of garments</h2>
+            <h2 className="text-xl font-semibold tracking-tight text-[#14161B]">8) Customer-supplied items &amp; condition of garments</h2>
             <p>You confirm that:</p>
             <p>you own the item or have permission to authorise work on it, and</p>
             <p>
@@ -112,7 +112,7 @@ const TermsOfServiceSection = ({ className }: TermsOfServiceSectionProps) => {
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold tracking-tight">9) Collection, storage, and unclaimed items</h2>
+            <h2 className="text-xl font-semibold tracking-tight text-[#14161B]">9) Collection, storage, and unclaimed items</h2>
             <p>Please collect your items promptly once you are told they’re ready.</p>
             <p>
               We may store items for up to 90 days after the ready date (or last contact). After
@@ -130,7 +130,7 @@ const TermsOfServiceSection = ({ className }: TermsOfServiceSectionProps) => {
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold tracking-tight">10) Rush work (express)</h2>
+            <h2 className="text-xl font-semibold tracking-tight text-[#14161B]">10) Rush work (express)</h2>
             <p>If you request rush/express service:</p>
             <p>a higher fee may apply,</p>
             <p>completion times are still estimates, and</p>
@@ -138,17 +138,17 @@ const TermsOfServiceSection = ({ className }: TermsOfServiceSectionProps) => {
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold tracking-tight">11) Changes, corrections, and complaints</h2>
-            <p className="font-medium">A) If something isn’t right</p>
+            <h2 className="text-xl font-semibold tracking-tight text-[#14161B]">11) Changes, corrections, and complaints</h2>
+            <p className="font-medium text-[#5E6676]">A) If something isn’t right</p>
             <p>Tell us as soon as possible — ideally within 48 hours of collection.</p>
-            <p className="font-medium">B) Fixes</p>
+            <p className="font-medium text-[#5E6676]">B) Fixes</p>
             <p>
               If the issue is clearly due to our workmanship (not wear, washing, fabric failure, or
               changed request), we will offer:
             </p>
             <p>an adjustment/rework where reasonable, or</p>
             <p>another fair remedy at our discretion.</p>
-            <p className="font-medium">C) No “free remake” for changed mind</p>
+            <p className="font-medium text-[#5E6676]">C) No “free remake” for changed mind</p>
             <p>
               If you change your mind (e.g., you now want it shorter/longer/tighter/looser than
               agreed), that is a new request and may require additional charges.
@@ -156,7 +156,7 @@ const TermsOfServiceSection = ({ className }: TermsOfServiceSectionProps) => {
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold tracking-tight">12) Refund policy</h2>
+            <h2 className="text-xl font-semibold tracking-tight text-[#14161B]">12) Refund policy</h2>
             <p>
               Because alterations are bespoke and often irreversible, refunds are generally not
               available once work has started.
@@ -169,7 +169,7 @@ const TermsOfServiceSection = ({ className }: TermsOfServiceSectionProps) => {
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold tracking-tight">13) Liability</h2>
+            <h2 className="text-xl font-semibold tracking-tight text-[#14161B]">13) Liability</h2>
             <p>We take care of your garments, but you agree that:</p>
             <p>
               Our total liability for any claim relating to a specific job is limited to the amount
@@ -182,7 +182,7 @@ const TermsOfServiceSection = ({ className }: TermsOfServiceSectionProps) => {
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold tracking-tight">14) Website use</h2>
+            <h2 className="text-xl font-semibold tracking-tight text-[#14161B]">14) Website use</h2>
             <p>
               You agree not to misuse the website (e.g., hacking, spam, scraping, or uploading
               malicious content). We may restrict access if misuse occurs.
@@ -190,7 +190,7 @@ const TermsOfServiceSection = ({ className }: TermsOfServiceSectionProps) => {
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold tracking-tight">15) Intellectual property</h2>
+            <h2 className="text-xl font-semibold tracking-tight text-[#14161B]">15) Intellectual property</h2>
             <p>
               All content on the website (text, photos, logos, design) belongs to Sewing At Aga’s or
               its licensors. You may not copy or reuse it commercially without permission.
@@ -198,12 +198,12 @@ const TermsOfServiceSection = ({ className }: TermsOfServiceSectionProps) => {
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold tracking-tight">16) Privacy</h2>
+            <h2 className="text-xl font-semibold tracking-tight text-[#14161B]">16) Privacy</h2>
             <p>Your personal data is handled according to our Privacy Policy (available on our website).</p>
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold tracking-tight">17) Governing law</h2>
+            <h2 className="text-xl font-semibold tracking-tight text-[#14161B]">17) Governing law</h2>
             <p>
               These Terms are governed by the laws of England and Wales, and disputes will be handled
               by the courts of England and Wales (unless consumer law requires otherwise).
@@ -211,7 +211,7 @@ const TermsOfServiceSection = ({ className }: TermsOfServiceSectionProps) => {
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold tracking-tight">18) Changes to these Terms</h2>
+            <h2 className="text-xl font-semibold tracking-tight text-[#14161B]">18) Changes to these Terms</h2>
             <p>
               We may update these Terms. The latest version will be published on our website with an
               updated date.
