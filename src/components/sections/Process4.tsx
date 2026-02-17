@@ -67,7 +67,7 @@ const Process4 = ({ className }: Process4Props) => {
                       transition={{ duration: 0.3 }}
                       src={step.image}
                       alt=""
-                      className="absolute top-0 right-4 size-30 translate-x-0 -translate-y-1/2 rounded-2xl object-cover lg:right-0 lg:size-40 lg:translate-x-1/2"
+                      className="absolute top-0 right-4 size-24 translate-x-0 -translate-y-1/3 rounded-2xl object-cover lg:right-0 lg:size-40 lg:translate-x-1/2 lg:-translate-y-1/2"
                     />
                   )}
                 </AnimatePresence>
