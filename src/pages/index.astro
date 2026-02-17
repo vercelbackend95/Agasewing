@@ -10,6 +10,7 @@ import { PricingAccordion } from "@/components/sections/PricingAccordion";
 import { Feature284 } from "@/components/sections/Feature284";
 import { Cta1 } from "@/components/sections/Cta1";
 import { Testimonial7 } from "@/components/sections/Testimonial7";
+import { GoogleReviews } from "@/components/sections/GoogleReviews";
 import { LocationMap } from "@/components/sections/LocationMap";
 import { Contact16 } from "@/components/sections/Contact16";
 import { Footer30 } from "@/components/sections/Footer30";
@@ -36,6 +37,7 @@ const sectionPatternStyle = "url('/pictures/halftone.webp')";
       <PricingAccordion className="bg-transparent" client:visible />
       <Cta1 className="bg-transparent" client:visible />
       <Testimonial7 className="bg-transparent" client:visible />
+      <GoogleReviews client:load />
       <LocationMap />
       <Contact16 />
       <Footer30 className="bg-transparent" />
