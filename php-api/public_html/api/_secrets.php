@@ -1,0 +1,4 @@
+<?php
+return [
+  'SMTP_PASSWORD' => 'TU_WPISZ_HASLO_SKRZYNKI_EMAIL'
+];
