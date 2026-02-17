@@ -25,7 +25,7 @@ const featureData = [
   },
   {
     desc: "Small pieces, big difference. Cushions, covers and home textiles sewn with care — tidy edges, strong stitching, lovely finish.",
-    img: "/pictures/services%20pics/Pillowcases%20%26%20textile%20décor.webp",
+    img: "/pictures/services%20pics/Pillowcases.webp",
     title: "Pillowcases & textile décor",
     gridClass: "lg:col-span-2",
   },
@@ -49,7 +49,7 @@ const Feature284 = ({ className }: Feature284Props) => {
       <div className="container mx-auto flex h-full w-full items-center justify-center px-4">
         <div className="w-full">
           <div
-            className="mb-10 w-full max-w-5xl min-h-[150px] rounded-[24px] border border-[rgba(78,100,235,0.12)] px-5 py-4 text-left backdrop-blur-[10px] md:min-h-[190px] md:p-6 lg:min-h-[220px] lg:px-10 lg:py-8"
+            className="mb-10 w-full max-w-5xl min-h-[150px] rounded-[24px] border border-[rgba(255,74,1,0.12)] px-5 py-4 text-left backdrop-blur-[10px] md:min-h-[190px] md:p-6 lg:min-h-[220px] lg:px-10 lg:py-8"
             style={{
               background:
                 "radial-gradient(circle at top right, rgba(167,180,241,0.18), rgba(167,180,241,0) 45%), rgba(246,248,247,0.72)",
