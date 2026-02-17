@@ -20,30 +20,15 @@ const auth = new google.auth.OAuth2(
 );
 auth.setCredentials({ refresh_token: GOOGLE_REFRESH_TOKEN });
 
-async function fetchWithRetry(url, options, retries = 4) {
-  for (let i = 0; i <= retries; i++) {
-    const res = await fetch(url, options);
-
-    if (res.status !== 429) return res;
-
-    const waitMs = Math.min(60000, 1000 * Math.pow(2, i)); // 1s,2s,4s,8s...
-    console.log(`429 quota hit. Waiting ${waitMs}ms then retrying...`);
-    await new Promise((r) => setTimeout(r, waitMs));
-  }
-  return fetch(url, options);
-}
-
-const token = await auth.getAccessToken();
-if (!token.token) {
+const { token } = await auth.getAccessToken();
+if (!token) {
   console.error("Failed to get access token from refresh token.");
   process.exit(1);
 }
 
-// ✅ POPRAWNY HOST dla ACCOUNTS:
 const url = "https://mybusinessaccountmanagement.googleapis.com/v1/accounts";
-
-const response = await fetchWithRetry(url, {
-  headers: { Authorization: `Bearer ${token.token}` },
+const response = await fetch(url, {
+  headers: { Authorization: `Bearer ${token}` },
 });
 
 if (!response.ok) {
@@ -58,5 +43,5 @@ const accounts = data.accounts || [];
 console.log("\nGoogle Business Profile accounts:\n");
 for (const a of accounts) {
   console.log(`- name: ${a.accountName || "—"}`);
-  console.log(`  accountId: ${a.name}`); // np. "accounts/1234567890"
+  console.log(`  accountId: ${a.name}`);
 }
