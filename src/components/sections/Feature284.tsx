@@ -8,31 +8,31 @@ import { GlowingEffect } from "@/components/aceternity/glowing-effect";
 const featureData = [
   {
     desc: "Clean hems, precise waists, smooth seams — a fit that feels made for you.",
-    img: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img1.jpeg",
+    img: "/pictures/services%20pics/Tailoring%20alterations.webp",
     title: "Tailoring alterations",
     gridClass: "md:col-span-1",
   },
   {
     desc: "From split seams to missing buttons — we bring your favourites back to life. Neat, durable repairs that look right and last.",
-    img: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img7.jpeg",
+    img: "/pictures/services%20pics/Clothing%20repairs.webp",
     title: "Clothing repairs",
     gridClass: "lg:col-span-2",
   },
   {
     desc: "Made-to-measure curtains with beautiful drape, clean lines, and a polished finish.",
-    img: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img11.jpeg",
+    img: "/pictures/services%20pics/Custom%20curtains.webp",
     title: "Custom curtains",
     gridClass: "md:col-span-1 lg:row-span-2",
   },
   {
     desc: "Small pieces, big difference. Cushions, covers and home textiles sewn with care — tidy edges, strong stitching, lovely finish.",
-    img: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img2.jpeg",
+    img: "/pictures/services%20pics/Pillowcases%20%26%20textile%20décor.webp",
     title: "Pillowcases & textile décor",
     gridClass: "lg:col-span-2",
   },
   {
     desc: "Freshen seats and cushions with tailored upholstery repairs and neat fabric finishes.",
-    img: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img4.jpeg",
+    img: "/pictures/services%20pics/Furniture%20upholstery.webp",
     title: "Furniture upholstery",
     gridClass: "md:col-span-1",
   },
