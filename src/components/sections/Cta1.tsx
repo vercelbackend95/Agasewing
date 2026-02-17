@@ -38,8 +38,8 @@ const Cta1 = ({ className }: Cta1Props) => {
             </div>
           </div>
           <img
-            src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
-            alt="placeholder"
+            src="/pictures/sewing%20machine.webp"
+            alt="Vintage sewing machine"
             className="aspect-video object-cover md:max-w-96"
           />
         </div>
