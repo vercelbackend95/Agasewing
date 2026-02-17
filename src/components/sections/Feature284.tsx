@@ -61,11 +61,9 @@ const Feature284 = ({ className }: Feature284Props) => {
                 TAILORING SERVICES
               </span>
               <h2 className="mt-3 max-w-[22ch] text-3xl font-semibold tracking-tight text-[#14161B] sm:text-4xl md:max-w-none">
-                Alterations, repairs, and custom adjustments — done properly.
+                Alterations & repairs — done properly.
               </h2>
-              <p className="mt-3 text-[#2A2F3A]">
-                Walk-ins welcome. No booking needed. Clear pricing, honest advice.
-              </p>
+              <p className="mt-3 text-[#2A2F3A]">Walk-ins welcome. No booking.</p>
             </div>
           </div>
 

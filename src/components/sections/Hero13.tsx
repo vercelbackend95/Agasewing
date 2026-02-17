@@ -241,14 +241,14 @@ const Hero13 = ({ className }: Hero13Props) => {
             type="button"
             onClick={() => window.open("https://wa.me/447514776088", "_blank", "noopener,noreferrer")}
             mobileActive
-            className="order-2 self-start border-white/70 bg-white/90 px-7 py-2.5 text-base text-black sm:order-1 sm:text-sm"
+            className="order-1 self-start border-white/70 bg-white/90 px-7 py-2.5 text-base text-black sm:order-1 sm:text-sm"
           >
             Message
           </InteractiveHoverButton>
 
           <a
             href="#gallery"
-            className="order-1 inline-flex self-start items-center justify-center rounded-md border border-white/70 px-6 py-3 text-sm font-medium transition-colors hover:bg-white/15 sm:order-2"
+            className="order-2 inline-flex self-start items-center justify-center rounded-md border border-white/70 px-6 py-3 text-sm font-medium transition-colors hover:bg-white/15 sm:order-2"
           >
             <PlayCircle className="mr-2 size-4" />
             See gallery
