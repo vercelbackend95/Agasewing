@@ -3,7 +3,6 @@ import React from "react";
 
 import { cn } from "@/lib/utils";
 
-import { GlowingEffect } from "@/components/aceternity/glowing-effect";
 
 const featureData = [
   {
@@ -84,13 +83,6 @@ const Feature284 = ({ className }: Feature284Props) => {
                     : { duration: 0.5, delay: index * 0.08, ease: "easeOut" }
                 }
               >
-                <GlowingEffect
-                  spread={40}
-                  glow={true}
-                  disabled={false}
-                  proximity={64}
-                  inactiveZone={0.01}
-                  />
                 <div className={cn("w-full flex-1 overflow-hidden rounded-3xl bg-muted")}>
                   <img
                     src={feature.img}
