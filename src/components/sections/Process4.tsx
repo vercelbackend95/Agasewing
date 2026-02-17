@@ -32,6 +32,7 @@ const Process4 = ({ className }: Process4Props) => {
   ];
 
   const [active, setActive] = useState<number | null>(0);
+  const [seenOnMobile, setSeenOnMobile] = useState<Set<number>>(new Set());
 
   return (
     <section className={cn("bg-background py-32", className)}>
@@ -54,6 +55,7 @@ const Process4 = ({ className }: Process4Props) => {
                 onViewportEnter={() => {
                   if (typeof window !== "undefined" && window.matchMedia("(max-width: 1023px)").matches) {
                     setActive(index);
+                    setSeenOnMobile((prev) => new Set(prev).add(index));
                   }
                 }}
                 key={index}
@@ -64,7 +66,7 @@ const Process4 = ({ className }: Process4Props) => {
                 )}
               >
                 <AnimatePresence mode="wait">
-                  {index === active && (
+                  {(index === active || seenOnMobile.has(index)) && (
                     <motion.img
                       key={step.image}
                       initial={{ opacity: 0, y: -10 }}
@@ -73,7 +75,7 @@ const Process4 = ({ className }: Process4Props) => {
                       transition={{ duration: 0.3 }}
                       src={step.image}
                       alt=""
-                      className="absolute top-0 right-4 size-24 translate-x-0 -translate-y-1/3 rounded-2xl object-cover lg:right-0 lg:size-40 lg:translate-x-1/2 lg:-translate-y-1/2"
+                      className="absolute top-0 right-4 size-28 translate-x-0 -translate-y-1/3 rounded-2xl object-cover lg:right-0 lg:size-40 lg:translate-x-1/2 lg:-translate-y-1/2"
                     />
                   )}
                 </AnimatePresence>

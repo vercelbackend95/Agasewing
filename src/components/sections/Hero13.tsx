@@ -72,7 +72,7 @@ const getOpeningStatus = () => {
     const closeAt = currentHours.close * 60;
 
     if (currentTime >= openAt && currentTime < closeAt) {
-      return `🟢 Open now • Closes at ${formatHour(currentHours.close)}`;
+      return ` Open now • Closes at ${formatHour(currentHours.close)}`;
     }
     if (currentTime < openAt) {
       return `🔴 Closed • Opens at ${formatHour(currentHours.open)}`;
@@ -236,19 +236,19 @@ const Hero13 = ({ className }: Hero13Props) => {
           Walk-ins for fittings • No booking needed • 30+ years’ experience
         </p>
 
-        <div className="mt-6 flex flex-col gap-4 sm:flex-row lg:mt-10">
+        <div className="mt-6 flex flex-col items-start gap-4 sm:flex-row lg:mt-10">
           <InteractiveHoverButton
             type="button"
             onClick={() => window.open("https://wa.me/447514776088", "_blank", "noopener,noreferrer")}
             mobileActive
-            className="w-full border-white/70 bg-white/90 text-sm text-black md:w-auto"
+            className="self-start border-white/70 bg-white/90 text-sm text-black"
           >
             Message
           </InteractiveHoverButton>
 
           <a
             href="#gallery"
-            className="inline-flex w-full items-center justify-center rounded-md border border-white/70 px-6 py-3 text-sm font-medium transition-colors hover:bg-white/15 md:w-auto"
+            className="inline-flex self-start items-center justify-center rounded-md border border-white/70 px-6 py-3 text-sm font-medium transition-colors hover:bg-white/15"
           >
             <PlayCircle className="mr-2 size-4" />
             See gallery

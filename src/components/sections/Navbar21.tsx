@@ -43,7 +43,7 @@ const Navbar21 = ({ className }: Navbar21Props) => {
         <div className="z-50">
           <a href="/" className="flex items-center gap-2">
             <span
-              className="text-[#ff4a01]"
+              className="text-xl text-[#ff4a01] md:text-2xl"
               style={{
                 fontFamily:
                   '"Playfair Display", ui-serif, Georgia, "Times New Roman", Times, serif',
