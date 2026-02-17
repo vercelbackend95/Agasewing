@@ -236,19 +236,19 @@ const Hero13 = ({ className }: Hero13Props) => {
           Walk-ins for fittings • No booking needed • 30+ years’ experience
         </p>
 
-        <div className="mt-6 flex flex-col items-start gap-4 sm:flex-row lg:mt-10">
+        <div className="mt-6 flex flex-row items-start gap-3 sm:gap-4 lg:mt-10">
           <InteractiveHoverButton
             type="button"
             onClick={() => window.open("https://wa.me/447514776088", "_blank", "noopener,noreferrer")}
             mobileActive
-            className="self-start border-white/70 bg-white/90 text-sm text-black"
+            className="order-2 self-start border-white/70 bg-white/90 px-7 py-2.5 text-base text-black sm:order-1 sm:text-sm"
           >
             Message
           </InteractiveHoverButton>
 
           <a
             href="#gallery"
-            className="inline-flex self-start items-center justify-center rounded-md border border-white/70 px-6 py-3 text-sm font-medium transition-colors hover:bg-white/15"
+            className="order-1 inline-flex self-start items-center justify-center rounded-md border border-white/70 px-6 py-3 text-sm font-medium transition-colors hover:bg-white/15 sm:order-2"
           >
             <PlayCircle className="mr-2 size-4" />
             See gallery

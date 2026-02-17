@@ -1,4 +1,5 @@
-import { TextAnimate } from "@/registry/magicui/text-animate";
+// src/components/sections/About15.tsx
+import { TextReveal } from "@/components/ui/text-reveal";
 import { cn } from "@/lib/utils";
 
 interface About15Props {
@@ -32,10 +33,8 @@ const About15 = ({ className }: About15Props) => {
           </div>
         </div>
         <div className="w-full max-w-[21.25rem] space-y-6">
-          <h2 className="mb-15 text-5xl font-medium tracking-tight text-[#14161B]">
-            <TextAnimate animation="blurInUp" by="word" once>
-              Your local tailor for the perfect fit.
-            </TextAnimate>
+          <h2 className="mb-15">
+            <TextReveal>Your local tailor for the perfect fit.</TextReveal>
           </h2>
           <p className="text-sm text-[#2A2F3A] lg:text-base">
             I have been working in the tailoring industry for 30 years, during which I have crafted both women’s and
