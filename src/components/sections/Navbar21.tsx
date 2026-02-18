@@ -42,7 +42,7 @@ const Navbar21 = ({ className }: Navbar21Props) => {
       <div className="flex items-center justify-between px-6 py-6">
         <div className="z-50">
           <a href="/" className="flex items-center gap-2">
-            <img src="/pictures/logo.webp" alt="Sewing at Aga&apos;s" className="h-10 w-auto md:h-12" />
+            <img src="/pictures/logo.webp" alt="Sewing at Aga&apos;s" className="h-10 w-auto origin-left scale-150 md:h-12" />
           </a>
         </div>
 
