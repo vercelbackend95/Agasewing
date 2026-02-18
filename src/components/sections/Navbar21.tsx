@@ -42,15 +42,7 @@ const Navbar21 = ({ className }: Navbar21Props) => {
       <div className="flex items-center justify-between px-6 py-6">
         <div className="z-50">
           <a href="/" className="flex items-center gap-2">
-            <span
-              className="text-xl text-[#ff4a01] md:text-2xl"
-              style={{
-                fontFamily:
-                  '"Playfair Display", ui-serif, Georgia, "Times New Roman", Times, serif',
-              }}
-            >
-              Sewing At Aga&apos;s
-            </span>
+            <img src="/pictures/logo.webp" alt="Sewing at Aga&apos;s" className="h-10 w-auto md:h-12" />
           </a>
         </div>
 
