@@ -12,7 +12,7 @@ const Process4 = ({ className }: Process4Props) => {
     {
       title: "Walk in with your item",
       subtitle: "No booking needed",
-      description: "Bring your garment. We’ll check what needs doing, discuss the finish you want, and take measurements.",
+      description: "Bring your item. We’ll take a quick look, measure if needed, and get you sorted.",
       image: "/pictures/step1.webp",
     },
     {

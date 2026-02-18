@@ -220,7 +220,7 @@ const Hero13 = ({ className }: Hero13Props) => {
         </div>
 
         {/* HERO TEXT */}
-        <h1 className="mb-6 text-4xl font-bold leading-none tracking-tighter text-[rgba(255,74,1,1)] md:text-[7vw] lg:text-8xl">
+        <h1 className="mb-6 text-[2.7rem] font-bold leading-none tracking-tighter text-[rgba(255,74,1,1)] md:text-[7vw] lg:text-8xl">
           <TextAnimate animation="blurInUp" by="character" once>
             Sewing at Aga&apos;s
           </TextAnimate>
