@@ -119,6 +119,7 @@ const Hero13 = ({ className }: Hero13Props) => {
   // Compute live strings on render (cheap) and memoize rows (static)
   const openingStatus = getOpeningStatus();
   const openingInsight = getOpeningInsight();
+  const isOpenNow = openingStatus.includes("Open now");
   const { day: todayIndex } = getLondonNow();
 
   const openingHoursRows = useMemo(
@@ -169,6 +170,13 @@ const Hero13 = ({ className }: Hero13Props) => {
       <div className="container relative z-10 mx-auto px-4 text-white">
         {/* STATUS PILL */}
         <div className="relative mb-4 inline-flex max-w-full items-center gap-2 rounded-full border px-2 py-1 text-sm font-normal lg:mb-10 lg:px-5 lg:py-2">
+          <span
+            className={cn(
+              "inline-block h-2.5 w-2.5 rounded-full",
+              isOpenNow ? "bg-emerald-400" : "bg-red-500",
+            )}
+            aria-hidden="true"
+          />
           <p className="truncate whitespace-nowrap">{openingStatus}</p>
 
           {/* Desktop popover can stay if you want; mobile uses sheet */}

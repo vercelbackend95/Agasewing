@@ -13,21 +13,14 @@ const AvatarCircles = ({ numPeople, avatarUrls }: AvatarCirclesProps) => {
     <div className="flex items-center">
       <div className="flex -space-x-4">
         {avatarUrls.map(({ imageUrl, profileUrl }, index) => (
-          <a
-            key={`${profileUrl}-${index}`}
-            href={profileUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-block"
-            aria-label="Open contributor profile"
-          >
+          <span key={`${profileUrl}-${index}`} className="inline-block" aria-hidden="true">
             <img
               src={imageUrl}
               alt="Contributor avatar"
               className="size-10 rounded-full border-2 border-white object-cover"
               loading="lazy"
             />
-          </a>
+          </span>
         ))}
       </div>
       {typeof numPeople === "number" ? (
