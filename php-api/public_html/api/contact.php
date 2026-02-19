@@ -106,52 +106,76 @@ foreach ($phpMailerCandidateDirs as $candidateDir) {
     }
 }
 
-if (!class_exists(PHPMailer::class) && $phpMailerSrcDir === null) {
-    http_response_code(500);
-    echo json_encode([
-        'ok' => false,
-        'error' => 'Missing PHPMailer library. Run composer install in public_html or upload vendor/phpmailer/phpmailer/src.',
-        'checked_autoload' => $autoloadCandidates,
-        'checked_phpmailer_dirs' => $phpMailerCandidateDirs,
-    ]);
-    exit;
-}
-
 if (!class_exists(PHPMailer::class) && $phpMailerSrcDir !== null) {
     require_once $phpMailerSrcDir . '/Exception.php';
     require_once $phpMailerSrcDir . '/PHPMailer.php';
     require_once $phpMailerSrcDir . '/SMTP.php';
 }
 
-$mail = new PHPMailer(true);
+$subject = "New contact form message from {$name}";
+$body = "Name: {$name}\nEmail: {$email}\n\nMessage:\n{$message}";
 
-try {
-    $mail->isSMTP();
-    $mail->Host = 'h65.seohost.pl';
-    $mail->Port = 465;
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-    $mail->SMTPAuth = true;
-    $mail->Username = 'srv93718';
-    $mail->Password = 'snMngHNu2xmB';
-    $mail->CharSet = 'UTF-8';
+if (class_exists(PHPMailer::class)) {
+    $mail = new PHPMailer(true);
 
-    $mail->setFrom('srv93718@sewingataga.co.uk', "Sewing at Aga's Website");
-    $mail->addAddress('srv93718@sewingataga.co.uk');
-    $mail->addAddress('sewingataga@gmail.com');
-    $mail->addReplyTo($email, $name);
+    try {
+        $mail->isSMTP();
+        $mail->Host = 'h65.seohost.pl';
+        $mail->Port = 465;
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+        $mail->SMTPAuth = true;
+        $mail->Username = 'srv93718';
+        $mail->Password = 'snMngHNu2xmB';
+        $mail->CharSet = 'UTF-8';
 
-    $mail->Subject = "New contact form message from {$name}";
-    $mail->Body = "Name: {$name}\nEmail: {$email}\n\nMessage:\n{$message}";
+        $mail->setFrom('srv93718@sewingataga.co.uk', "Sewing at Aga's Website");
+        $mail->addAddress('srv93718@sewingataga.co.uk');
+        $mail->addAddress('sewingataga@gmail.com');
+        $mail->addReplyTo($email, $name);
 
-    $mail->send();
+        $mail->Subject = $subject;
+        $mail->Body = $body;
 
-    http_response_code(200);
-    echo json_encode(['ok' => true]);
-} catch (Exception $exception) {
-    http_response_code(502);
-    echo json_encode([
-        'ok' => false,
-        'error' => 'Failed to send message',
-        'detail' => $mail->ErrorInfo ?: $exception->getMessage(),
-    ]);
+        $mail->send();
+
+        http_response_code(200);
+        echo json_encode(['ok' => true]);
+        exit;
+    } catch (Exception $exception) {
+        http_response_code(502);
+        echo json_encode([
+            'ok' => false,
+            'error' => 'Failed to send message',
+            'detail' => $mail->ErrorInfo ?: $exception->getMessage(),
+        ]);
+        exit;
+    }
 }
+
+$to = 'srv93718@sewingataga.co.uk, sewingataga@gmail.com';
+$headers = [
+    'MIME-Version: 1.0',
+    'Content-Type: text/plain; charset=UTF-8',
+    "From: Sewing at Aga's Website <srv93718@sewingataga.co.uk>",
+    "Reply-To: {$name} <{$email}>",
+    'X-Mailer: PHP/' . phpversion(),
+];
+
+$sent = mail($to, $subject, $body, implode("\r\n", $headers));
+
+if ($sent) {
+    http_response_code(200);
+    echo json_encode([
+        'ok' => true,
+        'warning' => 'PHPMailer was not found. Message sent via native PHP mail(). Install PHPMailer for reliable SMTP delivery.',
+    ]);
+    exit;
+}
+
+http_response_code(500);
+echo json_encode([
+    'ok' => false,
+    'error' => 'Missing PHPMailer library and native mail() fallback failed.',
+    'checked_autoload' => $autoloadCandidates,
+    'checked_phpmailer_dirs' => $phpMailerCandidateDirs,
+]);
