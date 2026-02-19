@@ -1,6 +1,6 @@
 ---
 import "@/styles/global.css";
-
+import CookieConsent from "@/components/cookies/CookieConsent";
 interface Props {
   title?: string;
   description?: string;
@@ -45,5 +45,6 @@ const resolvedOgUrl = new URL(ogUrl ?? Astro.url.pathname, Astro.site ?? Astro.u
   </head>
   <body>
     <slot />
+    <CookieConsent client:load />
   </body>
 </html>

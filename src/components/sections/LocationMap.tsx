@@ -1,3 +1,5 @@
+import MapEmbed from "@/components/location/MapEmbed";
+
 export function LocationMap() {
   const address = "4 Victoria Rd, Poole BH12 3BB, United Kingdom";
   const mapQuery = encodeURIComponent(address);
@@ -49,18 +51,7 @@ export function LocationMap() {
                 </div>
               </div>
             </div>
-            <div className="min-h-[360px] md:min-h-[420px]">
-              <iframe
-                title="Google map showing 4 Victoria Rd, Poole BH12 3BB, United Kingdom"
-                src={`https://maps.google.com/maps?q=${mapQuery}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
-                width="100%"
-                height="100%"
-                className="h-full w-full"
-                style={{ border: 0 }}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
+            <MapEmbed client:load />
           </div>
         </div>
       </div>

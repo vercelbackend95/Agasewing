@@ -26,6 +26,14 @@ interface Footer30Props {
 }
 
 const Footer30 = ({ className }: Footer30Props) => {
+  const openCookieSettings = () => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    window.dispatchEvent(new CustomEvent("saas-open-cookie-preferences"));
+  };
+
   return (
     <section className={cn("pt-32 pb-0", className)}>
       <div className="mx-auto w-full max-w-7xl px-4 md:px-6">
@@ -75,6 +83,13 @@ const Footer30 = ({ className }: Footer30Props) => {
                 {item.label}
               </a>
             ))}
+            <button
+              type="button"
+              onClick={openCookieSettings}
+              className="text-foreground/50 transition-colors hover:text-foreground"
+            >
+              Cookie settings
+            </button>
           </div>
           <div className="absolute left-1/2 h-full w-screen -translate-x-1/2 bg-background" />
         </div>

@@ -1,0 +1,64 @@
+---
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout title="Cookie Policy | Sewing at Aga's" description="How Sewing at Aga's uses cookies.">
+  <main class="mx-auto max-w-3xl px-4 py-14 md:py-20">
+    <a href="/" class="text-sm font-semibold text-[rgba(255,74,1,1)] hover:underline">← Back to home</a>
+
+    <h1 class="mt-4 text-4xl font-semibold tracking-tight text-slate-900 md:text-5xl">Cookie Policy</h1>
+    <p class="mt-4 text-sm leading-relaxed text-slate-700">
+      This page explains how we use cookies on Sewing at Aga&apos;s website.
+    </p>
+
+    <section class="mt-8 space-y-3 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+      <h2 class="text-2xl font-semibold tracking-tight text-slate-900">What cookies are</h2>
+      <p class="text-sm leading-relaxed text-slate-700">
+        Cookies are small text files that websites can store on your device to remember choices and improve how pages work.
+      </p>
+    </section>
+
+    <section class="mt-4 space-y-3 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+      <h2 class="text-2xl font-semibold tracking-tight text-slate-900">What we use</h2>
+      <ul class="list-disc space-y-2 pl-5 text-sm leading-relaxed text-slate-700">
+        <li><strong>Essential cookies:</strong> always active for core website functions.</li>
+        <li><strong>Google Maps (embedded):</strong> optional and loaded only if you accept non-essential cookies.</li>
+      </ul>
+    </section>
+
+    <section class="mt-4 space-y-3 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+      <h2 class="text-2xl font-semibold tracking-tight text-slate-900">How to change your choice</h2>
+      <p class="text-sm leading-relaxed text-slate-700">
+        You can update your cookie choice at any time using cookie settings.
+      </p>
+      <button
+        id="open-cookie-settings"
+        type="button"
+        class="inline-flex items-center rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-800 transition hover:bg-slate-50"
+      >
+        Cookie settings
+      </button>
+    </section>
+
+    <section class="mt-4 space-y-3 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+      <h2 class="text-2xl font-semibold tracking-tight text-slate-900">Browser controls</h2>
+      <p class="text-sm leading-relaxed text-slate-700">
+        Most browsers allow you to block or delete cookies through privacy settings. Blocking essential cookies may affect basic site functionality.
+      </p>
+    </section>
+
+    <section class="mt-4 space-y-2 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+      <h2 class="text-2xl font-semibold tracking-tight text-slate-900">Contact</h2>
+      <p class="text-sm text-slate-700">Sewing at Aga&apos;s</p>
+      <p class="text-sm text-slate-700">4 Victoria Rd, Poole BH12 3BB, United Kingdom</p>
+      <p class="text-sm text-slate-700">Phone: <a href="tel:07514776088" class="hover:underline">07514 776088</a></p>
+      <p class="text-sm text-slate-700">Email: <a href="mailto:sewingataga@gmail.com" class="hover:underline">sewingataga@gmail.com</a></p>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("open-cookie-settings")?.addEventListener("click", () => {
+      window.dispatchEvent(new CustomEvent("saas-open-cookie-preferences"));
+    });
+  </script>
+</Layout>
