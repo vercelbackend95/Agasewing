@@ -19,7 +19,7 @@ type ReviewsResponse = {
   details?: string;
 };
 
-const STAR_COLOR = "rgba(255, 74, 1)";
+const STAR_COLOR = "#FF4A01";
 
 const Stars = ({ value }: { value: number }) => (
   <div className="flex items-center gap-1" aria-label={`${value} out of 5 stars`}>
@@ -82,7 +82,10 @@ export function GoogleReviews() {
   return (
     <section className="px-4 py-14 sm:px-6" aria-labelledby="google-reviews-heading">
       <div className="mx-auto w-full max-w-5xl rounded-2xl border border-black/10 bg-white/80 p-5 shadow-sm backdrop-blur-sm sm:p-8">
-        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-black/50">Google reviews</p>
+        <span className="mb-2 inline-flex rounded-full border border-[#FF4A01]/25 bg-[#FF4A01]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#FF4A01]">
+          Google reviews
+        </span>
+
         <h2 id="google-reviews-heading" className="text-2xl font-semibold tracking-tight text-black sm:text-3xl">
           What clients say about Sewing at Aga&apos;s
         </h2>

@@ -38,7 +38,7 @@ const Process4 = ({ className }: Process4Props) => {
     <section className={cn("bg-background py-32", className)}>
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-6 lg:gap-20">
-          <div className="top-10 col-span-2 h-fit w-fit gap-3 space-y-7 py-8 lg:sticky">
+          <div className="top-10 col-span-2 h-fit w-fit gap-3 space-y-7 py-8 lg:sticky lg:top-28">
             <h1 className="text-5xl font-semibold tracking-tight text-[#14161B] lg:text-7xl">
               {" "}
               Process
