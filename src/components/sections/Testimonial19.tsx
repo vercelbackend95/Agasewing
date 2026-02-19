@@ -40,6 +40,46 @@ const testimonials = [
     content:
       "I went to Aga after recommendations to get my wedding dress altered with her. She was so efficient and knew exactly what she was doing. I'm very pleased with the end product and would go to her with other sewing needs. 100% recommend.",
   },
+  {
+    initials: "RG",
+    content:
+      "So helpful and knew exactly what I wanted with each of my dresses. They are perfect and am so pleased with them. Highly recommend Aga..!!!",
+  },
+  {
+    initials: "CJ",
+    content:
+      "Amazing! Fast, competitive and good at what she does. Had a suit bought for me a few years back which was far too large. Aga, you turned a suit I never thought I'd wear into one I cannot wait to wear again.",
+  },
+  {
+    initials: "CP",
+    content:
+      "Aga has made me many clothes now for over two years and made many alterations for me. Her work is first class and impeccable. I would gladly recommend her.",
+  },
+  {
+    initials: "KA",
+    content:
+      "Aga made some alterations for me to a dress I bought for an event. I have never felt so good in an item of clothing! It fit absolutely perfectly. Will definitely be using again.",
+  },
+  {
+    initials: "F",
+    content:
+      "Asked Aga to do some upholstery for the mattress and cushions on the back of my campervan. The result was outstanding, really pleased! Great efficiency and excellent customer service. Recommend 100%. Thanks, Fabio.",
+  },
+  {
+    initials: "DF",
+    content:
+      "Brilliant first experience. Very tidy shop, extremely professional and lovely job done in tailoring a pair of off-the-peg trousers at a very reasonable price. Please note they accept cash only.",
+  },
+  {
+    initials: "GT",
+    content:
+      "Great work, reasonably priced and fast turnaround! Can’t recommend the service enough, will definitely be returning.",
+  },
+  {
+    initials: "GK",
+    content:
+      "Needed a dog collar shortening with a 15-minute repair. Great service, thanks. Will definitely use Aga's service again.",
+  },
 ];
 
 interface Testimonial19Props {
