@@ -1,6 +1,6 @@
 // src/components/sections/Hero13.tsx
 import { PlayCircle } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import { AvatarCircles } from "@/components/ui/avatar-circles";
 import { TextAnimate } from "@/registry/magicui/text-animate";
@@ -72,10 +72,10 @@ const getOpeningStatus = () => {
     const closeAt = currentHours.close * 60;
 
     if (currentTime >= openAt && currentTime < closeAt) {
-      return ` Open now • Closes at ${formatHour(currentHours.close)}`;
+      return `Open now • Closes at ${formatHour(currentHours.close)}`;
     }
     if (currentTime < openAt) {
-      return `🔴 Closed • Opens at ${formatHour(currentHours.open)}`;
+      return `Closed • Opens at ${formatHour(currentHours.open)}`;
     }
   }
 
@@ -84,11 +84,11 @@ const getOpeningStatus = () => {
     const nextHours = OPENING_HOURS[nextDay];
     if (!nextHours) continue;
 
-    if (offset === 1) return `🔴 Closed • Opens tomorrow ${formatHour(nextHours.open)}`;
-    return `🔴 Closed • Opens at ${formatHour(nextHours.open)}`;
+    if (offset === 1) return `Closed • Opens tomorrow ${formatHour(nextHours.open)}`;
+    return `Closed • Opens at ${formatHour(nextHours.open)}`;
   }
 
-  return "🔴 Closed";
+  return "Closed";
 };
 
 const getOpeningInsight = () => {
@@ -115,6 +115,7 @@ const getOpeningInsight = () => {
 
 const Hero13 = ({ className }: Hero13Props) => {
   const [isHoursOpen, setIsHoursOpen] = useState(false);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   // Compute live strings on render (cheap) and memoize rows (static)
   const openingStatus = getOpeningStatus();
@@ -134,6 +135,45 @@ const Hero13 = ({ className }: Hero13Props) => {
     ],
     [],
   );
+
+  // Force playback on mobile browsers that ignore the initial autoplay.
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+
+    const ensurePlayback = () => {
+      const playPromise = video.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(() => {
+          // Some mobile browsers require a user gesture; this is retried on visibility/touch events below.
+        });
+      }
+    };
+
+    ensurePlayback();
+
+    const onVisibilityChange = () => {
+      if (!document.hidden && video.paused) ensurePlayback();
+    };
+
+    const onUserGesture = () => {
+      if (video.paused) ensurePlayback();
+    };
+
+    document.addEventListener("visibilitychange", onVisibilityChange);
+    document.addEventListener("touchstart", onUserGesture, { passive: true });
+    window.addEventListener("focus", onUserGesture);
+
+    return () => {
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+      document.removeEventListener("touchstart", onUserGesture);
+      window.removeEventListener("focus", onUserGesture);
+    };
+  }, []);
 
   // Lock background scroll on mobile when sheet is open
   useEffect(() => {
@@ -162,7 +202,7 @@ const Hero13 = ({ className }: Hero13Props) => {
 
   return (
     <section id="hero" className={cn("relative overflow-visible py-20 md:overflow-hidden md:py-32", className)}>
-      <video className="absolute inset-0 h-full w-full object-cover" autoPlay muted loop playsInline>
+      <video ref={videoRef} className="absolute inset-0 h-full w-full object-cover" autoPlay muted loop playsInline preload="auto">
         <source src="/agasewingclip.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-black/45" aria-hidden="true" />
