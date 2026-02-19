@@ -22,10 +22,10 @@ if (!is_array($payload)) {
     exit;
 }
 
-$name = trim((string)($payload['name'] ?? ''));
-$email = trim((string)($payload['email'] ?? ''));
-$message = trim((string)($payload['message'] ?? ''));
-$website = trim((string)($payload['website'] ?? ''));
+$name = trim((string) ($payload['name'] ?? ''));
+$email = trim((string) ($payload['email'] ?? ''));
+$message = trim((string) ($payload['message'] ?? ''));
+$website = trim((string) ($payload['website'] ?? ''));
 
 if ($website !== '') {
     http_response_code(200);
@@ -69,9 +69,36 @@ if (count($ipTimestamps) >= $maxRequests) {
 $ipTimestamps[] = $now;
 $_SESSION['contact_rate_limit'][$ip] = $ipTimestamps;
 
-require_once __DIR__ . '/../vendor/PHPMailer/src/Exception.php';
-require_once __DIR__ . '/../vendor/PHPMailer/src/PHPMailer.php';
-require_once __DIR__ . '/../vendor/PHPMailer/src/SMTP.php';
+$phpMailerCandidateDirs = [
+    __DIR__ . '/../vendor/PHPMailer/src',
+    __DIR__ . '/../vendor/PHPMailer/phpmailer/src',
+];
+
+$phpMailerSrcDir = null;
+
+foreach ($phpMailerCandidateDirs as $candidateDir) {
+    if (
+        is_file($candidateDir . '/Exception.php')
+        && is_file($candidateDir . '/PHPMailer.php')
+        && is_file($candidateDir . '/SMTP.php')
+    ) {
+        $phpMailerSrcDir = $candidateDir;
+        break;
+    }
+}
+
+if ($phpMailerSrcDir === null) {
+    http_response_code(500);
+    echo json_encode([
+        'ok' => false,
+        'error' => 'Missing PHPMailer library. Expected one of: vendor/PHPMailer/src or vendor/PHPMailer/phpmailer/src in public_html.',
+    ]);
+    exit;
+}
+
+require_once $phpMailerSrcDir . '/Exception.php';
+require_once $phpMailerSrcDir . '/PHPMailer.php';
+require_once $phpMailerSrcDir . '/SMTP.php';
 
 $mail = new PHPMailer(true);
 
@@ -81,12 +108,12 @@ try {
     $mail->Port = 465;
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->SMTPAuth = true;
-    $mail->Username = 'srv93718@h65.seohost.pl';
+    $mail->Username = 'srv93718';
     $mail->Password = 'snMngHNu2xmB';
     $mail->CharSet = 'UTF-8';
 
-    $mail->setFrom('srv93718@h65.seohost.pl', "Sewing at Aga's Website");
-    $mail->addAddress('srv93718@h65.seohost.pl');
+    $mail->setFrom('srv93718@sewingataga.co.uk', "Sewing at Aga's Website");
+    $mail->addAddress('srv93718@sewingataga.co.uk');
     $mail->addAddress('sewingataga@gmail.com');
     $mail->addReplyTo($email, $name);
 
@@ -97,13 +124,11 @@ try {
 
     http_response_code(200);
     echo json_encode(['ok' => true]);
-} catch (Exception $e) {
-  http_response_code(502);
-  echo json_encode([
-    'ok' => false,
-    'error' => 'Failed to send message',
-    'detail' => $mail->ErrorInfo ?: $e->getMessage()
-  ]);
-  exit;
+} catch (Exception $exception) {
+    http_response_code(502);
+    echo json_encode([
+        'ok' => false,
+        'error' => 'Failed to send message',
+        'detail' => $mail->ErrorInfo ?: $exception->getMessage(),
+    ]);
 }
-

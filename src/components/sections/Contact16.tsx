@@ -37,10 +37,17 @@ const Contact16 = ({ className }: Contact16Props) => {
         }),
       });
 
-      const data = (await response.json()) as { ok?: boolean; error?: string };
+      const rawResponse = await response.text();
+      let data: { ok?: boolean; error?: string } | null = null;
 
-      if (!response.ok || !data.ok) {
-        setErrorMessage(data.error || "Something went wrong. Please try again.");
+      try {
+        data = rawResponse ? (JSON.parse(rawResponse) as { ok?: boolean; error?: string }) : null;
+      } catch {
+        data = null;
+      }
+
+      if (!response.ok || !data?.ok) {
+        setErrorMessage(data?.error || rawResponse || "Something went wrong. Please try again.");
         return;
       }
 
