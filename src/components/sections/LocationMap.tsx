@@ -51,7 +51,7 @@ export function LocationMap() {
                 </div>
               </div>
             </div>
-            <MapEmbed client:load />
+            <MapEmbed />
           </div>
         </div>
       </div>
