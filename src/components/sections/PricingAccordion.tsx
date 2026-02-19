@@ -1,3 +1,5 @@
+import * as React from "react";
+
 import { cn } from "@/lib/utils";
 
 import {
@@ -96,6 +98,38 @@ interface PricingAccordionProps {
 }
 
 const PricingAccordion = ({ className }: PricingAccordionProps) => {
+  const [openItem, setOpenItem] = React.useState<string>("");
+  const shouldScrollRef = React.useRef(false);
+
+  React.useEffect(() => {
+    if (!openItem || !shouldScrollRef.current) {
+      return;
+    }
+
+    const activeItem = document.querySelector<HTMLElement>(`#pricing details[data-accordion-item="${openItem}"]`);
+
+    if (!activeItem) {
+      shouldScrollRef.current = false;
+      return;
+    }
+
+    requestAnimationFrame(() => {
+      activeItem.scrollIntoView({ behavior: "smooth", block: "start" });
+      shouldScrollRef.current = false;
+    });
+  }, [openItem]);
+
+  const handleValueChange = (value: string | null) => {
+    if (!value) {
+      shouldScrollRef.current = false;
+      setOpenItem("");
+      return;
+    }
+
+    shouldScrollRef.current = true;
+    setOpenItem(value);
+  };
+
   return (
     <section className={cn("py-20 md:py-24", className)} id="pricing">
       <div className="container mx-auto px-4">
@@ -120,12 +154,19 @@ const PricingAccordion = ({ className }: PricingAccordionProps) => {
           </div>
         </div>
 
-        <Accordion type="single" className="space-y-4">
+        <Accordion
+          type="single"
+          collapsible
+          value={openItem}
+          onValueChange={handleValueChange}
+          className="space-y-4"
+        >
           {pricingCategories.map((category, index) => (
             <AccordionItem
               key={category.title}
               value={`pricing-${index}`}
-              className="overflow-hidden rounded-xl border border-white/30 bg-cover bg-center"
+              data-accordion-item={`pricing-${index}`}
+              className="overflow-hidden rounded-xl border border-white/30 bg-cover bg-center scroll-mt-28"
               style={{ backgroundImage: `linear-gradient(90deg, rgba(0,0,0,0.45), rgba(0,0,0,0.2)), url(${category.image})` }}
             >
               <AccordionTrigger className="px-4 text-left text-2xl text-white md:px-6">

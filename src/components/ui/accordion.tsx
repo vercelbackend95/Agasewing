@@ -6,27 +6,62 @@ type AccordionType = "single" | "multiple";
 
 interface AccordionContextValue {
   type: AccordionType;
+  collapsible: boolean;
   openItem: string | null;
-  setOpenItem: React.Dispatch<React.SetStateAction<string | null>>;
+  setOpenItem: (value: string | null) => void;
 }
 
 const AccordionContext = React.createContext<AccordionContextValue>({
   type: "multiple",
+  collapsible: false,
   openItem: null,
-  setOpenItem: () => null,
+  setOpenItem: () => undefined,
 });
+
+interface AccordionItemContextValue {
+  value: string;
+  isOpen: boolean;
+}
+
+const AccordionItemContext = React.createContext<AccordionItemContextValue | null>(null);
 
 interface AccordionProps {
   children: React.ReactNode;
   type?: AccordionType;
   className?: string;
+  value?: string;
+  defaultValue?: string;
+  onValueChange?: (value: string | null) => void;
+  collapsible?: boolean;
 }
 
-const Accordion = ({ children, type = "multiple", className }: AccordionProps) => {
-  const [openItem, setOpenItem] = React.useState<string | null>(null);
+const Accordion = ({
+  children,
+  type = "multiple",
+  className,
+  value,
+  defaultValue,
+  onValueChange,
+  collapsible = false,
+}: AccordionProps) => {
+  const [internalOpenItem, setInternalOpenItem] = React.useState<string | null>(defaultValue ?? null);
+  const openItem = value ?? internalOpenItem;
+
+  const setOpenItem = React.useCallback(
+    (nextValue: string | null) => {
+      if (value === undefined) {
+        setInternalOpenItem(nextValue);
+      }
+
+      if (onValueChange) {
+        onValueChange(nextValue);
+      }
+    },
+    [onValueChange, value],
+  );
 
   return (
-    <AccordionContext.Provider value={{ type, openItem, setOpenItem }}>
+    <AccordionContext.Provider value={{ type, collapsible, openItem, setOpenItem }}>
       <div className={className}>{children}</div>
     </AccordionContext.Provider>
   );
@@ -38,28 +73,16 @@ interface AccordionItemProps extends React.HTMLAttributes<HTMLDetailsElement> {
 }
 
 const AccordionItem = ({ children, className, ...props }: AccordionItemProps) => {
-  const { type, openItem, setOpenItem } = React.useContext(AccordionContext);
+  const { type, openItem } = React.useContext(AccordionContext);
   const isSingle = type === "single";
   const isOpen = openItem === props.value;
 
-  const handleToggle: React.DetailsHTMLAttributes<HTMLDetailsElement>["onToggle"] = (event) => {
-    if (!isSingle) {
-      return;
-    }
-
-    const element = event.currentTarget;
-    setOpenItem(element.open ? props.value : null);
-  };
-
   return (
-    <details
-      className={cn("group", className)}
-      open={isSingle ? isOpen : undefined}
-      onToggle={handleToggle}
-      {...props}
-    >
-      {children}
-    </details>
+    <AccordionItemContext.Provider value={{ value: props.value, isOpen }}>
+      <details className={cn("group", className)} open={isSingle ? isOpen : undefined} {...props}>
+        {children}
+      </details>
+    </AccordionItemContext.Provider>
   );
 };
 
@@ -69,8 +92,34 @@ interface AccordionTriggerProps {
 }
 
 const AccordionTrigger = ({ children, className }: AccordionTriggerProps) => {
+  const accordionContext = React.useContext(AccordionContext);
+  const itemContext = React.useContext(AccordionItemContext);
+
+  if (!itemContext) {
+    throw new Error("AccordionTrigger must be used within AccordionItem");
+  }
+
+  const handleClick: React.MouseEventHandler<HTMLElement> = (event) => {
+    if (accordionContext.type !== "single") {
+      return;
+    }
+
+    event.preventDefault();
+
+    if (itemContext.isOpen) {
+      if (accordionContext.collapsible) {
+        accordionContext.setOpenItem(null);
+      }
+
+      return;
+    }
+
+    accordionContext.setOpenItem(itemContext.value);
+  };
+
   return (
     <summary
+      onClick={handleClick}
       className={cn(
         "flex cursor-pointer list-none items-center justify-between gap-3 py-5 font-semibold",
         "[&::-webkit-details-marker]:hidden",

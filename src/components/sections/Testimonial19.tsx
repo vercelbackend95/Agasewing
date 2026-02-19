@@ -115,7 +115,7 @@ const Testimonial19 = ({ className }: Testimonial19Props) => {
       <div className="container mx-auto px-4">
         <div className="mb-8 w-full max-w-5xl rounded-2xl border border-black/10 bg-white/85 px-5 py-4 text-left shadow-sm backdrop-blur-sm md:mb-12 md:p-6 lg:px-10 lg:py-8">
           <div className="max-w-[64ch]">
-            <span className="inline-flex rounded-full border border-black/10 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#5E6676]">
+            <span className="inline-flex rounded-full border border-[#FF4A01]/25 bg-[#FF4A01]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#FF4A01]">
               REVIEWS
             </span>
             <h2 id="google-reviews-heading" className="mt-3 max-w-[22ch] text-3xl font-semibold tracking-tight text-[#14161B] md:max-w-none md:text-5xl">
@@ -150,11 +150,11 @@ const Testimonial19 = ({ className }: Testimonial19Props) => {
                         </div>
                       </div>
                       <div className="flex gap-1" aria-label="5 out of 5 stars">
-                        <Star className="size-4 fill-[var(--accent)] text-[var(--accent)] md:size-5" />
-                        <Star className="size-4 fill-[var(--accent)] text-[var(--accent)] md:size-5" />
-                        <Star className="size-4 fill-[var(--accent)] text-[var(--accent)] md:size-5" />
-                        <Star className="size-4 fill-[var(--accent)] text-[var(--accent)] md:size-5" />
-                        <Star className="size-4 fill-[var(--accent)] text-[var(--accent)] md:size-5" />
+                        <Star className="size-4 fill-[#FF4A01] text-[#FF4A01] md:size-5" />
+                        <Star className="size-4 fill-[#FF4A01] text-[#FF4A01] md:size-5" />
+                        <Star className="size-4 fill-[#FF4A01] text-[#FF4A01] md:size-5" />
+                        <Star className="size-4 fill-[#FF4A01] text-[#FF4A01] md:size-5" />
+                        <Star className="size-4 fill-[#FF4A01] text-[#FF4A01] md:size-5" />
                       </div>
                     </div>
                     <q className="text-sm leading-7 text-[#2A2F3A]">
