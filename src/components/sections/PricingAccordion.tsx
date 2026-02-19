@@ -58,9 +58,10 @@ const pricingCategories = [
     title: "Skirts",
     image: "/pictures/pricing/skirts-bg.webp",
     prices: [
-      ["Shortening", "£14"],
-      ["Zip Replacement", "£18"],
-      ["Waist Adjustment", "£18"],
+      ["Shorten", "£15"],
+      ["Zip", "£18"],
+      ["Waist hips", "£22"],
+      ["Replace elastic", "£22"],
     ],
   },
   {
