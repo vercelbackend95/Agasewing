@@ -151,47 +151,47 @@ const Hero13 = ({ className }: Hero13Props) => {
     video.setAttribute("playsinline", "");
     video.setAttribute("webkit-playsinline", "true");
     video.setAttribute("loop", "");
+    video.disableRemotePlayback = true;
 
-    const ensurePlayback = () => {
-            if (document.hidden) return;
+    let gestureRetryUsed = false;
+
+    const tryPlay = () => {
+      if (document.hidden) return;
 
       if (video.ended) {
         video.currentTime = 0;
       }
 
-
       const playPromise = video.play();
       if (playPromise && typeof playPromise.catch === "function") {
         playPromise.catch(() => {
-          // Some mobile browsers require a user gesture; this is retried on visibility/touch events below.
+          // iOS may still require media readiness or a user gesture.
         });
       }
     };
 
-    ensurePlayback();
-
-    const onCanPlay = () => {
-      if (video.paused) ensurePlayback();
+    const onLoadedData = () => {
+      if (video.paused) tryPlay();
     };
 
-    const onVisibilityChange = () => {
-      if (!document.hidden && video.paused) ensurePlayback();
+    const onGestureRetry = () => {
+      if (gestureRetryUsed) return;
+      gestureRetryUsed = true;
+      if (video.paused) tryPlay();
     };
 
-    const onUserGesture = () => {
-      if (video.paused) ensurePlayback();
-    };
+    if (video.readyState >= 2) {
+      tryPlay();
+    }
 
-    video.addEventListener("canplay", onCanPlay);
-    document.addEventListener("visibilitychange", onVisibilityChange);
-    document.addEventListener("touchstart", onUserGesture, { passive: true });
-    window.addEventListener("focus", onUserGesture);
+    video.addEventListener("loadeddata", onLoadedData);
+    document.addEventListener("touchstart", onGestureRetry, { passive: true, once: true });
+    window.addEventListener("scroll", onGestureRetry, { passive: true, once: true });
 
     return () => {
-      video.removeEventListener("canplay", onCanPlay);
-      document.removeEventListener("visibilitychange", onVisibilityChange);
-      document.removeEventListener("touchstart", onUserGesture);
-      window.removeEventListener("focus", onUserGesture);
+      video.removeEventListener("loadeddata", onLoadedData);
+      document.removeEventListener("touchstart", onGestureRetry);
+      window.removeEventListener("scroll", onGestureRetry);
     };
   }, []);
 
@@ -229,9 +229,12 @@ const Hero13 = ({ className }: Hero13Props) => {
         muted
         loop
         playsInline
-        preload="auto"
+        disableRemotePlayback
+        poster="/hero-poster.jpg"
+        preload="metadata"
         controls={false}
       >
+        {/* TODO: Add /public/hero-poster.jpg if this placeholder file is missing. */}
         <source src="/agasewingclip.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-black/45" aria-hidden="true" />
