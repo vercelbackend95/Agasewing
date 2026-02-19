@@ -150,8 +150,16 @@ const Hero13 = ({ className }: Hero13Props) => {
     video.setAttribute("muted", "");
     video.setAttribute("playsinline", "");
     video.setAttribute("webkit-playsinline", "true");
+    video.setAttribute("loop", "");
 
     const ensurePlayback = () => {
+            if (document.hidden) return;
+
+      if (video.ended) {
+        video.currentTime = 0;
+      }
+
+
       const playPromise = video.play();
       if (playPromise && typeof playPromise.catch === "function") {
         playPromise.catch(() => {
