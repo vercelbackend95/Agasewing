@@ -11,46 +11,34 @@ import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carouse
 
 const testimonials = [
   {
-    name: "Sarah Parker",
-    role: "Bridesmaid dress",
-    initials: "SP",
+    initials: "MC",
     content:
-      "Absolutely fantastic service. Aga adjusted my bridesmaid dress perfectly and the fit was flawless.",
+      "Aga did a great job of shortening my dress, she was fairly priced and got the work done in 3 days! She also recommended to shorten the straps which made the dress look even better.",
   },
   {
-    name: "Michael King",
-    role: "Suit alterations",
-    initials: "MK",
+    initials: "RF",
     content:
-      "Quick turnaround, very fair pricing, and excellent quality stitching. Highly recommended.",
+      "I had my wedding dress adjusted by Aga and the whole experience was great. I'd bought my wedding dress online and it was too big for me. Her alterations were precise and ready on time. Aga knows what has to be done before you even ask. She even suggested what I didn't know I'd need: a system to lift the trail which came super in handy during the reception. She added a ribbon to the waist which was very elegant and exactly as I had in my mind. Cherry on the top, a wrist corsage I had in my mind and could find anywhere after searching a lot on the web. I described what I had in mind and sent a picture for inspiration, the result was perfect and exceeding my expectations. Lastly, she also adjusted my husband's trousers. The whole process was smooth and effective, she got it all right in a single session, no further adjustments were needed. You're brilliant. Thanks Aga!",
   },
   {
-    name: "Olivia Green",
-    role: "Jeans shortening",
-    initials: "OG",
+    initials: "AJ",
     content:
-      "My jeans were shortened with the original hem and they look exactly like new. Great attention to detail.",
+      "I had a pair of floor length chenille curtains shortened this week, a fantastic job was done and so quickly! They look wonderful up, will definitely use Aga again. Highly recommended.",
   },
   {
-    name: "Daniel White",
-    role: "Jacket repair",
-    initials: "DW",
+    initials: "SL",
     content:
-      "Aga replaced the zip in my jacket and reinforced the lining. Work was clean and done on time.",
+      "Great quality work and fair price. Aga has done 4 or 5 items now for us & we're always happy with the standard of the finish. Thank you so much, we really appreciate you ❤️",
   },
   {
-    name: "Marta Kowalska",
-    role: "Evening dress",
-    initials: "MK",
+    initials: "CM",
     content:
-      "Lovely communication and beautiful finish. My evening dress now fits perfectly at the waist.",
+      "Very happy with service, would recommend and will use again. Very helpful email exchange prior to me visiting. Took several pairs of curtains in to be shortened and I am pleased with the result. Thank you!",
   },
   {
-    name: "Peter Brown",
-    role: "Trousers tapering",
-    initials: "PB",
+    initials: "SK",
     content:
-      "Very professional tailoring service. Trousers were tapered exactly as requested and ready when promised.",
+      "I went to Aga after recommendations to get my wedding dress altered with her. She was so efficient and knew exactly what she was doing. I'm very pleased with the end product and would go to her with other sewing needs. 100% recommend.",
   },
 ];
 
@@ -102,17 +90,14 @@ const Testimonial19 = ({ className }: Testimonial19Props) => {
             {testimonials.map((testimonial, index) => (
               <CarouselItem key={index} className="basis-auto">
                 <Card className="max-w-96 select-none rounded-sm p-6">
-                  <div className="flex justify-between gap-4">
-                    <div className="mb-4 flex gap-4">
+                  <div className="mb-4 flex items-start justify-between gap-4">
+                    <div className="flex items-center gap-4">
                       <div className="flex size-14 shrink-0 items-center justify-center rounded-sm border border-[#5E6676]/30 bg-white text-base font-semibold tracking-[0.08em] text-[#14161B]">
                         {testimonial.initials}
                       </div>
-                      <div>
-                        <p className="font-medium text-[#14161B]">{testimonial.name}</p>
-                        <p className="text-sm text-[#5E6676]">{testimonial.role}</p>
-                      </div>
+                      <p className="font-medium text-[#14161B]">{testimonial.initials}</p>
                     </div>
-                    <div className="flex gap-1">
+                    <div className="flex gap-1" aria-label="5 out of 5 stars">
                       <Star className="size-4 fill-amber-500 text-amber-500 md:size-5" />
                       <Star className="size-4 fill-amber-500 text-amber-500 md:size-5" />
                       <Star className="size-4 fill-amber-500 text-amber-500 md:size-5" />
