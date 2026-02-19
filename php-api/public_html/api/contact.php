@@ -69,9 +69,23 @@ if (count($ipTimestamps) >= $maxRequests) {
 $ipTimestamps[] = $now;
 $_SESSION['contact_rate_limit'][$ip] = $ipTimestamps;
 
+$autoloadCandidates = [
+    __DIR__ . '/../vendor/autoload.php',
+    __DIR__ . '/../../vendor/autoload.php',
+];
+
+foreach ($autoloadCandidates as $autoloadFile) {
+    if (is_file($autoloadFile)) {
+        require_once $autoloadFile;
+        break;
+    }
+}
+
 $phpMailerCandidateDirs = [
     __DIR__ . '/../vendor/PHPMailer/src',
     __DIR__ . '/../vendor/PHPMailer/phpmailer/src',
+    __DIR__ . '/../vendor/phpmailer/phpmailer/src',
+    __DIR__ . '/../../vendor/phpmailer/phpmailer/src',
 ];
 
 $phpMailerSrcDir = null;
@@ -87,18 +101,20 @@ foreach ($phpMailerCandidateDirs as $candidateDir) {
     }
 }
 
-if ($phpMailerSrcDir === null) {
+if (!class_exists(PHPMailer::class) && $phpMailerSrcDir === null) {
     http_response_code(500);
     echo json_encode([
         'ok' => false,
-        'error' => 'Missing PHPMailer library. Expected one of: vendor/PHPMailer/src or vendor/PHPMailer/phpmailer/src in public_html.',
+        'error' => 'Missing PHPMailer library. Expected vendor/phpmailer/phpmailer/src (Composer default) or vendor/PHPMailer/src in public_html.',
     ]);
     exit;
 }
 
-require_once $phpMailerSrcDir . '/Exception.php';
-require_once $phpMailerSrcDir . '/PHPMailer.php';
-require_once $phpMailerSrcDir . '/SMTP.php';
+if (!class_exists(PHPMailer::class) && $phpMailerSrcDir !== null) {
+    require_once $phpMailerSrcDir . '/Exception.php';
+    require_once $phpMailerSrcDir . '/PHPMailer.php';
+    require_once $phpMailerSrcDir . '/SMTP.php';
+}
 
 $mail = new PHPMailer(true);
 
