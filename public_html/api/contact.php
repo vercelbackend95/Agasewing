@@ -71,7 +71,9 @@ $_SESSION['contact_rate_limit'][$ip] = $ipTimestamps;
 
 $autoloadCandidates = [
     __DIR__ . '/../vendor/autoload.php',
+    __DIR__ . '/vendor/autoload.php',
     __DIR__ . '/../../vendor/autoload.php',
+    __DIR__ . '/../../php-api/public_html/vendor/autoload.php',
 ];
 
 foreach ($autoloadCandidates as $autoloadFile) {
@@ -83,9 +85,12 @@ foreach ($autoloadCandidates as $autoloadFile) {
 
 $phpMailerCandidateDirs = [
     __DIR__ . '/../vendor/PHPMailer/src',
+    __DIR__ . '/vendor/PHPMailer/src',
     __DIR__ . '/../vendor/PHPMailer/phpmailer/src',
     __DIR__ . '/../vendor/phpmailer/phpmailer/src',
     __DIR__ . '/../../vendor/phpmailer/phpmailer/src',
+    __DIR__ . '/../../php-api/public_html/vendor/PHPMailer/src',
+    __DIR__ . '/../../php-api/public_html/vendor/phpmailer/phpmailer/src',
 ];
 
 $phpMailerSrcDir = null;
@@ -105,7 +110,9 @@ if (!class_exists(PHPMailer::class) && $phpMailerSrcDir === null) {
     http_response_code(500);
     echo json_encode([
         'ok' => false,
-        'error' => 'Missing PHPMailer library. Expected vendor/phpmailer/phpmailer/src (Composer default) or vendor/PHPMailer/src in public_html.',
+        'error' => 'Missing PHPMailer library. Run composer install in public_html or upload vendor/phpmailer/phpmailer/src.',
+        'checked_autoload' => $autoloadCandidates,
+        'checked_phpmailer_dirs' => $phpMailerCandidateDirs,
     ]);
     exit;
 }
