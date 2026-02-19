@@ -6,52 +6,51 @@ import { useRef } from "react";
 
 import { cn } from "@/lib/utils";
 
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Card } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
 const testimonials = [
   {
-    name: "Alice Johnson",
-    role: "CEO & Founder",
-    avatar: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-1.webp",
+    name: "Sarah Parker",
+    role: "Bridesmaid dress",
+    initials: "SP",
     content:
-      "This platform has revolutionized the way we manage projects. It is incredibly user-friendly and efficient.",
+      "Absolutely fantastic service. Aga adjusted my bridesmaid dress perfectly and the fit was flawless.",
   },
   {
-    name: "David Lee",
-    role: "CTO",
-    avatar: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-2.webp",
+    name: "Michael King",
+    role: "Suit alterations",
+    initials: "MK",
     content:
-      "I have been impressed with the seamless integration and functionality. It has made our tech operations much smoother.",
+      "Quick turnaround, very fair pricing, and excellent quality stitching. Highly recommended.",
   },
   {
-    name: "Mark Thompson",
-    role: "COO",
-    avatar: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-3.webp",
+    name: "Olivia Green",
+    role: "Jeans shortening",
+    initials: "OG",
     content:
-      "Managing our day-to-day tasks has never been easier. The interface is intuitive and saves us a lot of time.",
+      "My jeans were shortened with the original hem and they look exactly like new. Great attention to detail.",
   },
   {
-    name: "Emily Carter",
-    role: "Tech Lead",
-    avatar: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-4.webp",
+    name: "Daniel White",
+    role: "Jacket repair",
+    initials: "DW",
     content:
-      "The tools provided have significantly improved our team's workflow and collaboration. Highly recommend it!",
+      "Aga replaced the zip in my jacket and reinforced the lining. Work was clean and done on time.",
   },
   {
-    name: "Sophia Turner",
-    role: "Designer",
-    avatar: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-5.webp",
+    name: "Marta Kowalska",
+    role: "Evening dress",
+    initials: "MK",
     content:
-      "From a design perspective, the flexibility and ease of use are outstanding. This has become an indispensable tool for our team.",
+      "Lovely communication and beautiful finish. My evening dress now fits perfectly at the waist.",
   },
   {
-    name: "James Wilson",
-    role: "Developer",
-    avatar: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-6.webp",
+    name: "Peter Brown",
+    role: "Trousers tapering",
+    initials: "PB",
     content:
-      "As a developer, I appreciate the robust features and simplicity. It has streamlined our processes considerably.",
+      "Very professional tailoring service. Trousers were tapered exactly as requested and ready when promised.",
   },
 ];
 
@@ -71,7 +70,7 @@ const Testimonial19 = ({ className }: Testimonial19Props) => {
     <section className={cn("py-16 md:py-24", className)}>
       <div className="container mx-auto px-4">
         <div
-          className="mx-auto mb-8 w-full max-w-5xl rounded-[24px] border border-[rgba(78,100,235,0.12)] px-5 py-4 text-left backdrop-blur-[10px] md:mb-12 md:p-6 lg:px-10 lg:py-8"
+          className="mb-8 w-full max-w-5xl rounded-[24px] border border-[rgba(78,100,235,0.12)] px-5 py-4 text-left backdrop-blur-[10px] md:mb-12 md:p-6 lg:px-10 lg:py-8"
           style={{
             background:
               "radial-gradient(circle at top right, rgba(167,180,241,0.18), rgba(167,180,241,0) 45%), rgba(246,248,247,0.72)",
@@ -84,8 +83,7 @@ const Testimonial19 = ({ className }: Testimonial19Props) => {
             <h2 id="google-reviews-heading" className="mt-3 max-w-[22ch] text-3xl font-bold tracking-tight text-[#14161B] md:max-w-none md:text-5xl">
               Meet our happy clients
             </h2>
-            <p className="mt-3 text-[#2A2F3A]">Join a global network of thought leaders, product developers,</p>
-            <p className="mt-2 text-xs font-semibold uppercase tracking-[0.08em] text-[#5E6676]">View all testimonials</p>
+            <p className="mt-3 text-[#2A2F3A]">Real feedback from customers who trusted us with their alterations.</p>
           </div>
         </div>
       </div>
@@ -106,12 +104,12 @@ const Testimonial19 = ({ className }: Testimonial19Props) => {
                 <Card className="max-w-96 select-none rounded-sm p-6">
                   <div className="flex justify-between gap-4">
                     <div className="mb-4 flex gap-4">
-                      <Avatar className="size-14 rounded-sm ring-1 ring-input">
-                        <AvatarImage src={testimonial.avatar} alt={testimonial.name} />
-                      </Avatar>
+                      <div className="flex size-14 shrink-0 items-center justify-center rounded-sm border border-[#5E6676]/30 bg-white text-base font-semibold tracking-[0.08em] text-[#14161B]">
+                        {testimonial.initials}
+                      </div>
                       <div>
-                        <p className="font-medium">{testimonial.name}</p>
-                        <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                        <p className="font-medium text-[#14161B]">{testimonial.name}</p>
+                        <p className="text-sm text-[#5E6676]">{testimonial.role}</p>
                       </div>
                     </div>
                     <div className="flex gap-1">
@@ -122,7 +120,7 @@ const Testimonial19 = ({ className }: Testimonial19Props) => {
                       <Star className="size-4 fill-amber-500 text-amber-500 md:size-5" />
                     </div>
                   </div>
-                  <q className="leading-7 text-muted-foreground">{testimonial.content}</q>
+                  <q className="leading-7 text-[#2A2F3A]">{testimonial.content}</q>
                 </Card>
               </CarouselItem>
             ))}
