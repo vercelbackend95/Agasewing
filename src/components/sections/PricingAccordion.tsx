@@ -108,7 +108,7 @@ const PricingAccordion = ({ className }: PricingAccordionProps) => {
             <p className="mt-3 text-[#2A2F3A]">
               Clear starting prices for common alterations. Final cost confirmed at the fitting.
             </p>
-            <p className="mt-2 text-xs text-[#5E6676]">Prices may vary depending on fabric and complexity.</p>
+            <p className="mt-2 text-xs text-[#5E6676]">All prices are “from” and may change depending on fabric and complexity.</p>
           </div>
         </div>
 
