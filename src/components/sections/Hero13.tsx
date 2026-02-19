@@ -141,9 +141,15 @@ const Hero13 = ({ className }: Hero13Props) => {
     const video = videoRef.current;
     if (!video) return;
 
+    video.autoplay = true;
     video.muted = true;
     video.defaultMuted = true;
     video.playsInline = true;
+    video.loop = true;
+    video.setAttribute("autoplay", "");
+    video.setAttribute("muted", "");
+    video.setAttribute("playsinline", "");
+    video.setAttribute("webkit-playsinline", "true");
 
     const ensurePlayback = () => {
       const playPromise = video.play();
@@ -156,6 +162,10 @@ const Hero13 = ({ className }: Hero13Props) => {
 
     ensurePlayback();
 
+    const onCanPlay = () => {
+      if (video.paused) ensurePlayback();
+    };
+
     const onVisibilityChange = () => {
       if (!document.hidden && video.paused) ensurePlayback();
     };
@@ -164,11 +174,13 @@ const Hero13 = ({ className }: Hero13Props) => {
       if (video.paused) ensurePlayback();
     };
 
+    video.addEventListener("canplay", onCanPlay);
     document.addEventListener("visibilitychange", onVisibilityChange);
     document.addEventListener("touchstart", onUserGesture, { passive: true });
     window.addEventListener("focus", onUserGesture);
 
     return () => {
+      video.removeEventListener("canplay", onCanPlay);
       document.removeEventListener("visibilitychange", onVisibilityChange);
       document.removeEventListener("touchstart", onUserGesture);
       window.removeEventListener("focus", onUserGesture);
@@ -202,7 +214,16 @@ const Hero13 = ({ className }: Hero13Props) => {
 
   return (
     <section id="hero" className={cn("relative overflow-visible py-20 md:overflow-hidden md:py-32", className)}>
-      <video ref={videoRef} className="absolute inset-0 h-full w-full object-cover" autoPlay muted loop playsInline preload="auto">
+      <video
+        ref={videoRef}
+        className="absolute inset-0 h-full w-full object-cover"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        controls={false}
+      >
         <source src="/agasewingclip.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-black/45" aria-hidden="true" />
