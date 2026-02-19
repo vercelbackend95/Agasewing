@@ -27,7 +27,6 @@ export default function CookieConsent() {
       const latestConsent = window.localStorage.getItem(CONSENT_KEY);
       setMapsEnabled(latestConsent === "accepted");
       setModalOpen(true);
-      setBannerVisible(true);
     };
 
     window.addEventListener("saas-open-cookie-preferences", handleOpenPreferences);
@@ -60,49 +59,51 @@ export default function CookieConsent() {
     updateConsent(mapsEnabled ? "accepted" : "rejected");
   };
 
-  if (!isReady || !bannerVisible) {
+  if (!isReady) {
     return null;
   }
 
   return (
     <>
-      <div className="fixed inset-x-0 bottom-0 z-50 mx-auto w-full max-w-2xl px-4 pb-4 md:pb-6">
-        <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-xl md:p-5">
-          <h2 className="text-lg font-semibold text-slate-900">Cookies</h2>
-          <p className="mt-2 text-sm leading-relaxed text-slate-700">
-            We only use essential cookies by default. Google Maps is optional and will load only if you allow non-essential cookies.
-          </p>
-          <div className="mt-4 flex flex-wrap items-center gap-2">
-            <button
-              type="button"
-              onClick={() => updateConsent("accepted")}
-              className={`${baseButtonClass} border border-[rgba(255,74,1,1)] bg-[rgba(255,74,1,1)] text-white hover:opacity-90`}
-            >
-              Accept
-            </button>
-            <button
-              type="button"
-              onClick={() => updateConsent("rejected")}
-              className={`${baseButtonClass} border border-slate-800 bg-slate-800 text-white hover:bg-slate-700`}
-            >
-              Reject
-            </button>
-            <button
-              type="button"
-              onClick={openPreferences}
-              className="text-sm font-semibold text-slate-700 underline-offset-4 transition hover:text-slate-900 hover:underline"
-            >
-              Preferences
-            </button>
-            <a
-              href="/cookie-policy"
-              className="text-sm font-semibold text-slate-700 underline-offset-4 transition hover:text-slate-900 hover:underline"
-            >
-              Cookie Policy
-            </a>
-          </div>
-        </section>
-      </div>
+      {bannerVisible ? (
+        <div className="fixed inset-x-0 bottom-0 z-50 mx-auto w-full max-w-2xl px-4 pb-4 md:pb-6">
+          <section className="rounded-2xl border border-slate-200 bg-white p-4 shadow-xl md:p-5">
+            <h2 className="text-lg font-semibold text-slate-900">Cookies</h2>
+            <p className="mt-2 text-sm leading-relaxed text-slate-700">
+              We only use essential cookies by default. Google Maps is optional and will load only if you allow non-essential cookies.
+            </p>
+            <div className="mt-4 flex flex-wrap items-center gap-2">
+              <button
+                type="button"
+                onClick={() => updateConsent("accepted")}
+                className={`${baseButtonClass} border border-[rgba(255,74,1,1)] bg-[rgba(255,74,1,1)] text-white hover:opacity-90`}
+              >
+                Accept
+              </button>
+              <button
+                type="button"
+                onClick={() => updateConsent("rejected")}
+                className={`${baseButtonClass} border border-slate-800 bg-slate-800 text-white hover:bg-slate-700`}
+              >
+                Reject
+              </button>
+              <button
+                type="button"
+                onClick={openPreferences}
+                className="text-sm font-semibold text-slate-700 underline-offset-4 transition hover:text-slate-900 hover:underline"
+              >
+                Preferences
+              </button>
+              <a
+                href="/cookie-policy"
+                className="text-sm font-semibold text-slate-700 underline-offset-4 transition hover:text-slate-900 hover:underline"
+              >
+                Cookie Policy
+              </a>
+            </div>
+          </section>
+        </div>
+      ) : null}
 
       {modalOpen ? (
         <div className="fixed inset-0 z-[60] flex items-end justify-center bg-slate-950/35 p-3 md:items-center" role="dialog" aria-modal="true" aria-labelledby="cookie-preferences-title">
