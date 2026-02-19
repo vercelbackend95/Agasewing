@@ -113,18 +113,15 @@ const Testimonial19 = ({ className }: Testimonial19Props) => {
   return (
     <section className={cn("py-16 md:py-24", className)}>
       <div className="container mx-auto px-4">
-        <div className="mb-8 w-full max-w-5xl border border-[var(--border)] bg-[var(--surface)] px-5 py-4 text-left md:mb-12 md:p-6 lg:px-10 lg:py-8">
+        <div className="mb-8 w-full max-w-5xl rounded-2xl border border-black/10 bg-white/85 px-5 py-4 text-left shadow-sm backdrop-blur-sm md:mb-12 md:p-6 lg:px-10 lg:py-8">
           <div className="max-w-[64ch]">
-            <span className="inline-flex border border-[var(--accent)]/40 bg-[var(--bg)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent)]">
+            <span className="inline-flex rounded-full border border-black/10 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#5E6676]">
               REVIEWS
             </span>
-            <h2
-              id="google-reviews-heading"
-              className="mt-3 max-w-[22ch] font-['Bebas_Neue'] text-4xl uppercase tracking-[0.06em] text-[var(--fg)] md:max-w-none md:text-6xl"
-            >
+            <h2 id="google-reviews-heading" className="mt-3 max-w-[22ch] text-3xl font-semibold tracking-tight text-[#14161B] md:max-w-none md:text-5xl">
               Meet our happy clients
             </h2>
-            <p className="mt-3 text-[var(--muted)]">Real feedback from customers who trusted us with their alterations.</p>
+            <p className="mt-3 text-[#2A2F3A]">Real feedback from customers who trusted us with their alterations.</p>
           </div>
         </div>
       </div>
@@ -145,10 +142,10 @@ const Testimonial19 = ({ className }: Testimonial19Props) => {
 
               return (
                 <CarouselItem key={index} className="basis-auto">
-                  <Card className="max-h-[18rem] max-w-96 select-none rounded-sm border-[var(--border)] bg-[var(--surface)] p-6 sm:max-h-[19rem]">
+                  <Card className="max-h-[18rem] max-w-96 select-none rounded-2xl border-black/10 bg-white p-6 shadow-sm sm:max-h-[19rem]">
                     <div className="mb-4 flex items-start justify-between gap-4">
                       <div className="flex items-center gap-4">
-                        <div className="flex size-14 shrink-0 items-center justify-center rounded-sm border border-[var(--border)] bg-[var(--bg)] text-base font-semibold tracking-[0.08em] text-[var(--fg)]">
+                        <div className="flex size-14 shrink-0 items-center justify-center rounded-full border border-black/10 bg-white text-base font-semibold tracking-[0.08em] text-[#14161B]">
                           {testimonial.initials}
                         </div>
                       </div>
@@ -160,14 +157,14 @@ const Testimonial19 = ({ className }: Testimonial19Props) => {
                         <Star className="size-4 fill-[var(--accent)] text-[var(--accent)] md:size-5" />
                       </div>
                     </div>
-                    <q className="text-sm leading-7 text-[var(--fg)]">
+                    <q className="text-sm leading-7 text-[#2A2F3A]">
                       {review.text}{" "}
                       {review.truncated && (
                         <a
                           href={BUSINESS_REVIEWS_URL}
                           target="_blank"
                           rel="noreferrer"
-                          className="font-semibold text-[var(--accent)] underline underline-offset-2 transition-colors hover:text-[var(--accent-hover)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus)]"
+                          className="font-semibold text-[#5E6676] underline underline-offset-2 transition-colors hover:text-[#14161B] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5E6676]/50"
                         >
                           see more on google
                         </a>
