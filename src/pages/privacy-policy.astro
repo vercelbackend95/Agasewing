@@ -1,22 +1,16 @@
 ---
-import "@/styles/global.css";
+import Layout from "@/layouts/Layout.astro";
 import { Navbar21 } from "@/components/sections/Navbar21";
 import { Footer30 } from "@/components/sections/Footer30";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Privacy Policy / Privacy Notice | Sewing at Aga's</title>
-  </head>
-  <body>
-    <Navbar21 client:load />
+<Layout
+  title="Privacy Policy / Privacy Notice | Sewing at Aga's"
+  description="Privacy notice for Sewing at Aga's tailoring and alterations in Poole, UK."
+>
+  <Navbar21 client:load />
 
-    <main class="bg-white py-16 md:py-24">
+  <main class="bg-white py-16 md:py-24">
       <section class="mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8">
         <h1 class="text-3xl font-semibold tracking-tight text-[#14161B] sm:text-4xl">Privacy Policy / Privacy Notice</h1>
 
@@ -161,6 +155,5 @@ import { Footer30 } from "@/components/sections/Footer30";
       </section>
     </main>
 
-    <Footer30 />
-  </body>
-</html>
+  <Footer30 />
+</Layout>

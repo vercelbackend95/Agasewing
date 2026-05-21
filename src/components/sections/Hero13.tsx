@@ -5,6 +5,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { AvatarCircles } from "@/components/ui/avatar-circles";
 import { TextAnimate } from "@/registry/magicui/text-animate";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
+import { isStoreClosedForHoliday, STORE_CLOSURE } from "@/lib/store-closure";
 import { cn } from "@/lib/utils";
 
 interface Hero13Props {
@@ -63,6 +64,10 @@ const getLondonNow = () => {
 };
 
 const getOpeningStatus = () => {
+  if (isStoreClosedForHoliday()) {
+    return `Closed for temporary closure • Reopens ${STORE_CLOSURE.reopenDateLabel}`;
+  }
+
   const { day, hour, minute } = getLondonNow();
   const currentHours = OPENING_HOURS[day];
   const currentTime = hour * 60 + minute;
@@ -92,6 +97,10 @@ const getOpeningStatus = () => {
 };
 
 const getOpeningInsight = () => {
+  if (isStoreClosedForHoliday()) {
+    return `Closed for temporary closure — reopens ${STORE_CLOSURE.reopenDateLabel}`;
+  }
+
   const { day, hour, minute } = getLondonNow();
   const currentHours = OPENING_HOURS[day];
   const currentTime = hour * 60 + minute;

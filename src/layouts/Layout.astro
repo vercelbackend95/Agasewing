@@ -1,5 +1,6 @@
 ---
 import "@/styles/global.css";
+import StoreClosureBanner from "@/components/announcements/StoreClosureBanner";
 import CookieConsent from "@/components/cookies/CookieConsent";
 interface Props {
   title?: string;
@@ -44,6 +45,7 @@ const resolvedOgUrl = new URL(ogUrl ?? Astro.url.pathname, Astro.site ?? Astro.u
     <meta name="twitter:image" content={resolvedOgImage} />
   </head>
   <body>
+    <StoreClosureBanner client:load />
     <slot />
     <CookieConsent client:load />
   </body>

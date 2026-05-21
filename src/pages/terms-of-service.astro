@@ -1,22 +1,15 @@
 ---
-import "@/styles/global.css";
+import Layout from "@/layouts/Layout.astro";
 import { Navbar21 } from "@/components/sections/Navbar21";
 import { Footer30 } from "@/components/sections/Footer30";
 import { TermsOfServiceSection } from "@/components/sections/TermsOfServiceSection";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Terms of Service | Sewing at Aga's</title>
-  </head>
-  <body>
-    <Navbar21 client:load />
-    <TermsOfServiceSection />
-    <Footer30 />
-  </body>
-</html>
+<Layout
+  title="Terms of Service | Sewing at Aga's"
+  description="Terms of service for Sewing at Aga's tailoring and alterations in Poole, UK."
+>
+  <Navbar21 client:load />
+  <TermsOfServiceSection />
+  <Footer30 />
+</Layout>
