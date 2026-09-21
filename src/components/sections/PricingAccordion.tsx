@@ -87,7 +87,7 @@ const pricingCategories = [
     prices: [
       ["46\" Wide", "£38"],
       ["66\" Wide", "£45"],
-      ["90\" Wide", "£50"],
+      ["90\" Wide", "£60"],
       ["Net per Metre", "£6"],
     ],
   },
